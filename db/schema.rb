@@ -10,10 +10,53 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_20_132034) do
+ActiveRecord::Schema.define(version: 2019_08_20_143025) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "categories", force: :cascade do |t|
+    t.string "name"
+    t.string "description"
+    t.string "picture"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "participations", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "quest_id"
+    t.integer "user_review_id"
+    t.integer "quest_review_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["quest_id"], name: "index_participations_on_quest_id"
+    t.index ["user_id"], name: "index_participations_on_user_id"
+  end
+
+  create_table "quests", force: :cascade do |t|
+    t.string "description"
+    t.string "mode"
+    t.integer "people_wanted"
+    t.bigint "category_id"
+    t.integer "xp"
+    t.string "location"
+    t.date "begin_on"
+    t.string "duration"
+    t.string "progress"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["category_id"], name: "index_quests_on_category_id"
+    t.index ["user_id"], name: "index_quests_on_user_id"
+  end
+
+  create_table "reviews", force: :cascade do |t|
+    t.integer "rating"
+    t.string "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -36,4 +79,8 @@ ActiveRecord::Schema.define(version: 2019_08_20_132034) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "participations", "quests"
+  add_foreign_key "participations", "users"
+  add_foreign_key "quests", "categories"
+  add_foreign_key "quests", "users"
 end
