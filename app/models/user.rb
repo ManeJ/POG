@@ -6,6 +6,6 @@ class User < ApplicationRecord
   validates :first_name, presence: true
   validates :username, uniqueness: true, presence: true
   validates :last_name, presence: true
-  validates :email, format: { with: /\A([\w+\-].?)+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/i  }
+  validates :email, format: { with: /\A([\w+\-].?)+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/i  }, uniqueness: true, presence: true
   validates :role, presence: true
 end
