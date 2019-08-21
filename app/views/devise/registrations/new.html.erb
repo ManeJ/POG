@@ -15,9 +15,9 @@
         <%= f.input :role, collection: ["Individual", "Entity"] %>
         <%= f.input :telephone %>
         <div class="d-flex">
-          <%= f.input :photo, label: "Choose avatar", collection: Avatar.all.map { |avatar| [image_tag(avatar.image), Avatar.find(avatar.id).image] },
+          <%= f.input :photo, label: "Choose your avatar:", collection: Avatar.all.map { |avatar| [image_tag(avatar.image), Avatar.find(avatar.id).image] },
          as: :radio_buttons,
-         inline_label: true, label: false %>
+         inline_label: true %>
        </div>
         <%= f.input :password,
                     required: true,
