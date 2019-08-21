@@ -41,6 +41,6 @@ class QuestsController < ApplicationController
   end
 
   def quest_params
-    params.require(:quest).permit(:description, :mode, :people_wanted, :location, :begin_on, :duration, :name)
+    params.require(:quest).permit(:description, :mode, :people_wanted, :address, :begin_on, :duration, :name)
   end
 end
