@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_20_163208) do
+ActiveRecord::Schema.define(version: 2019_08_20_163857) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,6 +27,7 @@ ActiveRecord::Schema.define(version: 2019_08_20_163208) do
     t.string "picture"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "xp", default: 0
   end
 
   create_table "participations", force: :cascade do |t|
@@ -45,7 +46,6 @@ ActiveRecord::Schema.define(version: 2019_08_20_163208) do
     t.string "mode"
     t.integer "people_wanted"
     t.bigint "category_id"
-    t.integer "xp"
     t.string "location"
     t.date "begin_on"
     t.string "duration"
