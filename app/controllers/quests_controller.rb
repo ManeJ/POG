@@ -1,5 +1,5 @@
 class QuestsController < ApplicationController
-  before_action :set_quests, only: [:show, :edit, :update, :destroy, :validate]
+  before_action :set_quest, only: [:show, :edit, :update, :destroy, :validate]
 
   def index
     @quests = Quest.geocoded
@@ -37,10 +37,10 @@ class QuestsController < ApplicationController
 
   def set_quest
     @quest = Quest.find(params[:id])
-    authorize(@quest)
+    # authorize(@quest) > inutile cf n'avons pas encore Pundit
   end
 
   def quest_params
-    params.require(:quest).permit(:description, :mode, :people_wanted, :location, :begin_at, :duration)
+    params.require(:quest).permit(:description, :mode, :people_wanted, :location, :begin_on, :duration, :name)
   end
 end
