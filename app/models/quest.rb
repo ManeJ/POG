@@ -9,5 +9,5 @@ class Quest < ApplicationRecord
   validates :title, :description, :mode, :category, :location, :begin_on, :duration, presence: true
   # validates :title, uniqueness: true
   geocoded_by :location
-  after_validation :geocode, if: :will_save_change_to_address?
+  after_validation :geocode, if: :will_save_change_to_location?
 end
