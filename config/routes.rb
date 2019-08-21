@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
   devise_for :users
   root to: 'pages#home'
-  resources :quests, only: [:index, :show]
+  resources :quests, only: [:index, :show] do
+    resources :participations, only: :create
+  end
 
   namespace :questmaster do
     resources :quests do
@@ -11,7 +13,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :participation, only: [:index, :show, :create, :destroy] do
+  resources :participation, only: [:index, :show, :destroy] do
 	resources :reviews, only: [:new, :create]
 end
 

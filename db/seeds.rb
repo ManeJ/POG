@@ -35,7 +35,7 @@ categories = ["Animal rights", "Charity", "Disabled people", "Elderly people", "
     mode: mode.sample,
     people_wanted: (1..25).to_a.sample,
     category: categories.sample,
-    location: Faker::Address.full_address,
+    address: Faker::Address.full_address,
     begin_on: Faker::Date.forward(days: 30),
     duration: '3 hours',
     user: User.all.sample

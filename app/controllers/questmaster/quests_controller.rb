@@ -23,6 +23,10 @@ class Questmaster::QuestsController < ApplicationController
     end
   end
 
+  def edit
+    @quest = Quest.find(params[:id])
+  end
+
   def update
     @quest.update(quest_params)
     redirect_to questmaster_quests_path

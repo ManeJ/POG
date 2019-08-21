@@ -1,7 +1,7 @@
 class User < ApplicationRecord
   has_many :quests
   has_many :participations
-  has_many :reviews, through: :participations
+  has_many :user_reviews, through: :participations
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,

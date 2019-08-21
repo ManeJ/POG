@@ -1,12 +1,66 @@
-.navbar-lewagon {
+.dropdow-item {
+  padding: 0.5rem 1.5rem;
+}
+
+.navbar-pog {
   justify-content: space-between;
   background: white;
 }
 
-.navbar-lewagon .navbar-collapse {
-  flex-grow: 0;
+.navbar-pog .navbar-brand img {
+  width: 40px;
 }
 
-.navbar-lewagon .navbar-brand img {
-  width: 40px;
+.navbar-pog .navbar-brand img {
+  width: 64px;
+}
+.navbar-pog .nav-item-logo img {
+  width: 28px;
+}
+
+.navbar-pog .nav-item {
+  margin-left: 8px;
+}
+
+#navbarDropdown {
+  margin-left: 16px;
+}
+
+.avatar {
+  margin-top: 1rem;
+  width: 3rem;
+}
+
+.navbar-pog .nav-title {
+  margin-right: auto;
+}
+
+.navbar-pog .nav-title h1 {
+  margin: auto;
+  font-size: 36px;
+}
+
+.nav-action-link {
+  display: flex;
+  margin-right: 16px;
+}
+
+.navbar-collapse {
+  position: absolute;
+    top: 3rem;
+    left: -15rem;
+    background: rgb(0, 255, 127);
+    opacity: 0.9;
+    transition: 0.5s;
+
+  ul {
+    display :block;
+    justify-content : center;
+    align-items: center;
+  }
+}
+
+.navbar-collapse.show {
+  left: 1rem;
+  top: 3.5rem;
 }
