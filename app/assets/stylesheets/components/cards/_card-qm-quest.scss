@@ -1,0 +1,113 @@
+.m-quest-card {
+  background-color: $green;
+  border-radius: 4px;
+  position: relative;
+}
+
+.quest-description {
+  width: 90%;
+  border-radius : 4px;
+}
+
+#quest-xp-ppl {
+  p, i, div {
+    font-size: 0.9rem;
+    font-weight: bold;
+  }
+}
+
+.category-pic {
+  position: absolute;
+  top: -35px;
+  border: 2px solid $anthracite;
+}
+
+.quest-description {
+  border: 2px solid $anthracite;
+  color: $anthracite;
+}
+
+.quest-details span {
+  font-weight: bold;
+}
+
+// Smallest device
+@media (min-width: 100px) and (max-width: 575px) {
+  .qm-quest-card {
+    width: 90vw;
+  }
+}
+
+// Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) {
+  .qm-quest-card {
+    width: 90vw;
+  }
+}
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) {
+  .qm-quest-card {
+    width: 70vw;
+  }
+}
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) {
+  .qm-quest-card {
+    width: 50vw;
+  }
+}
+
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) {
+  .qm-quest-card {
+    width: 50vw;
+  }
+}
+
+
+// STYLE FOR FLIPPING EFFECT
+
+section {
+  &.custom {
+    cursor: pointer;
+    .card {
+      text-align: center;
+      color: #FFFFFF;
+      width: 90%;
+      height: 450px;
+      transition: 0.6s;
+      transform-style: preserve-3d;
+      position: relative;
+      background-color: $green;
+    }
+    .flipper {
+      padding-left: 0px;
+      padding-right: 0px;
+      margin-bottom: 10px;
+      perspective: 1000px;
+    }
+    .flipper.flip .card {
+      transform: rotateY(180deg);
+    }
+    .front,
+    .back {
+      width: 100%;
+      padding: 5px;
+      backface-visibility: hidden;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+    .front {
+      z-index: 2;
+      transform: rotateY(0deg);
+      height: 100%;
+    }
+    .back {
+      transform: rotateY(180deg);
+      height: 100%;
+    }
+  }
+}

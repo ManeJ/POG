@@ -1,0 +1,87 @@
+<!-- <div class="d-flex flex-column align-items-center mt-5">
+  <div class="d-flex flex-column align-items-center justify-content-center p-4" id="qm-quest-card">
+    <div class="rounded-circle bg-light p-2 category-pic">
+      <%= image_tag(@quest.category.picture) %>
+    </div>
+    <div class="d-flex flex-column justify-content-center align-items-center">
+      <div class="d-flex justify-content-between w-100" id="quest-xp-ppl">
+        <p>+ <%= @quest.category.xp %> XP</p>
+        <div>
+          <i class="fas fa-user"></i> <%= @quest.participations.count %> / <%= @quest.people_wanted %>
+        </div>
+      </div>
+      <div class="text-center">
+        <h4><%= @quest.title %></h4>
+        <p><%#= @quest.begin_on.strftime("%d/%m/%Y") %></p>
+      </div>
+      <div class="bg-light quest-description text-justify p-2">
+        <%= @quest.description %>
+      </div>
+      <div class="quest-details mt-3">
+        <h5>Details</h5>
+        <p class="text-justify"><span>Duration:</span> <%= @quest.duration %></p>
+        <p class="text-justify"><span>Location:</span> <%= @quest.location %></p>
+      </div>
+    </div>
+    <div>
+      <%#= link_to "Join quest", "#", class:"btn btn-info" %>
+    </div>
+  </div>
+</div> -->
+
+
+
+<section class="custom">
+  <div class="flipper mt-5 d-flex justify-content-center">
+    <div class="card">
+      <div class="front">
+        <div class="d-flex flex-column align-items-center">
+          <div class="d-flex flex-column align-items-center justify-content-center p-4 qm-quest-card">
+            <div class="rounded-circle bg-light p-2 category-pic">
+              <%= image_tag(@quest.category.picture) %>
+            </div>
+            <div class="d-flex flex-column justify-content-center align-items-center">
+              <div class="d-flex justify-content-between w-100" id="quest-xp-ppl">
+                <p>+ <%= @quest.category.xp %> XP</p>
+                <div>
+                  <i class="fas fa-user"></i> <%= @quest.participations.count %> / <%= @quest.people_wanted %>
+                </div>
+              </div>
+              <div class="text-center">
+                <h3><%= @quest.title %></h3>
+                <p><%= @quest.begin_on.strftime("%d/%m/%Y") %></p>
+              </div>
+              <div class="bg-light quest-description text-justify p-2">
+                <%= @quest.description %>
+              </div>
+              <div class="quest-details mt-3">
+                <p>Click for details</p>
+              </div>
+              <div>
+                <%= link_to "Join quest", "#", class:"btn btn-info" %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="back">
+        <div class="d-flex flex-column align-items-center">
+          <div class="d-flex flex-column align-items-center justify-content-center p-4 qm-quest-card">
+            <div class="d-flex flex-column justify-content-center align-items-center">
+              <div class="quest-details">
+                <h3>Details</h3>
+                <p class="text-justify"><span>Duration:</span></br>
+                  <%= @quest.duration %></p>
+                <p class="text-left"><span>Location:</span></br>
+                  <%= @quest.location %></p>
+              </div>
+            </div>
+            <div>
+              <%= link_to "Join quest", "#", class:"btn btn-info" %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
