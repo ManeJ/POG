@@ -11,7 +11,6 @@ Rails.application.routes.draw do
     end
   end
 
-  get '/questmaster/quests', to: 'quests#validate'
   resources :participation, only: [:index, :show, :create, :destroy] do
 	resources :reviews, only: [:new, :create]
 end

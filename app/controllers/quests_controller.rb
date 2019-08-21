@@ -23,6 +23,7 @@ class QuestsController < ApplicationController
   end
 
   def validate
+
   end
 
   private
