@@ -1,36 +1,39 @@
 <h2 class="text-center mt-3">Sign up</h2>
+<div class="d-flex flex-column align-items-center">
+  <div class="col-12 col-md-6 p-3" id="form-new-user">
+    <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+      <%= f.error_notification %>
 
-<div class="form p-2">
-  <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-    <%= f.error_notification %>
+      <div class="form-inputs">
+        <%= f.input :username %>
+        <%= f.input :first_name %>
+        <%= f.input :last_name %>
+        <%= f.input :email,
+                    required: true,
+                    autofocus: true,
+                    input_html: { autocomplete: "email" }%>
+        <%= f.input :role, collection: ["Individual", "Entity"] %>
+        <%= f.input :telephone %>
+        <div class="d-flex">
+          <%= f.input :photo, label: "Choose avatar", collection: Avatar.all.map { |avatar| [image_tag(avatar.image), Avatar.find(avatar.id).image] },
+         as: :radio_buttons,
+         inline_label: true, label: false %>
+       </div>
+        <%= f.input :password,
+                    required: true,
+                    hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
+                    input_html: { autocomplete: "new-password" } %>
+        <%= f.input :password_confirmation,
+                    required: true,
+                    input_html: { autocomplete: "new-password" } %>
+      </div>
 
-    <div class="form-inputs col-12 col-md-6">
-      <%= f.input :username %>
-      <%= f.input :first_name %>
-      <%= f.input :last_name %>
-      <%= f.input :email,
-                  required: true,
-                  autofocus: true,
-                  input_html: { autocomplete: "email" }%>
-      <%= f.input :role, collection: ["Individual", "Entity"] %>
-      <%= f.input :telephone %>
-      <div class="d-flex">
-        <%= f.input :photo, label: "Choose avatar", collection: Avatar.all.map { |avatar| [image_tag(avatar.image), Avatar.find(avatar.id).image] },
-       as: :radio_buttons,
-       inline_label: true, label: false %>
-     </div>
-      <%= f.input :password,
-                  required: true,
-                  hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
-                  input_html: { autocomplete: "new-password" } %>
-      <%= f.input :password_confirmation,
-                  required: true,
-                  input_html: { autocomplete: "new-password" } %>
-    </div>
-
-    <div class="form-actions">
-      <%= f.button :submit, "Sign up" %>
-    </div>
-  <% end %>
+      <div class="form-actions d-flex justify-content-center">
+        <%= f.button :submit, "Sign up", class:"btn btn-primary" %>
+      </div>
+    <% end %>
+  </div>
+  <div class="mt-2">
+    <%= render "devise/shared/links" %>
+  </div>
 </div>
-<%= render "devise/shared/links" %>
