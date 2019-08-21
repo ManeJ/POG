@@ -1,7 +1,11 @@
 class Questmaster::QuestsController < ApplicationController
+  before_action :set_quest, only: [:show, :update]
   def index
     @quests = current_user.quests
     @participations = current_user.participations
+  end
+
+  def show
   end
 
   def new
@@ -23,9 +27,7 @@ class Questmaster::QuestsController < ApplicationController
     @quest = Quest.find(params[:id])
   end
 
-
   def update
-    @quest = Quest.find(params[:id])
     @quest.update(quest_params)
     redirect_to questmaster_quests_path
   end
@@ -41,6 +43,6 @@ class Questmaster::QuestsController < ApplicationController
   end
 
   def quest_params
-    params.require(:quest).permit(:description, :mode, :people_wanted, :location, :begin_on, :duration, :category_id)
+    params.require(:quest).permit(:description, :title, :mode, :people_wanted, :location, :begin_on, :duration, :category_id)
   end
 end

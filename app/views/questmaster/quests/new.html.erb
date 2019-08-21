@@ -3,7 +3,7 @@
   <div class="col-12 col-md-4 p-3 form">
     <%= simple_form_for(@quest, url: questmaster_quests_path, method: :post) do |f| %>
       <div class="form-inputs">
-        <%#= f.input :name %>
+        <%= f.input :title %>
         <%= f.association :category %>
         <%= f.input :mode, collection: ["Solo", "Group"] %>
         <%= f.input :people_wanted %>
