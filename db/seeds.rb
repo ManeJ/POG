@@ -1,5 +1,5 @@
 puts "Creating avatars"
-i = 1
+i = Avatar.count + 1
 while i <= 6
   Avatar.create!(image: "avatar-#{i}.png")
   i += 1
