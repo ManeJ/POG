@@ -1,44 +1,23 @@
-<div class="contact-area">
-<% @quests.each do |quest| %>
-  <div class="contact">
-    <main>
-      <section>
-        <div class="content">
 
-          <aside>
-            <h1>Come take the trash</h1>
-            <p><%= quest.description %></p>
-          </aside>
-
-          <button>
-            <span>More details</span>
-
-            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48"> <g class="nc-icon-wrapper" fill="#444444"> <path d="M14.83 30.83L24 21.66l9.17 9.17L36 28 24 16 12 28z"></path> </g> </svg>
-          </button>
-        </div>
-
-        <div class="title"><p>details</p></div>
-      </section>
-
-
-    </main>
-
-    <nav>
-        <%= link_to 'Validation' ,  questmaster_quest_path(quest, quest: { progress: "Accepted"}), method: :patch, class: 'validation' %>
-    </nav>
-    <nav>
-        <%= link_to  'Delete', questmaster_quest_path(quest), method: :delete, class: 'validation', data: { confirm: "Are you sure?" } %>
-    </nav>
-    <nav>
-        <%= link_to 'Edit' ,  edit_questmaster_quest_path(quest),class: 'validation' %>
-    </nav>
-    <nav>
-      <% @participations.each do |participation| %>
-        <% if participation.quest_id = quest.id %>
-          <%= link_to 'Review' ,  new_questmaster_quest_participation_review_path(quest, participation),class: 'validation' %>
-        <% end %>
-      <% end %>
-    </nav>
-  </div>
-<% end %>
+<div id="participations-header" class="text-center" >
+  <h2>My participations</h2>
 </div>
+<div class="container">
+    <div>
+      <div class="my-participations">
+        <h3>Your next quests</h3>
+        <% if policy(participation)? %>
+          <% @participations.each do |participation| %>
+            <div class="next-participation">
+              <%= link_to "Edit", "#", class: "btn btn-info btn-top" %>
+              <%= cl_image_tag quest.photo, class: 'my-participation-img'%>
+              <div class="participation info">
+                <h2 class="quest-name"><%= quest.name %></h2>
+                <%= link_to "See more details", quest_path(quest) %>
+              </div>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>

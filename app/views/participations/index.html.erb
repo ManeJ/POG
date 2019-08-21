@@ -1,2 +1,19 @@
 <h1>Participations Index</h1>
 <p>Find me in app/views/participations/index.html.erb</p>
+<div class="container">
+  <div class="participations">
+    <% @participations.each do |participation| %>
+      <div class="my-participations">
+        <%= link_to "Delete", participation_path, class: "btn btn-info btn-top" %>
+        <%= cl_image_tag quest.photo, class: 'my-participation-img'%>
+        <div class="my-participation info">
+          <h2 class="name"><%= quest.title %></h2>
+          <%= link_to "See more details", quest_path(participation) %>
+        </div>
+      </div>
+    <% end %>
+    <% if @participation.count == 0 %>
+      You did not go on a quest yet! %>.
+    <% end %>
+  </div>
+</div>

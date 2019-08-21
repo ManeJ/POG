@@ -2,6 +2,7 @@ class ParticipationsController < ApplicationController
   before_action :set_participations, only: [:show, :edit, :update, :destroy]
 
   def index
+    @participations = Participation.all
   end
 
   def show
@@ -12,7 +13,7 @@ class ParticipationsController < ApplicationController
     @quest = Quest.find(params[:quest_id])
     @participation = Participation.new()
     @participation.user = @user
-    @participation.quest = @quest
+    @articipation.quest = @quest
 
     if @participation.save
       redirect_to quest_participation_path(@quest, @participation)
