@@ -8,7 +8,7 @@
         <%= f.input :mode, collection: ["Solo", "Group"] %>
         <%= f.input :people_wanted %>
         <%= f.input :description %>
-        <%= f.input :address, { id: "quest_address" } %>
+        <%= f.input :address, { id: "quest_location" } %>
         <%= f.input :begin_on, as: :string, required: false, input_html: {class: "datepicker"} %>
         <%= f.input :duration %>
       </div>
