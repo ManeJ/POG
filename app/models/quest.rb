@@ -2,7 +2,7 @@ class Quest < ApplicationRecord
   belongs_to :category
   belongs_to :user
   has_many :participations
-  has_many :reviews, through: :participations
+  has_many :quest_reviews, through: :participations
 
   validates :people_wanted, presence: true, exclusion: { in: [0],
     message: ": at least 1 participant" }
