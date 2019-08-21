@@ -23,22 +23,26 @@
 
     </main>
 
-    <nav>
-        <%= link_to 'Validation' ,  questmaster_quest_path(quest, quest: { progress: "Accepted"}), method: :patch, class: 'validation' %>
-    </nav>
-    <nav>
-        <%= link_to  'Delete', questmaster_quest_path(quest), method: :delete, class: 'validation', data: { confirm: "Are you sure?" } %>
-    </nav>
-    <nav>
-        <%= link_to 'Edit' ,  edit_questmaster_quest_path(quest),class: 'validation' %>
-    </nav>
-    <nav>
-      <% @participations.each do |participation| %>
-        <% if participation.quest_id = quest.id %>
-          <%= link_to 'Review' ,  new_questmaster_quest_participation_review_path(quest, participation),class: 'validation' %>
+    <div class="links">
+      <nav>
+          <%= link_to 'Validation' ,  questmaster_quest_path(quest, quest: { progress: "Accepted"}), method: :patch, class: 'validation' %>
+      </nav>
+      <nav>
+          <%= link_to  'Delete', questmaster_quest_path(quest), method: :delete, class: 'validation', data: { confirm: "Are you sure?" } %>
+      </nav>
+      <nav>
+          <%= link_to 'Edit' ,  edit_questmaster_quest_path(quest),class: 'validation' %>
+      </nav>
+      <nav>
+        <% @participations.each do |participation| %>
+          <% if participation.quest_id = quest.id %>
+              <%= link_to 'Review as participant' ,  new_questmaster_quest_participation_review_path(quest, participation),class: 'validation' %>
+            <% else %>
+              <%= link_to 'Review as questmaster' ,  new_questmaster_quest_participation_review_path(quest, participation),class: 'validation' %>
+          <% end %>
         <% end %>
-      <% end %>
-    </nav>
+      </nav>
+    </div>
   </div>
 <% end %>
 </div>
