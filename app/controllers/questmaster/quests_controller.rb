@@ -1,4 +1,9 @@
 class Questmaster::QuestsController < ApplicationController
+  def index
+    @quests = current_user.quests
+    @participations = current_user.participations
+  end
+  
   def new
     @quest = Quest.new
   end
@@ -13,9 +18,18 @@ class Questmaster::QuestsController < ApplicationController
       render :new
     end
   end
+  
+  def update
+    @quest = Quest.find(params[:id])
+    @quest.update(quest_params)
+    redirect_to questmaster_quests_path
+  end
+  
+  def validate
+  end
 
   private
-
+  
   def set_quest
     @quest = Quest.find(params[:id])
     # authorize(@quest) > inutile cf n'avons pas encore Pundit

@@ -6,5 +6,8 @@ class Quest < ApplicationRecord
 
   validates :people_wanted, presence: true, exclusion: { in: [0],
     message: ": at least 1 participant" }
-  validates :description, :mode, :category, :location, :begin_on, :duration, presence: true
+  validates :title, :description, :mode, :category, :location, :begin_on, :duration, presence: true
+  # validates :title, uniqueness: true
+  geocoded_by :location
+  after_validation :geocode, if: :will_save_change_to_address?
 end

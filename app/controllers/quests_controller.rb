@@ -2,6 +2,13 @@ class QuestsController < ApplicationController
   before_action :set_quest, only: [:show, :edit, :update, :destroy, :validate]
 
   def index
+    @quests = Quest.geocoded
+    @markers = @quests.map do |quest|
+      {
+        lat: quest.latitude,
+        lng: quest.longitude
+      }
+    end
   end
 
   def show
@@ -23,6 +30,7 @@ class QuestsController < ApplicationController
   end
 
   def validate
+
   end
 
   private
