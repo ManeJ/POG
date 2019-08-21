@@ -4,6 +4,7 @@ class Quest < ApplicationRecord
   has_many :participations
   has_many :reviews, through: :participations
 
+
   validates :title, :description, :mode, :people_wanted, :location, :begin_on, :duration, presence: true
   # validates :title, uniqueness: true
   geocoded_by :location
