@@ -7,7 +7,6 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 puts "Deleting existing seed"
 Quest.destroy_all
-Category.destroy_all
 User.destroy_all
 
 puts "Creation of User..."
@@ -25,23 +24,17 @@ end
 
 puts "User creation >> Sucess"
 
-mode = ["solo", "duo", "multi"]
+mode = ["Solo", "Group"]
 
 puts "Generate quests..."
-
-category = Category.create!(
-  name: "Health",
-  description: "blablbalbalbalblabalab",
-  picture: "photo"
-  )
-
+categories = ["Animal rights", "Charity", "Disabled people", "Elderly people", "Environment"]
 20.times do
   Quest.create!(
     title: Faker::DcComics.title,
     description: Faker::Books::Lovecraft.fhtagn(number: 2),
     mode: mode.sample,
     people_wanted: (1..25).to_a.sample,
-    category: category,
+    category: categories.sample,
     location: Faker::Address.full_address,
     begin_on: Faker::Date.forward(days: 30),
     duration: '3 hours',
@@ -49,7 +42,7 @@ category = Category.create!(
   )
 end
 
-puts "Quests generate successfully"
+puts "Quests generated successfully"
 
 puts "Creating avatars"
 i = Avatar.count + 1
@@ -60,7 +53,6 @@ end
 puts "Avatars created"
 
 puts "Creating categories"
-categories = ["Animal rights", "Charity", "Disabled people", "Elderly people", "Environment"]
 xp = [20, 30, 40, 40, 60]
 j = Category.count + 1
 while j <= 5

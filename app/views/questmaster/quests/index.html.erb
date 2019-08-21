@@ -1,12 +1,12 @@
-<div class="contact-area">
 <% @quests.each do |quest| %>
+<div class="contact-area">
   <div class="contact">
     <main>
       <section>
         <div class="content">
 
           <aside>
-            <h1>Come take the trash</h1>
+            <h1><%= quest.title %></h1>
             <p><%= quest.description %></p>
           </aside>
 
@@ -40,5 +40,5 @@
       <% end %>
     </nav>
   </div>
+  </div>
 <% end %>
-</div>
