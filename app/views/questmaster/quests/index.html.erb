@@ -12,7 +12,7 @@
           </aside>
 
           <button>
-            <span>More details</span>
+            <span>Actions</span>
             <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48"> <g class="nc-icon-wrapper" fill="#444444"> <path d="M14.83 30.83L24 21.66l9.17 9.17L36 28 24 16 12 28z"></path> </g> </svg>
           </button>
         </div>
@@ -25,13 +25,13 @@
 
     <div class="links">
       <nav>
-          <%= link_to 'Validation' ,  questmaster_quest_path(quest, quest: { progress: "Accepted"}), method: :patch, class: 'validation' %>
+          <%= link_to 'Edit' ,  edit_questmaster_quest_path(quest),class: 'validation' %>
       </nav>
       <nav>
           <%= link_to  'Delete', questmaster_quest_path(quest), method: :delete, class: 'validation', data: { confirm: "Are you sure?" } %>
       </nav>
       <nav>
-          <%= link_to 'Edit' ,  edit_questmaster_quest_path(quest),class: 'validation' %>
+          <%= link_to 'Mark as over' ,  questmaster_quest_path(quest, quest: { progress: "Accepted"}), method: :patch, class: 'validation' %>
       </nav>
       <nav>
         <% @participations.each do |participation| %>
