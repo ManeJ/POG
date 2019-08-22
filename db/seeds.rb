@@ -45,6 +45,7 @@ while j <= 5
 end
 puts "Categories created"
 
+
 puts "Generate quests..."
 20.times do
   Quest.create!(
