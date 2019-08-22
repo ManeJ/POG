@@ -25,7 +25,7 @@
         <% end %>
       </ul>
     </div>
-  
+
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
           <% if user_signed_in? %>
@@ -34,8 +34,8 @@
               <%= link_to "Username", "#", class: "nav-link" %>
               <%= link_to "Home", "#", class: "nav-link", class: "nav-item active"%>
               <%= link_to "My profil", "#", class: "dropdown-item" %>
-              <%= link_to "My participations", "#", class: "dropdown-item" %>
-              <%= link_to "My quest", "#", class: "dropdown-item" %>
+              <%= link_to "My participations", questmaster_quests_path, class: "dropdown-item" %>
+              <%= link_to "My quest", participations_path, class: "dropdown-item" %>
               <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
             </li>
           <% else %>
