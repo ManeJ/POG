@@ -30,7 +30,7 @@ puts "Creation of User..."
 end
 puts "User creation >> Sucess"
 
-mode = ["solo", "duo", "multi"]
+mode = ["Solo", "Group"]
 
 puts "Creating categories"
 categories = ["Animal rights", "Charity", "Disabled people", "Elderly people", "Environment"]
@@ -42,11 +42,9 @@ while j <= 5
 end
 puts "Categories created"
 
-category = Category.create(
-  name: categories.sample,
-  description: Faker::GreekPhilosophers.quote,
-  picture: "photo",
-  xp: xp.sample)
+city = ["Tokyo", "Delhi", "Shanghai", "São Paulo", "Mexico", "Dhaka", "Le Caire",
+        "Pékin", "Bombay", "Osaka", "New York", "Karachi", "Chongqing", "Istanbul",
+         "Buenos Aires", "Calcutta", "Lagos", "Kinshasa", "Manille", "Tianjin"]
 
 puts "Generate quests..."
 20.times do
@@ -55,14 +53,13 @@ puts "Generate quests..."
     description: Faker::Books::Lovecraft.fhtagn(number: 2),
     mode: mode.sample,
     people_wanted: (1..25).to_a.sample,
-    category: category,
-    address: "Bordeaux",
+    address: city.uniq.sample,
+    category: (1..5).to_a.sample,
     begin_on: Faker::Date.forward(days: 30),
     duration: '3 hours',
     user: User.all.sample
   )
 end
 puts "Quests generate successfully"
-
 
 

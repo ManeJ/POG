@@ -1,9 +1,20 @@
 class Questmaster::QuestsController < ApplicationController
+  before_action :set_quest, only: [:show, :update]
   def index
     @quests = current_user.quests
     @participations = current_user.participations
+    @geocoded_quests = Quest.geocoded
+    @markers = @geocoded_quests.map do |quest|
+      {
+        lat: quest.latitude,
+        lng: quest.longitude
+      }
+    end
   end
-  
+
+  def show
+  end
+
   def new
     @quest = Quest.new
   end
@@ -18,24 +29,34 @@ class Questmaster::QuestsController < ApplicationController
       render :new
     end
   end
-  
-  def update
+
+  def edit
     @quest = Quest.find(params[:id])
+  end
+
+  def update
     @quest.update(quest_params)
     redirect_to questmaster_quests_path
   end
-  
+
+  def destroy
+    @quest = Quest.find(params[:id])
+    @quest.destroy
+    redirect_to questmaster_quests_path
+  end
+
+
   def validate
   end
 
   private
-  
+
   def set_quest
     @quest = Quest.find(params[:id])
     # authorize(@quest) > inutile cf n'avons pas encore Pundit
   end
 
   def quest_params
-    params.require(:quest).permit(:description, :mode, :people_wanted, :location, :begin_on, :duration, :category_id)
+    params.require(:quest).permit(:description, :title, :mode, :people_wanted, :location, :begin_on, :duration, :category_id)
   end
 end
