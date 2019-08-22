@@ -15,8 +15,10 @@
       <ul class="menu-links">
         <% if user_signed_in? %>
           <li><%= link_to "Profil", "#" %></li>
-          <li><%= link_to "My Participations", "#" %></li>
-          <li><%= link_to "My Quests", "#" %></li>
+          <li><%= link_to "My Participations", participations_path %></li>
+          <li><%= link_to "My Quests", questmaster_quests_path %></li>
+          <li><%= link_to "Who we are", "#" %></li>
+          <li><%= link_to "How it works", "#" %></li>
         <% else %>
           <li><%= link_to "Who we are", "#" %></li>
           <li><%= link_to "How it works", "#" %></li>

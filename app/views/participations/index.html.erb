@@ -1,2 +1,47 @@
-<h1>Participations Index</h1>
-<p>Find me in app/views/participations/index.html.erb</p>
+<div class='d-flex justify-content-center'><h1 class=''>My participations</h1></div>
+<div class="contact-area">
+<% @participations.each do |participation| %>
+<div class="contact-area">
+  <div class="contact">
+    <main>
+      <section>
+        <div class="content">
+
+          <aside>
+            <h1><%= participation.quest.title %></h1>
+            <p><%= participation.quest.description %></p>
+          </aside>
+
+          <button>
+            <span>Actions</span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48"> <g class="nc-icon-wrapper" fill="#444444"> <path d="M14.83 30.83L24 21.66l9.17 9.17L36 28 24 16 12 28z"></path> </g> </svg>
+          </button>
+        </div>
+
+        <div class="title"><p>details</p></div>
+      </section>
+
+
+    </main>
+
+    <div class="links">
+      <nav>
+          <%= link_to 'Edit' ,  edit_questmaster_quest_path(participation), class: 'card-elements' %>
+      </nav>
+      <nav>
+          <%= link_to  'Delete', questmaster_quest_path(participation), method: :delete, class: 'card-elements', data: { confirm: "Are you sure?" } %>
+      </nav>
+      <nav>
+          <%= link_to 'Mark as over' ,  questmaster_quest_path(participation, participation: { progress: "Finished"}), method: :patch, class: 'card-elements' %>
+      </nav>
+    </div>
+  </div>
+  </div>
+<% end %>
+
+
+<%# @participations.each do |participation| %>
+  <%# if participation.quest_id == participation.id %>
+    <%#= link_to 'Review participations',  new_questmaster_quest_participation_review_path(participation, participation),class: 'validation' %>
+  <%# end %>
+<%# end %>
