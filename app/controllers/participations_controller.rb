@@ -7,10 +7,18 @@ class ParticipationsController < ApplicationController
   def show
   end
 
-  def new
-  end
-
   def create
+    @user = current_user
+    @quest = Quest.find(params[:quest_id])
+    @participation = Participation.new()
+    @participation.user = @user
+    @participation.quest = @quest
+
+    if @participation.save
+      redirect_to quests_path
+    else
+      render :new
+    end
   end
 
   def edit

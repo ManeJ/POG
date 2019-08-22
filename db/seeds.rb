@@ -60,8 +60,3 @@ puts "Generate quests..."
   )
 end
 puts "Quests generate successfully"
-
-
-
-
-
