@@ -54,8 +54,8 @@ puts "Generate quests..."
     people_wanted: (1..25).to_a.sample,
     category: Category.all.sample,
     address: cities.uniq.sample,
-    begin_on: Faker::Date.forward(days: 15),
-    duration: '2 hours',
+    begin_on: Faker::Date.forward(days: 21),
+    duration: '4 hours',
     user: User.all.sample
   )
 end
