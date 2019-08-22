@@ -2,7 +2,7 @@ class Questmaster::QuestsController < ApplicationController
   before_action :set_quest, only: [:show, :update]
   def index
     @quests = current_user.quests
-    @participations = current_user.participations
+    @participations = Participation.all
     @geocoded_quests = Quest.geocoded
     @markers = @geocoded_quests.map do |quest|
       {

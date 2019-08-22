@@ -13,7 +13,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :participation, only: [:index, :show, :destroy] do
+  resources :participations, only: [:index, :show, :destroy] do
 	resources :reviews, only: [:new, :create]
 end
 
