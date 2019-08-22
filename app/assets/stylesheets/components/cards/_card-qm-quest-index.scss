@@ -80,7 +80,7 @@ body {
       border-radius: 5px;
       float: left;
       width: 100%;
-      background-color: $color-1;
+      background-color: $green;
 
       .content {
         float: left;
@@ -108,7 +108,7 @@ body {
         aside {
           float: left;
           width: 100%;
-          color: $white;
+          color: white;
           margin-top: 10px;
 
           @media (min-width: 414px) {
@@ -133,7 +133,7 @@ body {
     .title {
       float: left;
       width: 100%;
-      background-color: $color-2;
+      background-color: white;
       max-height: 0px;
       border-bottom-left-radius: 5px;
       border-bottom-right-radius: 5px;
@@ -152,7 +152,7 @@ body {
 
       p {
         padding: 15px 30px;
-        color: $white;
+        color: white;
         font-size: 16px;
         display: inline-block;
         font-weight: 500;
@@ -167,8 +167,8 @@ body {
       position: absolute;
       bottom: 0;
       right: 50%;
-      background-color: $color-3;
-      color: $color-2;
+      background-color: $yellow;
+      color: white;
       border: 0;
       width: 200px;
       height: 48px;
@@ -205,7 +205,7 @@ body {
         @include transition(all .4s);
 
         path {
-          fill: $color-2;
+          fill: white;
         }
       }
 
@@ -269,7 +269,7 @@ body {
       float: left;
       width: 100%;
       margin-top: 18px;
-      background-color: $white;
+      background-color: white;
       padding: 18px 20px;
       border-radius: 5px;
       text-decoration: none;
@@ -289,54 +289,54 @@ body {
         @include transform(translateY(-50%));
 
         path {
-          fill: darken($white, 10%);
+          fill: darken(white, 10%);
         }
       }
 
-      &.validation {
-        .icon {
-          svg {
-            height: 100%;
-            width: 120px;
-            object-fit: cover;
-            background-color: $gmail;
-          }
-        }
+      // &.validation {
+        // .icon {
+        //   svg {
+        //     height: 100%;
+        //     width: 120px;
+        //     object-fit: cover;
+        //     background-color: $gmail;
+        //   }
+        // }
 
-        .content {
-          h1 {
-            color: $blue;
-          }
-        }
-      }
+      //   .content {
+      //     h1 {
+      //       color: $blue;
+      //     }
+      //   }
+      // }
 
-      &.facebook {
-        .icon {
-          svg {
-            background-color: $facebook;
-          }
-        }
+      // &.facebook {
+      //   .icon {
+      //     svg {
+      //       background-color: $facebook;
+      //     }
+      //   }
 
-        .content {
-          h1 {
-            color: $facebook;
-          }
-        }
-      }
+      //   .content {
+      //     h1 {
+      //       color: $facebook;
+      //     }
+      //   }
+      // }
 
-      &.twitter {
-        .icon {
-          svg {
-            background-color: $twitter;
-          }
-        }
+      // &.twitter {
+      //   .icon {
+      //     svg {
+      //       background-color: $twitter;
+      //     }
+      //   }
 
-        .content {
-          h1 {
-            color: $twitter;
-          }
-        }
-      }
+      //   .content {
+      //     h1 {
+      //       color: $twitter;
+      //     }
+      //   }
+      // }
 
       .icon {
         float: left;
@@ -352,7 +352,7 @@ body {
           padding: 14px;
 
           path {
-            fill: $white;
+            fill: white;
           }
         }
       }
@@ -367,7 +367,7 @@ body {
 
         span {
           font-size: 14px;
-          color: darken($white, 30%);
+          color: darken(white, 30%);
           display: block;
           letter-spacing: .4px;
         }
@@ -379,5 +379,5 @@ body {
 
 .link {
   text-decoration: none;
-  color: $color-1;
+  color: $green;
 }
