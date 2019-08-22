@@ -3,6 +3,13 @@ class Questmaster::QuestsController < ApplicationController
   def index
     @quests = current_user.quests
     @participations = current_user.participations
+    @geocoded_quests = Quest.geocoded
+    @markers = @geocoded_quests.map do |quest|
+      {
+        lat: quest.latitude,
+        lng: quest.longitude
+      }
+    end
   end
 
   def show
