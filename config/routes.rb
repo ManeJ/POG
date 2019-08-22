@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
+  get '/myprofil', to: 'pages#myprofil'
   root to: 'pages#home'
   resources :quests, only: [:index, :show] do
     resources :participations, only: :create
