@@ -20,6 +20,7 @@ document.querySelectorAll("button").forEach((btn) => {
     event.currentTarget.parentElement.parentElement.parentElement.parentElement.children[1].children[0].classList.toggle("active");
     event.currentTarget.parentElement.parentElement.parentElement.parentElement.children[1].children[1].classList.toggle("active");
     event.currentTarget.parentElement.parentElement.parentElement.parentElement.children[1].children[2].classList.toggle("active");
+    event.currentTarget.parentElement.parentElement.parentElement.parentElement.children[1].children[3].classList.toggle("active");
   });
 });
 
