@@ -7,7 +7,8 @@ class QuestsController < ApplicationController
     @markers = @geocoded_quests.map do |quest|
       {
         lat: quest.latitude,
-        lng: quest.longitude
+        lng: quest.longitude,
+        image_url: helpers.asset_url(quest.category.picture)
       }
     end
   end
