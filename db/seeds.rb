@@ -9,6 +9,11 @@ puts "Deleting existing seed"
 Quest.destroy_all
 User.destroy_all
 
+mode = ["solo", "duo", "multi"]
+cities = ["Tokyo", "Delhi", "Shanghai", "São Paulo", "Mexico", "Dhaka", "Le Caire",
+          "Pékin", "Bombay", "Osaka", "New York", "Karachi", "Chongqing", "Istanbul",
+          "Buenos Aires", "Calcutta", "Lagos", "Kinshasa", "Manille", "Tianjin"]
+
 puts "Creating avatars"
 i = Avatar.count + 1
 while i <= 6
@@ -30,8 +35,6 @@ puts "Creation of User..."
 end
 puts "User creation >> Sucess"
 
-mode = ["solo", "duo", "multi"]
-
 puts "Creating categories"
 categories = ["Animal rights", "Charity", "Disabled people", "Elderly people", "Environment"]
 xp = [20, 30, 40, 40, 60]
@@ -42,12 +45,6 @@ while j <= 5
 end
 puts "Categories created"
 
-category = Category.create(
-  name: categories.sample,
-  description: Faker::GreekPhilosophers.quote,
-  picture: "photo",
-  xp: xp.sample)
-
 puts "Generate quests..."
 20.times do
   Quest.create!(
@@ -55,14 +52,16 @@ puts "Generate quests..."
     description: Faker::Books::Lovecraft.fhtagn(number: 2),
     mode: mode.sample,
     people_wanted: (1..25).to_a.sample,
-    category: category,
-    address: "Bordeaux",
+    category: Category.all.sample,
+    address: cities.uniq.sample,
     begin_on: Faker::Date.forward(days: 30),
     duration: '3 hours',
     user: User.all.sample
   )
 end
 puts "Quests generate successfully"
+
+
 
 
 
