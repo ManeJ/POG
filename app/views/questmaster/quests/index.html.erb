@@ -26,24 +26,53 @@
 
     <div class="links">
       <nav>
-          <%= link_to 'Edit' ,  edit_questmaster_quest_path(quest),class: 'validation' %>
+          <%= link_to 'Edit' ,  edit_questmaster_quest_path(quest), class: 'card-elements' %>
       </nav>
       <nav>
-          <%= link_to  'Delete', questmaster_quest_path(quest), method: :delete, class: 'validation', data: { confirm: "Are you sure?" } %>
+          <%= link_to  'Delete', questmaster_quest_path(quest), method: :delete, class: 'card-elements', data: { confirm: "Are you sure?" } %>
       </nav>
       <nav>
-          <%= link_to 'Mark as over' ,  questmaster_quest_path(quest, quest: { progress: "Accepted"}), method: :patch, class: 'validation' %>
+          <%= link_to 'Mark as over' ,  questmaster_quest_path(quest, quest: { progress: "Finished"}), method: :patch, class: 'card-elements' %>
       </nav>
       <nav>
-        <% @participations.each do |participation| %>
-          <% if participation.quest_id = quest.id %>
-              <%= link_to 'Review as participant' ,  new_questmaster_quest_participation_review_path(quest, participation),class: 'validation' %>
-            <% else %>
-              <%= link_to 'Review as questmaster' ,  new_questmaster_quest_participation_review_path(quest, participation),class: 'validation' %>
-          <% end %>
-        <% end %>
+        <div class="modal-container">
+          <a class="modal-button" href="#popup">Review participations</a>
+          <div class="popup" id="popup">
+            <div class="popup-inner">
+              <div class="popup__text">
+                <h3>Review for "<%= quest.title %>"</h3>
+                <div class="row rating-global">
+                  <div class="col-2" id="1-star-global">
+                      <%= image_tag('rating-color.png', class: "rating-ico") %>
+                  </div>
+                  <div class="col-2" id="2-stars-global">
+                      <%= image_tag('rating-color.png', class: "rating-ico") %>
+                  </div>
+                  <div class="col-2" id="3-stars-global">
+                      <%= image_tag('rating-color.png', class: "rating-ico") %>
+                  </div>
+                  <div class="col-2" id="4-stars-global">
+                      <%= image_tag('rating-color.png', class: "rating-ico") %>
+                  </div>
+                  <div class="col-2" id="5-stars-global">
+                      <%= image_tag('rating-color.png', class: "rating-ico") %>
+                  </div>
+                </div>
+                <p>Ici, le commentaire</p>
+              </div>
+              <div class="popup__close" href="#">X</div>
+            </div>
+          </div>
+        </div>
       </nav>
     </div>
   </div>
   </div>
 <% end %>
+
+
+<%# @participations.each do |participation| %>
+  <%# if participation.quest_id == quest.id %>
+    <%#= link_to 'Review participations',  new_questmaster_quest_participation_review_path(quest, participation),class: 'validation' %>
+  <%# end %>
+<%# end %>
