@@ -11,7 +11,7 @@ class Questmaster::ReviewsController < ApplicationController
       if @review.save
         participation.user_review_id = @review.id
         participation.save
-        redirect_to questmaster_quests_path
+        redirect_to questmaster_quest_participations_path(@quest)
       else
         render :new
       end

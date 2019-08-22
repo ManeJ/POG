@@ -1,0 +1,36 @@
+<div class="d-flex flex-column align-items-center">
+  <h1 class="px-2 pt-4 pb-5 text-center">People who joined "<%= @quest.title %>"</h1>
+  <div id="qm-participations-container">
+    <% @participations.each do |participation| %>
+      <div class="d-flex p-3 qm-participations-card mb-3">
+        <div class="d-flex flex-column align-items-center">
+          <%= image_tag(participation.user.photo, class:"avatar-card") %>
+          <h3 id="participant-username"><%= participation.user.username %></h3>
+        </div>
+        <% unless participation.user_review_id.nil? %>
+          <div class="d-flex justify-content-center" id="user-participation-review">
+            <div class="d-flex flex-column align-items-center">
+              <div>
+                <% participation.user_review.rating.to_i.times do  %>
+                  <%= image_tag('rating-color.png') %>
+                <% end %>
+                <% participation.user_review.blank_stars.times do %>
+                  <%= image_tag('rating-black.png') %>
+                <% end %>
+              </div>
+              <div>
+                <%= participation.user_review.content %>
+              </div>
+              <div>
+                <%= link_to "Custo review", "#", class:"btn btn-primary" %>
+              </div>
+            </div>
+          </div>
+        <% end %>
+
+      </div>
+    <% end %>
+  </div>
+</div>
+
+

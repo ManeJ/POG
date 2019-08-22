@@ -1,0 +1,39 @@
+.global-review-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 2rem;
+  width: 90vw;
+  background-color: white;
+  border-radius: 5px;
+}
+
+// Smallest device
+@media (min-width: 100px) and (max-width: 575px) {
+}
+
+// Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) {
+
+}
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) {
+  .global-review-container {
+
+  }
+}
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) {
+  .global-review-container {
+
+  }
+}
+
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) {
+  .global-review-container {
+
+  }
+}
