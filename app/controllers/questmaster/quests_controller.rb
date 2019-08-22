@@ -10,6 +10,7 @@ class Questmaster::QuestsController < ApplicationController
         lng: quest.longitude
       }
     end
+    @review = Review.new
   end
 
   def show

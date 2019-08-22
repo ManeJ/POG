@@ -1,3 +1,4 @@
 class Review < ApplicationRecord
-  has_one :participations
+  has_one :participation
+  validates :rating, :content, presence: true
 end
