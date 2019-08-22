@@ -48,21 +48,21 @@ category = Category.create(
   picture: "photo",
   xp: xp.sample)
 
-# puts "Generate quests..."
-# 20.times do
-#   Quest.create!(
-#     title: Faker::DcComics.title,
-#     description: Faker::Books::Lovecraft.fhtagn(number: 2),
-#     mode: mode.sample,
-#     people_wanted: (1..25).to_a.sample,
-#     category: category,
-#     address: "Bordeaux",
-#     begin_on: Faker::Date.forward(days: 30),
-#     duration: '3 hours',
-#     user: User.all.sample
-#   )
-# end
-# puts "Quests generate successfully"
+puts "Generate quests..."
+20.times do
+  Quest.create!(
+    title: Faker::DcComics.title,
+    description: Faker::Books::Lovecraft.fhtagn(number: 2),
+    mode: mode.sample,
+    people_wanted: (1..25).to_a.sample,
+    category: category,
+    address: "Bordeaux",
+    begin_on: Faker::Date.forward(days: 30),
+    duration: '3 hours',
+    user: User.all.sample
+  )
+end
+puts "Quests generate successfully"
 
 
 
