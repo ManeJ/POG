@@ -39,6 +39,13 @@ class Questmaster::QuestsController < ApplicationController
     redirect_to questmaster_quests_path
   end
 
+  def destroy
+    @quest = Quest.find(params[:id])
+    @quest.destroy
+    redirect_to questmaster_quests_path
+  end
+
+
   def validate
   end
 
