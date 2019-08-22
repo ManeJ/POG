@@ -9,8 +9,20 @@ puts "Deleting existing seed"
 Quest.destroy_all
 User.destroy_all
 
-puts "Creation of User..."
+mode = ["solo", "duo", "multi"]
+cities = ["Tokyo", "Delhi", "Shanghai", "São Paulo", "Mexico", "Dhaka", "Le Caire",
+          "Pékin", "Bombay", "Osaka", "New York", "Karachi", "Chongqing", "Istanbul",
+          "Buenos Aires", "Calcutta", "Lagos", "Kinshasa", "Manille", "Tianjin"]
 
+puts "Creating avatars"
+i = Avatar.count + 1
+while i <= 6
+  Avatar.create!(image: "avatar-#{i}.png")
+  i += 1
+end
+puts "Avatars created"
+
+puts "Creation of User..."
 10.times do
   User.create!(
     username: Faker::Artist.name,
@@ -21,38 +33,10 @@ puts "Creation of User..."
     role: 'individual'
   )
 end
-
 puts "User creation >> Sucess"
 
-mode = ["Solo", "Group"]
-
-puts "Generate quests..."
-categories = ["Animal rights", "Charity", "Disabled people", "Elderly people", "Environment"]
-20.times do
-  Quest.create!(
-    title: Faker::DcComics.title,
-    description: Faker::Books::Lovecraft.fhtagn(number: 2),
-    mode: mode.sample,
-    people_wanted: (1..25).to_a.sample,
-    category: categories.sample,
-    address: Faker::Address.full_address,
-    begin_on: Faker::Date.forward(days: 30),
-    duration: '3 hours',
-    user: User.all.sample
-  )
-end
-
-puts "Quests generated successfully"
-
-puts "Creating avatars"
-i = Avatar.count + 1
-while i <= 6
-  Avatar.create!(image: "avatar-#{i}.png")
-  i += 1
-end
-puts "Avatars created"
-
 puts "Creating categories"
+categories = ["Animal rights", "Charity", "Disabled people", "Elderly people", "Environment"]
 xp = [20, 30, 40, 40, 60]
 j = Category.count + 1
 while j <= 5
@@ -60,3 +44,20 @@ while j <= 5
   j += 1
 end
 puts "Categories created"
+
+
+puts "Generate quests..."
+20.times do
+  Quest.create!(
+    title: Faker::DcComics.title,
+    description: Faker::Books::Lovecraft.fhtagn(number: 2),
+    mode: mode.sample,
+    people_wanted: (1..25).to_a.sample,
+    category: Category.all.sample,
+    address: cities.uniq.sample,
+    begin_on: Faker::Date.forward(days: 21),
+    duration: '4 hours',
+    user: User.all.sample
+  )
+end
+puts "Quests generate successfully"
