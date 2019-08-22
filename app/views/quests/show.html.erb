@@ -24,7 +24,7 @@
               <div class="quest-details mt-3">
                 <p>Click for details</p>
               </div>
-              <% unless user_signed_in? && @quest.user == current_user || user_signed_in? && @quest.participations.where(user_id: current_user.id)%>
+              <% unless user_signed_in? && @quest.user == current_user || user_signed_in? && !@quest.participations.where(user_id: current_user.id).blank? %>
               <div>
                 <%= link_to "Join quest", quest_participations_path(@quest), method: :post, class:"btn btn-info" %>
               </div>
@@ -45,7 +45,7 @@
                   <%= @quest.address %></p>
               </div>
             </div>
-            <% unless user_signed_in? && @quest.user == current_user || user_signed_in? && @quest.participations.where(user_id: current_user.id)%>
+            <% unless user_signed_in? && @quest.user == current_user || user_signed_in? && !@quest.participations.where(user_id: current_user.id).blank? %>
               <div>
                 <%= link_to "Join quest", quest_participations_path(@quest), method: :post, class:"btn btn-info" %>
               </div>

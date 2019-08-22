@@ -1,4 +1,7 @@
 class Review < ApplicationRecord
-  has_one :participation
   validates :rating, :content, presence: true
+
+  def blank_stars
+    5 - rating.to_i
+  end
 end
