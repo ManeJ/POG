@@ -2,6 +2,7 @@ class ParticipationsController < ApplicationController
   before_action :set_participations, only: [:show, :edit, :update, :destroy]
 
   def index
+    @participations = Participation.all
   end
 
   def show
