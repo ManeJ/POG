@@ -9,11 +9,11 @@
 
 .navbar-collapse {
   position: absolute;
-    top: 3rem;
-    right: -15rem;
-    background: rgb(0, 192, 126);
-    opacity: 0.9;
-    transition: 0.5s;
+  top: 3rem;
+  right: -15rem;
+  background: rgb(0, 192, 126);
+  opacity: 0.9;
+  transition: 0.5s;
 
   ul {
     display :block;
@@ -29,6 +29,7 @@
 }
 
 .navbar-logo {
+  padding-Left: 2rem;
   display: grid;
   grid-template-columns: repeat(5, 1fr);
 }
@@ -52,6 +53,7 @@
 }
 
 .navbar-pog .navbar-brand img {
+  
   width: 48px;
 }
 .navbar-pog .nav-item-logo img {
