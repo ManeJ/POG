@@ -43,7 +43,7 @@
           <%= link_to  'Delete', questmaster_quest_path(quest), method: :delete, class: 'card-elements', data: { confirm: "Are you sure?" } %>
       </nav>
       <nav>
-          <%= link_to 'Mark as over' ,  questmaster_quest_path(quest, quest: { progress: "Finished"}), method: :patch, class: 'card-elements' %>
+          <%= link_to 'Mark as over' ,  questmaster_quest_path(quest,quest , quest: { progress: "Finished"}), method: :patch, class: 'card-elements' %>
       </nav>
       <nav>
         <div class="modal-container">
