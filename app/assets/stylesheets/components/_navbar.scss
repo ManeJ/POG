@@ -2,16 +2,16 @@
   margin-top: 1rem;
   width: 3rem;
 }
-
+​
 .dropdow-item {
   padding: 0.5rem 1.5rem;
 }
-
+​
 .nav-action-link {
   display: flex;
   margin-right: 16px;
 }
-
+​
 .navbar-collapse {
   position: absolute;
   top: 3rem;
@@ -19,20 +19,20 @@
   background: rgb(0, 192, 126);
   opacity: 0.9;
   transition: 0.5s;
-
+​
   ul {
     display :block;
     justify-content : center;
     align-items: center;
   }
 }
-
+​
 .navbar-collapse.show {
   right: 1rem;
   top: 4.5rem;
   z-index: 3000;
 }
-
+​
 .navbar-logo {
   padding-Left: 2rem;
   display: grid;
@@ -41,56 +41,56 @@
 #logo {
   grid-column: 3 / span 1;
 }
-
+​
 .navbar-main {
   display: flex;
   justify-content: center;
 }
-
+​
 .navbar-pog {
   display: block;
   background: white;
   z-index: 3000;
 }
-
+​
 .navbar-pog .navbar-brand {
   width: 40px;
 }
-
+​
 .navbar-pog .navbar-brand img {
-  
+
   width: 48px;
 }
 .navbar-pog .nav-item-logo img {
   width: 28px;
 }
-
+​
 .navbar-pog .nav-item {
   margin-left: 8px;
 }
-
+​
 #navbarDropdown {
   margin-left: 16px;
 }
-
+​
 .navbar-pog .nav-title {
   margin-right: auto;
 }
-
+​
 .navbar-pog .nav-title h1 {
   margin: auto;
   font-size: 36px;
 }
-
+​
 .navbar-toggler {
   margin-top: 0.5rem;
   height: 48px;
 }
-
+​
 #navbar-links {
   display: flex;
 }
-
+​
 .menu-links {
   display: flex;
   list-style-type: none;
