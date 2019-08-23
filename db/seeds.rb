@@ -5,14 +5,16 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-puts "Deleting existing seed"
-Quest.destroy_all
-User.destroy_all
 
-mode = ["solo", "duo", "multi"]
-cities = ["Tokyo", "Delhi", "Shanghai", "São Paulo", "Mexico", "Dhaka", "Le Caire",
-          "Pékin", "Bombay", "Osaka", "New York", "Karachi", "Chongqing", "Istanbul",
-          "Buenos Aires", "Calcutta", "Lagos", "Kinshasa", "Manille", "Tianjin"]
+
+# puts "Deleting existing seed"
+# Quest.destroy_all
+# User.destroy_all
+
+# mode = ["solo", "duo", "multi"]
+# cities = ["Tokyo", "Delhi", "Shanghai", "São Paulo", "Mexico", "Dhaka", "Le Caire",
+#           "Pékin", "Bombay", "Osaka", "New York", "Karachi", "Chongqing", "Istanbul",
+#           "Buenos Aires", "Calcutta", "Lagos", "Kinshasa", "Manille", "Tianjin"]
 
 puts "Creating avatars"
 i = Avatar.count + 1
@@ -22,18 +24,18 @@ while i <= 6
 end
 puts "Avatars created"
 
-puts "Creation of User..."
-10.times do
-  User.create!(
-    username: Faker::Artist.name,
-    first_name: Faker::Name.first_name,
-    last_name: Faker::Name.last_name,
-    email: Faker::Internet.email,
-    password: 'password',
-    role: 'individual'
-  )
-end
-puts "User creation >> Sucess"
+# puts "Creation of User..."
+# 10.times do
+#   User.create!(
+#     username: Faker::Artist.name,
+#     first_name: Faker::Name.first_name,
+#     last_name: Faker::Name.last_name,
+#     email: Faker::Internet.email,
+#     password: 'password',
+#     role: 'individual'
+#   )
+# end
+# puts "User creation >> Sucess"
 
 puts "Creating categories"
 categories = ["Animal rights", "Charity", "Disabled people", "Elderly people", "Environment"]
@@ -46,18 +48,18 @@ end
 puts "Categories created"
 
 
-puts "Generate quests..."
-20.times do
-  Quest.create!(
-    title: Faker::DcComics.title,
-    description: Faker::Books::Lovecraft.fhtagn(number: 2),
-    mode: mode.sample,
-    people_wanted: (1..25).to_a.sample,
-    category: Category.all.sample,
-    address: cities.uniq.sample,
-    begin_on: Faker::Date.forward(days: 21),
-    duration: '4 hours',
-    user: User.all.sample
-  )
-end
-puts "Quests generate successfully"
+# puts "Generate quests..."
+# 20.times do
+#   Quest.create!(
+#     title: Faker::DcComics.title,
+#     description: Faker::Books::Lovecraft.fhtagn(number: 2),
+#     mode: mode.sample,
+#     people_wanted: (1..25).to_a.sample,
+#     category: Category.all.sample,
+#     address: cities.uniq.sample,
+#     begin_on: Faker::Date.forward(days: 21),
+#     duration: '4 hours',
+#     user: User.all.sample
+#   )
+# end
+# puts "Quests generate successfully"
