@@ -2,6 +2,12 @@
   <h1 class='my-participations-h1 mt-4'>My participations</h1>
   </div>
   <div class="contact-area">
+    <% if @participations.empty? %>
+    <div class="text-center mt-2">
+        <p>No quest to display yet...</p>
+        <p>What are you wainting for? :-)</p>
+      </div>
+    <% end %>
   <% @participations.each do |participation| %>
   <div class="contact-area">
     <div class="contact">
@@ -33,7 +39,7 @@
           </nav>
         <% else %>
           <nav>
-              <%= link_to  'Cancel participation', participations_path(participation), method: :delete, class: 'card-elements', data: { confirm: "Are you sure?" } %>
+              <%= link_to  'Cancel participation', participation_path(participation), method: :delete, class: 'card-elements', data: { confirm: "Are you sure?" } %>
           </nav>
         <% end %>
 

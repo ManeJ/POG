@@ -1,5 +1,5 @@
 class ParticipationsController < ApplicationController
-  before_action :set_participations, only: [:show, :edit, :update, :destroy]
+  before_action :set_participation, only: [:show, :edit, :update, :destroy]
 
   def index
     @participations = Participation.where(user_id: current_user.id).order(created_at: :desc)
@@ -29,17 +29,18 @@ class ParticipationsController < ApplicationController
   end
 
   def destroy
-
+    @participation = Participation.find(params[:id])
+    @participation.destroy
+    redirect_to participations_path
   end
 
   private
 
   def set_participation
     @participation = Participation.find(params[:id])
-    authorize(@participation)
   end
 
   def participation_params
-    params.require(:participation).permit()
+    params.require(:participation).permit(:user_id, :quest_id, :user_review_id, :quest_review_id)
   end
 end
