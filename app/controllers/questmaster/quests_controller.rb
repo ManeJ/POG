@@ -68,6 +68,6 @@ class Questmaster::QuestsController < ApplicationController
   end
 
   def quest_params
-    params.require(:quest).permit(:description, :title, :mode, :people_wanted, :location, :progress, :begin_on, :duration, :category_id)
+    params.require(:quest).permit(:description, :title, :mode, :people_wanted, :address, :progress, :begin_on, :duration, :category_id)
   end
 end
