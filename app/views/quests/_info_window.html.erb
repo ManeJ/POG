@@ -7,7 +7,7 @@
           <h5><%= quest.title %></h6>
           <p><%= quest.category.name %></p>
         </div>
-        <%= link_to quests_path do %>
+        <%= link_to quest_participations_path(quest), method: :post do %>
         <div class="d-flex justify-content-center align-items-center quest-info">
             <i class="fas fa-seedling"></i>
         </div>
