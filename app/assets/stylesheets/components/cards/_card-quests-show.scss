@@ -5,7 +5,7 @@
 }
 
 .quest-description {
-  width: 90%;
+  width: 70vw;
   height: 100px;
   border-radius : 5px;
 }
@@ -42,6 +42,10 @@
 
 .quest-details span {
   font-weight: bold;
+}
+
+.quest-details {
+  width: 80vw;
 }
 
 // Smallest device

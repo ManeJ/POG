@@ -38,8 +38,12 @@
         <div class="d-flex flex-column align-items-center">
           <div class="d-flex flex-column align-items-center justify-content-center p-4 qm-quest-card">
             <div class="d-flex flex-column justify-content-center align-items-center">
-              <div class="quest-details">
+              <div class="quest-details p-3">
                 <h3>Details</h3>
+                <p class="text-justify mt-3"><span>Questmaster:</span></br>
+                  <%= @quest.user.username %> <% if @quest.user.telephone %>
+                  (<%= @quest.user.telephone %>)
+                  <% end %></p>
                 <p class="text-justify"><span>Duration:</span></br>
                   <%= @quest.duration %></p>
                 <p class="text-left"><span>Location:</span></br>
