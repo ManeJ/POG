@@ -16,7 +16,7 @@ class ParticipationsController < ApplicationController
     @participation.quest = @quest
 
     if @participation.save
-      redirect_to participation_path(participation)
+      redirect_to participations_path
     else
       render :new
     end
