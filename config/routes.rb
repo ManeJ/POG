@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
+  get '/myprofil', to: 'pages#myprofil'
   root to: 'pages#home'
   resources :quests, only: [:index, :show] do
     resources :participations, only: :create
@@ -7,8 +8,9 @@ Rails.application.routes.draw do
 
   namespace :questmaster do
     resources :quests do
+      resources :reviews, only: [:new, :create]
       resources :participations, except: [:show, :new, :create, :edit, :destroy, :update, :new] do
-        resources :reviews, only: [:index, :new, :create, :edit, :update]
+        resources :reviews, only: [:index, :edit, :update]
       end
     end
   end

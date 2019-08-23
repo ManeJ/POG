@@ -10,6 +10,7 @@ class Questmaster::QuestsController < ApplicationController
         lng: quest.longitude
       }
     end
+    @review = Review.new
   end
 
   def show
@@ -35,7 +36,21 @@ class Questmaster::QuestsController < ApplicationController
   end
 
   def update
+    @quest = Quest.find(params[:id])
+    @participations = @quest.participations
     @quest.update(quest_params)
+    if @quest.progress == "Finished"
+      @participations.each do |participation|
+        if participation.user.xp != nil
+          participation.user.xp =  participation.user.xp + @quest.category.xp
+        else
+          participation.user.xp = @quest.category.xp
+          participation.user
+          participation.user.update(email: participation.user.email, first_name: participation.user.first_name, last_name: participation.user.last_name, username: participation.user.username, role: participation.user.role, telephone: participation.user.telephone, photo: participation.user.photo , entity_photo: participation.user.entity_photo, xp: participation.user.xp, level: participation.user.level)
+        end
+      end
+    end
+
     redirect_to questmaster_quests_path
   end
 
@@ -53,10 +68,9 @@ class Questmaster::QuestsController < ApplicationController
 
   def set_quest
     @quest = Quest.find(params[:id])
-    # authorize(@quest) > inutile cf n'avons pas encore Pundit
   end
 
   def quest_params
-    params.require(:quest).permit(:description, :title, :mode, :people_wanted, :location, :begin_on, :duration, :category_id)
+    params.require(:quest).permit(:description, :title, :mode, :people_wanted, :address, :progress, :begin_on, :duration, :category_id)
   end
 end

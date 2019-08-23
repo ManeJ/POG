@@ -1,0 +1,26 @@
+#qm-participations-container {
+  width: 90vw;
+  position: relative;
+}
+
+.qm-participations-card {
+  background-color: white;
+  border-radius: 5px;
+  height: 100px;
+}
+
+// .avatar-card {
+//   position: absolute;
+//   top: -35px;
+//   left: 33vw;
+// }
+
+// #participant-username {
+//   position: absolute;
+//   top: 40px;
+//   left: 33vw;
+// }
+
+#user-participation-review {
+  flex-grow: 1;
+}

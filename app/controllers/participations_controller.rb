@@ -2,7 +2,7 @@ class ParticipationsController < ApplicationController
   before_action :set_participations, only: [:show, :edit, :update, :destroy]
 
   def index
-    @participations = Participation.all
+    @participations = Participation.where(user_id: current_user.id).order(created_at: :desc)
   end
 
   def show
@@ -29,6 +29,7 @@ class ParticipationsController < ApplicationController
   end
 
   def destroy
+
   end
 
   private

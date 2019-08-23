@@ -20,21 +20,15 @@
   }
 
 .container .home {
-  display: block;
-  color: grey;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   font-size: 24px;
   font-weight: bold;
   margin-top: 1rem;
   padding-top: 1rem;
   text-align: center;
   align-content: center;
-}
-
-.home-content a {
-  color: black;
-  font-weight: 700;
-  font-size: 16px;
-  text-align: center;
 }
 
 .container .home h1 {
@@ -58,18 +52,35 @@
 }
 
 .home-content {
+  background-image: url('watercolor.png');
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
-  height: 70vh;
   width: 90vw;
+  height: 300px;
   display: flex;
+  text-align: center;
   flex-direction: column;
   color: #5A534A;
   font-size: 24px;
   font-weight: bold;
   align-items: center;
-  justify-content: center;
+  position: relative;
+}
+
+#call-for-action {
+  position: absolute;
+  display: inline-block;
+  top: 50%;
+  transform: translateY(-50%);
+  a {
+    font-size: 1.3rem;
+  }
+  p {
+    text-align: center;
+    font-size: 2.4rem;
+    font-family: 'Indie Flower', cursive;
+  }
 }
 
 .logo {
@@ -91,4 +102,8 @@
 #logo {
   height: 5rem;
   width: 5rem;
+}
+
+#moto {
+  font-family: 'Indie Flower', cursive;
 }

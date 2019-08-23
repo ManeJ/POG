@@ -1,12 +1,15 @@
 
-  <div class="container home">
+  <div class="container home mt-5">
     <div class="logo">
-      <img id='logo' src="https://i.ibb.co/9401565/1.png" alt="Logo" border="0" />
+      <%= image_tag('logo-pog.png', id:"logo", border:"0") %>
       <h1>People of Gaïa</h1>
-      <p>There is no postponing change</p>
+      <p class="text-center" id="moto">There is no change postponing</p> <!-- mettre une police plutot handwriting pour cette phrase -->
     </div>
-    <div class="home-content" style="background-image: url(https://i.ibb.co/pxFGTjt/2434397-1.png)">
+    <div class="home-content mt-5">
+      <div id="call-for-action">
         <p>Act for a better tomorrow</p>
-        <a class="btn-medium" href="/quests">Find a quest</a>
+        <a class="btn btn-primary py-2 px-3" href="/quests">Find a quest</a>
+      </div>
     </div>
   </div>
+

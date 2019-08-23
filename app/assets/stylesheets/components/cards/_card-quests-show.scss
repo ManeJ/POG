@@ -6,12 +6,12 @@
 
 .quest-description {
   width: 90%;
+  height: 100px;
   border-radius : 5px;
 }
 
 .quest-xp-ppl {
   p, i, div {
-    font-size: 0.9rem;
     font-weight: bold;
   }
 }
@@ -20,6 +20,19 @@
   position: absolute;
   top: -35px;
   border: 2px solid $anthracite;
+}
+
+.participation-card-content {
+  position: relative;
+}
+
+.category-pic-participation-show {
+  width: 75px !important;
+  position: absolute !important;
+  border: 2px solid $anthracite !important;
+  display: inline-block;
+  top: -90px;
+  right: 33vw;
 }
 
 .quest-description {
@@ -76,7 +89,7 @@ section {
       text-align: center;
       color: #FFFFFF;
       width: 90%;
-      height: 450px;
+      height: 315px;
       transition: 0.6s;
       transform-style: preserve-3d;
       position: relative;

@@ -1,47 +1,43 @@
-<div class='d-flex justify-content-center'><h1 class=''>My participations</h1></div>
-<div class="contact-area">
-<% @participations.each do |participation| %>
-<div class="contact-area">
-  <div class="contact">
-    <main>
-      <section>
-        <div class="content">
+<div class='d-flex justify-content-center'>
+  <h1 class='my-participations-h1 mt-4'>My participations</h1>
+  </div>
+  <div class="contact-area">
+  <% @participations.each do |participation| %>
+  <div class="contact-area">
+    <div class="contact">
+      <main>
+        <section>
+          <div class="content">
+            <aside id="participation-card-content">
+              <%= image_tag(participation.quest.category.picture, class:"rounded-circle bg-light p-2 category-pic-participation-show", id:"avatar-participation") %>
+              <h1><%= participation.quest.title %></h1>
+              <%= participation.quest.begin_on.strftime("%d/%m/%Y") %>
+              <p>Status: <%= participation.quest.progress %></p>
+            </aside>
 
-          <aside>
-            <h1><%= participation.quest.title %></h1>
-            <p><%= participation.quest.description %></p>
-          </aside>
+            <button>
+              <span>Actions</span>
+              <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48"> <g class="nc-icon-wrapper" fill="#444444"> <path d="M14.83 30.83L24 21.66l9.17 9.17L36 28 24 16 12 28z"></path> </g> </svg>
+            </button>
+          </div>
+        </section>
+      </main>
 
-          <button>
-            <span>Actions</span>
-            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48"> <g class="nc-icon-wrapper" fill="#444444"> <path d="M14.83 30.83L24 21.66l9.17 9.17L36 28 24 16 12 28z"></path> </g> </svg>
-          </button>
-        </div>
+      <div class="links">
+        <nav>
+            <%= link_to  'See quest', quest_path(participation.quest) %>
+        </nav>
+        <% if participation.quest.progress == 'Finished' %>
+          <nav>
+              <%= link_to  'Send a review', "#" %>
+          </nav>
+        <% else %>
+          <nav>
+              <%= link_to  'Cancel participation', participations_path(participation), method: :delete, class: 'card-elements', data: { confirm: "Are you sure?" } %>
+          </nav>
+        <% end %>
 
-        <div class="title"><p>details</p></div>
-      </section>
-
-
-    </main>
-
-    <div class="links">
-      <nav>
-          <%= link_to 'Edit' ,  edit_questmaster_quest_path(participation), class: 'card-elements' %>
-      </nav>
-      <nav>
-          <%= link_to  'Delete', questmaster_quest_path(participation), method: :delete, class: 'card-elements', data: { confirm: "Are you sure?" } %>
-      </nav>
-      <nav>
-          <%= link_to 'Mark as over' ,  questmaster_quest_path(participation, participation: { progress: "Finished"}), method: :patch, class: 'card-elements' %>
-      </nav>
+      </div>
     </div>
   </div>
-  </div>
 <% end %>
-
-
-<%# @participations.each do |participation| %>
-  <%# if participation.quest_id == participation.id %>
-    <%#= link_to 'Review participations',  new_questmaster_quest_participation_review_path(participation, participation),class: 'validation' %>
-  <%# end %>
-<%# end %>
