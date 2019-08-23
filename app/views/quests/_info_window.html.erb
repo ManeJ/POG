@@ -8,16 +8,18 @@
           <p><%= quest.category.name %></p>
         </div>
         <%= link_to quest_participations_path(quest), method: :post do %>
-        <div class="d-flex justify-content-center align-items-center quest-info">
-            <i class="fas fa-seedling"></i>
-        </div>
+          <div class="d-flex justify-content-center align-items-center quest-info">
+              <i class="fas fa-seedling"></i>
+          </div>
         <% end %>
       </div>
     </div>
   </div>
   <div class="inside">
     <%= link_to quests_path, class:"icon" do %>
-      <i class="fas fa-stream"></i>
+      <div class="d-flex justify-content-center align-items-center">
+        <i class="fas fa-stream"></i>
+      </div>
     <% end %>
     <div class="contents">
       <table>
