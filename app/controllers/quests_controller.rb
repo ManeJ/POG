@@ -9,6 +9,7 @@ class QuestsController < ApplicationController
       {
         lat: quest.latitude,
         lng: quest.longitude,
+        infoWindow: render_to_string(partial: "info_window", locals: { quest: quest }),
         image_url: helpers.asset_url(quest.category.picture)
       }
     end
