@@ -38,13 +38,16 @@ class Questmaster::QuestsController < ApplicationController
   def update
     @quest = Quest.find(params[:id])
     @participations = @quest.participations
-    @participations.each do |participation|
-      if participation.user.xp != nil
-        participation.user.xp =  participation.user.xp + @quest.category.xp
-      else
-        participation.user.xp = @quest.category.xp
-        participation.user
-        participation.user.update(email: participation.user.email, first_name: participation.user.first_name, last_name: participation.user.last_name, username: participation.user.username, role: participation.user.role, telephone: participation.user.telephone, photo: participation.user.photo , entity_photo: participation.user.entity_photo, xp: participation.user.xp, level: participation.user.level)
+    @quest.update(quest_params)
+    if @quest.progress == "Finished"
+      @participations.each do |participation|
+        if participation.user.xp != nil
+          participation.user.xp =  participation.user.xp + @quest.category.xp
+        else
+          participation.user.xp = @quest.category.xp
+          participation.user
+          participation.user.update(email: participation.user.email, first_name: participation.user.first_name, last_name: participation.user.last_name, username: participation.user.username, role: participation.user.role, telephone: participation.user.telephone, photo: participation.user.photo , entity_photo: participation.user.entity_photo, xp: participation.user.xp, level: participation.user.level)
+        end
       end
     end
 
