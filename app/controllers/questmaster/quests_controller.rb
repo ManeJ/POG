@@ -3,13 +3,6 @@ class Questmaster::QuestsController < ApplicationController
   def index
     @quests = current_user.quests
     @participations = Participation.all
-    @geocoded_quests = Quest.geocoded
-    @markers = @geocoded_quests.map do |quest|
-      {
-        lat: quest.latitude,
-        lng: quest.longitude
-      }
-    end
     @review = Review.new
   end
 
@@ -25,7 +18,7 @@ class Questmaster::QuestsController < ApplicationController
     @quest = Quest.new(quest_params)
     @quest.user = @user
     if @quest.save
-      redirect_to questmaster_quest_path(@quest)
+      redirect_to questmaster_quests_path(@quest)
     else
       render :new
     end
@@ -41,13 +34,8 @@ class Questmaster::QuestsController < ApplicationController
     @quest.update(quest_params)
     if @quest.progress == "Finished"
       @participations.each do |participation|
-        if participation.user.xp != nil
-          participation.user.xp =  participation.user.xp + @quest.category.xp
-        else
-          participation.user.xp = @quest.category.xp
-          participation.user
-          participation.user.update(email: participation.user.email, first_name: participation.user.first_name, last_name: participation.user.last_name, username: participation.user.username, role: participation.user.role, telephone: participation.user.telephone, photo: participation.user.photo , entity_photo: participation.user.entity_photo, xp: participation.user.xp, level: participation.user.level)
-        end
+        participation.user.xp = participation.user.xp + @quest.category.xp
+        participation.user.save
       end
     end
 
