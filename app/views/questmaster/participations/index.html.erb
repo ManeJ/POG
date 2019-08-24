@@ -11,7 +11,7 @@
           <div class="d-flex justify-content-center" id="user-participation-review">
             <div class="d-flex flex-column align-items-center">
               <div>
-                <% participation.user_review.rating.to_i.times do  %>
+                <% participation.user_review.rating.times do  %>
                   <%= image_tag('rating-color.png') %>
                 <% end %>
                 <% participation.user_review.blank_stars.times do %>

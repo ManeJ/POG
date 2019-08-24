@@ -39,10 +39,13 @@
     <div class="links">
       <% if quest.progress == "Finished" %>
         <nav>
-            <% if quest.participations.any? { |p| p.user_review_id.nil? } %>
-              <%= link_to 'Make a global review',  new_questmaster_quest_review_path(quest), class: 'card-elements' %>
+            <% if quest.participations.any? { |participation| participation.user_review_id.nil? } %>
+              <%= link_to 'Make a global review', new_questmaster_quest_review_path(quest), class: 'card-elements' %>
             <% else %>
               <a href="#">Global review already sent</a>
+            <% end %>
+            <% if quest.participations.any? { |participation| participation.quest_review_id != nil } %>
+              <%= link_to 'See reviews I got', questmaster_quest_reviews_path(quest), class: 'card-elements' %>
             <% end %>
         </nav>
       <% elsif quest.progress == "Cancelled" %>
@@ -61,7 +64,6 @@
               <%= link_to 'Mark as over', questmaster_quest_path(quest, quest: { progress: "Finished"}), method: :patch, class: 'card-elements' %>
           </nav>
         <% end %>
-
       <% end %>
     </div>
   </div>

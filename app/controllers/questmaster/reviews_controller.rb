@@ -1,7 +1,11 @@
 class Questmaster::ReviewsController < ApplicationController
   before_action :set_review, only: [:edit, :update]
-  before_action :set_quest, only: [:new, :create, :edit]
+  before_action :set_quest, only: [:new, :create, :edit, :index]
   before_action :set_participation, only: [:edit, :update]
+
+  def index
+    @participations = Participation.where(quest_id: @quest.id)
+  end
 
   def new
     @review = Review.new

@@ -36,9 +36,18 @@
         <% if participation.quest.progress == 'Finished' %>
           <% if participation.quest_review_id.nil? %>
             <nav>
-                <%= link_to 'Send a review', new_participation_review_path(participation) %>
+              <%= link_to 'Send a review', new_participation_review_path(participation) %>
+            </nav>
+          <% else %>
+            <nav>
+              <%= link_to 'See the review I sent', participation_review_path(participation, participation.quest_review_id) %>
             </nav>
           <% end %>
+        <% if participation.user_review_id != nil %>
+          <nav>
+            <%= link_to 'See the review I got', '#' %>
+          </nav>
+        <% end %>
         <% elsif participation.quest.progress != 'Cancelled' %>
           <nav>
               <%= link_to 'Cancel participation', participation_path(participation), method: :delete, class: 'card-elements', data: { confirm: "Are you sure?" } %>

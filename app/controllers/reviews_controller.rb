@@ -5,6 +5,8 @@ class ReviewsController < ApplicationController
   end
 
   def show
+    @participation = Participation.find(params[:participation_id])
+    @quest = Quest.find(@participation.quest.id)
   end
 
   def new

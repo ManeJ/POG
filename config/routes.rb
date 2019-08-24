@@ -4,21 +4,21 @@ Rails.application.routes.draw do
   root to: 'pages#home'
   resources :quests, only: [:index, :show] do
     resources :participations, only: :create do
-      resources :reviews, only: :create
+      resources :reviews, only: [:create]
     end
   end
 
   namespace :questmaster do
     resources :quests do
-      resources :reviews, only: [:new, :create]
+      resources :reviews, only: [:new, :create, :index]
       resources :participations, except: [:show, :new, :create, :edit, :destroy, :update, :new] do
-        resources :reviews, only: [:index, :edit, :update]
+        resources :reviews, only: [:edit, :update]
       end
     end
   end
 
   resources :participations, only: [:index, :show, :destroy] do
-	resources :reviews, only: [:new]
+	resources :reviews, only: [:new, :show]
 end
 
 

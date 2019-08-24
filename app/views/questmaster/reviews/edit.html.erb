@@ -1,5 +1,5 @@
 <div class="d-flex justify-content-center flex-column mt-5 align-items-center">
-  <h2 class="mb-4">Review update for "<%= @quest.user.username %>"</h2>
+  <h2 class="mb-4">Review update for "<%= @participation.user.username %>"</h2>
   <p>Related quest: "<%= @quest.title %>"</p>
 
   <div class="global-review-container">
@@ -15,10 +15,10 @@
       </div>
     <% end %>
   </div>
-  <% if @quest.participations.count > 1 && @quest.participations.last != @participation %>
-    <%= link_to "Next participant", "#", class: "mt-3"  %>
-  <% end %>
-  <%= link_to "Back to participants for #{@quest.title}",  questmaster_quest_participations_path(@quest), class: "mt-3" %>
+<!--   <#% if @quest.participations.count > 1 && @quest.participations.last != @participation %>
+    <%#= link_to "Next participant", "#", class: "mt-3"  %>
+  <%# end %> -->
+  <%= link_to "Back to participants for #{@quest.title}", questmaster_quest_participations_path(@quest), class: "mt-3" %>
   <%= link_to "Back to my quests", questmaster_quests_path, class: "mt-3" %>
 
 </div>
