@@ -3,7 +3,9 @@ Rails.application.routes.draw do
   get '/profile', to: 'pages#profile'
   root to: 'pages#home'
   resources :quests, only: [:index, :show] do
-    resources :participations, only: :create
+    resources :participations, only: :create do
+      resources :reviews, only: :create
+    end
   end
 
   namespace :questmaster do
@@ -16,7 +18,7 @@ Rails.application.routes.draw do
   end
 
   resources :participations, only: [:index, :show, :destroy] do
-	resources :reviews, only: [:new, :create]
+	resources :reviews, only: [:new]
 end
 
 

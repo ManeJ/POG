@@ -1,5 +1,5 @@
 class ReviewsController < ApplicationController
-  before_action :set_reviews, only: [:show, :edit, :update]
+  before_action :set_review, only: [:show, :edit, :update]
 
   def index
   end
@@ -8,9 +8,21 @@ class ReviewsController < ApplicationController
   end
 
   def new
+    @participation = Participation.find(params[:participation_id])
+    @quest = @participation.quest
+    @review = Review.new
   end
 
   def create
+    @review = Review.new(review_params)
+    @participation = Participation.find(params[:participation_id])
+    if @review.save
+      @participation.quest_review_id = @review.id
+      @participation.save
+      redirect_to participations_path
+    else
+      render :new
+    end
   end
 
   def edit
@@ -23,7 +35,6 @@ class ReviewsController < ApplicationController
 
   def set_review
     @review = Review.find(params[:id])
-    authorize(@review)
   end
 
   def review_params
