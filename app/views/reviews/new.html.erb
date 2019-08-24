@@ -1,0 +1,20 @@
+<div class="d-flex justify-content-center flex-column mt-5 align-items-center">
+  <h2 class="mb-4">Review for "<%= @quest.title %>"</h2>
+
+  <div class="global-review-container">
+    <p>Quest rating</p>
+    <%= simple_form_for([@quest, @review], url: quest_participation_reviews_path(@quest, @participation), method: :post) do |f| %>
+      <%= f.error_notification %>
+      <%= f.collection_radio_buttons :rating, [[1], [2], [3], [4], [5]], :first, :last, item_wrapper_tag: false, boolean_style: :inline do |b| %>
+          <%= b.radio_button + b.label {image_tag("rating-#{b.text}.png")} %>
+      <% end %>
+      </br></br>
+      <%= f.input :content, label: "Comment", hint: "200 characters max." %>
+      <div class="d-flex justify-content-center">
+        <%= f.button :submit, "Send review", class:"btn btn-primary" %>
+      </div>
+    <% end %>
+  </div>
+  <%= link_to "Back to my participations", participations_path, class: "mt-3" %>
+</div>
+

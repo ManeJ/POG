@@ -1,5 +1,5 @@
 class Questmaster::QuestsController < ApplicationController
-  before_action :set_quest, only: [:show, :update]
+  before_action :set_quest, only: [:show, :edit, :update, :destroy]
   def index
     @quests = current_user.quests
     @participations = Participation.all
@@ -25,11 +25,9 @@ class Questmaster::QuestsController < ApplicationController
   end
 
   def edit
-    @quest = Quest.find(params[:id])
   end
 
   def update
-    @quest = Quest.find(params[:id])
     @participations = @quest.participations
     @quest.update(quest_params)
     if @quest.progress == "Finished"
@@ -43,7 +41,6 @@ class Questmaster::QuestsController < ApplicationController
   end
 
   def destroy
-    @quest = Quest.find(params[:id])
     @quest.destroy
     redirect_to questmaster_quests_path
   end
