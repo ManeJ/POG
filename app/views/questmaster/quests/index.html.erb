@@ -37,21 +37,32 @@
     </main>
 
     <div class="links">
-      <% unless quest.progress == "Finished" %>
+      <% if quest.progress == "Finished" %>
+        <nav>
+            <% if quest.participations.any? { |p| p.user_review_id.nil? } %>
+              <%= link_to 'Make a global review',  new_questmaster_quest_review_path(quest), class: 'card-elements' %>
+            <% else %>
+              <a href="#">Global review already sent</a>
+            <% end %>
+        </nav>
+      <% elsif quest.progress == "Cancelled" %>
+        <nav>
+          <a href="#">No action available</a>
+        </nav>
+      <% else %>
         <nav>
             <%= link_to 'Edit',  edit_questmaster_quest_path(quest), class: 'card-elements' %>
         </nav>
         <nav>
             <%= link_to  'Cancel', questmaster_quest_path(quest, quest: { progress: "Cancelled"}), method: :patch, class: 'card-elements', data: { confirm: "Are you sure?" } %>
         </nav>
-        <nav>
-            <%= link_to 'Mark as over' ,  questmaster_quest_path(quest,quest , quest: { progress: "Finished"}), method: :patch, class: 'card-elements' %>
-        </nav>
-      <% end %>
-      <nav>
-          <%= link_to 'Review participations',  new_questmaster_quest_review_path(quest), class: 'card-elements' %>
-      </nav>
+        <% if quest.participations.any? %>
+          <nav>
+              <%= link_to 'Mark as over', questmaster_quest_path(quest, quest: { progress: "Finished"}), method: :patch, class: 'card-elements' %>
+          </nav>
+        <% end %>
 
+      <% end %>
     </div>
   </div>
   </div>
