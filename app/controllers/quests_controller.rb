@@ -4,7 +4,7 @@ class QuestsController < ApplicationController
 
   def index
     @quests = Quest.all
-    @geocoded_quests = Quest.geocoded
+    @geocoded_quests = Quest.geocoded.where.not(progress: ["Finished", "Cancelled"], user: current_user)
     @markers = @geocoded_quests.map do |quest|
       {
         lat: quest.latitude,
