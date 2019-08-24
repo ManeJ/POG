@@ -18,7 +18,7 @@ class Questmaster::QuestsController < ApplicationController
     @quest = Quest.new(quest_params)
     @quest.user = @user
     if @quest.save
-      redirect_to questmaster_quests_path(@quest)
+      redirect_to questmaster_quests_path
     else
       render :new
     end
