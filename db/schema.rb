@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_23_102443) do
+ActiveRecord::Schema.define(version: 2019_08_24_081553) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,7 +27,7 @@ ActiveRecord::Schema.define(version: 2019_08_23_102443) do
     t.string "picture"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "xp", default: 0
+    t.integer "xp"
   end
 
   create_table "participations", force: :cascade do |t|
@@ -42,7 +42,7 @@ ActiveRecord::Schema.define(version: 2019_08_23_102443) do
   end
 
   create_table "quests", force: :cascade do |t|
-    t.string "description"
+    t.text "description"
     t.string "mode"
     t.integer "people_wanted", default: 1
     t.bigint "category_id"
@@ -82,7 +82,7 @@ ActiveRecord::Schema.define(version: 2019_08_23_102443) do
     t.string "telephone"
     t.string "photo"
     t.string "entity_photo"
-    t.integer "xp"
+    t.integer "xp", default: 0
     t.string "level"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
