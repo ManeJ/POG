@@ -40,7 +40,6 @@ class QuestsController < ApplicationController
 
   def set_quest
     @quest = Quest.find(params[:id])
-    # authorize(@quest) > inutile cf n'avons pas encore Pundit
   end
 
   def quest_params

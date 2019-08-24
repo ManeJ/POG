@@ -5,4 +5,8 @@ class Review < ApplicationRecord
   def blank_stars
     5 - rating.to_i
   end
+
+  def editable?
+    return true if (Time.now - created_at) < (24*60*60)
+  end
 end
