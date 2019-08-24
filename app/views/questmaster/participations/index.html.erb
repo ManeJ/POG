@@ -21,9 +21,11 @@
               <div>
                 <%= participation.user_review.content %>
               </div>
-              <div>
-                <%= link_to "Custo review", "#", class:"btn btn-primary" %>
-              </div>
+              <% if participation.user_review.editable? %>
+                <div>
+                  <%= link_to "Custo review", edit_questmaster_quest_participation_review_path(participation.quest, participation, participation.user_review), class:"btn btn-primary" %>
+                </div>
+              <% end %>
             </div>
           </div>
         <% end %>
