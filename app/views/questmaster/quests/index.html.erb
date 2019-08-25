@@ -12,6 +12,15 @@
           <aside>
             <h1><%= quest.title %></h1>
             <p><%= quest.description %></p>
+            <% if quest.participations.any? { |participation| participation.quest_review_id != nil } %>
+              <% quest.average_rating.times do  %>
+                <%= image_tag('rating-color.png', class:"rating_ico") %>
+              <% end %>
+              <% (5 - quest.average_rating).times do %>
+                <%= image_tag('rating-color.png', id:"blank_star", class:"rating_ico") %>
+              <% end %>
+
+            <% end %>
           </aside>
             <a id='details' style="color:white; text-align:center" class = 'more'>More Details</a>
             <div class='text-white' id='more'>
