@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   get '/profile', to: 'pages#profile'
   root to: 'pages#home'
   resources :quests, only: [:index, :show] do
-    resources :participations, only: :create do
+    resources :participations, only: [:create] do
       resources :reviews, only: [:create]
     end
   end
@@ -18,8 +18,9 @@ Rails.application.routes.draw do
   end
 
   resources :participations, only: [:index, :show, :destroy] do
-	resources :reviews, only: [:new, :show]
-end
+	  resources :reviews, only: [:new, :show]
+    get 'result', to: 'participations#result'
+  end
 
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

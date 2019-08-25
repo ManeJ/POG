@@ -45,7 +45,7 @@
           <% end %>
         <% if participation.user_review_id != nil %>
           <nav>
-            <%= link_to 'See the review I got', '#' %>
+            <%= link_to 'See the review I got', participation_result_path(participation) %>
           </nav>
         <% end %>
         <% elsif participation.quest.progress != 'Cancelled' %>

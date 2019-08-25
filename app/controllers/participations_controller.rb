@@ -8,6 +8,12 @@ class ParticipationsController < ApplicationController
   def show
   end
 
+  def result
+    @participation = Participation.find(params[:participation_id])
+    @quest = @participation.quest
+    @review = Review.find(@participation.user_review_id)
+  end
+
   def create
     @user = current_user
     @quest = Quest.find(params[:quest_id])

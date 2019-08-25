@@ -20,8 +20,8 @@ class Questmaster::ReviewsController < ApplicationController
       else
         render :new
       end
-    redirect_to questmaster_quest_participations_path(@quest) and return #voir note en bas de code
     end
+    redirect_to questmaster_quest_participations_path(@quest)
   end
 
   def edit
@@ -55,6 +55,6 @@ class Questmaster::ReviewsController < ApplicationController
   end
 end
 
-# "and return" resoud le probleme qui empechait parfois les global reviews
+# tip : mettre "and return" si un redirect_to foire (double render error)
 # "redirect_to does not stop execution of the action method so if you call it
 # and later call render or another redirect_to you will get the double render exception"
