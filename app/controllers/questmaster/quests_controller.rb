@@ -1,5 +1,5 @@
 class Questmaster::QuestsController < ApplicationController
-  before_action :set_quest, only: [:show, :edit, :update, :destroy]
+  before_action :set_quest, only: [:show, :edit, :update]
   def index
     @quests = current_user.quests
     @participations = Participation.all
