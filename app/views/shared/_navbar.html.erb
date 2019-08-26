@@ -1,6 +1,6 @@
 <div class="navbar navbar-pog">
-    <div class="navbar-main">
-      <div class="navbar-logo col-4">
+    <div class="navbar-main d-flex justify-content-between">
+      <div class="navbar-logo">
           <%= link_to quests_path, class: "navbar-brand" do %>
           <div id="logo-letters-ico">
           <h1 class="POG-navbar">P</h1>
@@ -9,8 +9,42 @@
           </div>
           <% end %>
       </div>
+
+      <div class="d-flex justify-content-end">
+        <div class="flex-column align-items-center justify-content-center player-info">
+            <%= image_tag("level.png", size: "45x45") %>
+            <p class="mb-0">LEVEL <%= current_user.level %></p>
+        </div>
+        <div class="flex-column align-items-center justify-content-center player-info">
+            <%= image_tag("xp.png", size: "45x45") %>
+            <p class="mb-0"><%= current_user.xp %> XP</p>
+        </div>
+      </div>
     </div>
   </div>
 
 
-
+  <!-- <div class="row" id="test">
+    <div class="col-2">
+    </div>
+    <div class="col-5 player-info">
+      <div class="row flex-column align-items-center justify-content-center">
+        <div class="col-4 p-0">
+          <%#= image_tag("level.png", size: "45x45") %>
+        </div>
+        <div class="col-8 p-0">
+          <p class="mb-0">LEVEL <%= current_user.level %></p>
+        </div>
+      </div>
+    </div>
+    <div class="col-5 player-info">
+      <div class="row flex-column align-items-center justify-content-center">
+        <div class="col-6 p-0">
+          <%#= image_tag("xp.png", size: "45x45") %>
+        </div>
+        <div class="col-6 p-0">
+          <p class="mb-0"><%= current_user.xp %> XP</p>
+        </div>
+      </div>
+    </div>
+  </div> -->

@@ -7,11 +7,13 @@
       <span></span> <!-- Ne pas effacer !  -->
 
       <ul id="menu-footer">
-        <a href="#"><li>Home</li></a>
-        <a href="#"><li>About</li></a>
-        <a href="#"><li>Info</li></a>
-        <a href="#"><li>Contact</li></a>
-        <a href="https://erikterwan.com/" target="_blank"><li>Show me more</li></a>
+        <li><%= image_tag(current_user.photo, size: "50x50") %>
+          <%= current_user.username %></li>
+        <li><%= link_to "My profile",  profile_path %></li>
+        <li><%= link_to "My participations", participations_path %></li>
+        <li><%= link_to "My quests", questmaster_quests_path%></li>
+        <li><%= link_to "Launch a quest", new_questmaster_quest_path %></li>
+        <li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
       </ul>
     </div>
   </div>
