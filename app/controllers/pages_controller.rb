@@ -6,4 +6,7 @@ class PagesController < ApplicationController
 
   def profile
   end
+
+  def error_404
+  end
 end
