@@ -11,3 +11,38 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
+
+
+// CSS for application.html.erb
+
+body, html {
+  height: 100%
+}
+
+#app-structure { // conteneur général
+  width: 100vw;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: around;
+}
+
+#navbar-pog { // conteneur navbar
+  // voir component
+}
+
+#app-content { // conteneur contenu de l'app
+  height: 80%;
+  flex: 3;
+}
+
+#footer-pog { // conteneur footer
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 10vh;
+  // voir component pour le style du contenu du footer
+}

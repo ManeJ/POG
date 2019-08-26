@@ -41,5 +41,3 @@ $(".flipper").click(function() {
   }
   return false;
 });
-
-// RATING
