@@ -16,7 +16,7 @@
         text-align: center;
         font-size: 2.4rem;
         font-family: 'Indie Flower', cursive;
-        color: $gris;
+        color: black;
         font-weight: bold;
     }
 }
@@ -54,8 +54,8 @@
 }
 
 #home-container {
-    background-color: $gris;
-    color: white;
+    background-color: white;
+    color: black;
     height: 100vh;
 }
 
@@ -126,24 +126,24 @@
 
 
 .orange #home-button { // Couleur de base
-    color: $orange;
+    color: $canard;
     border-color: $vert;
 }
 
 .orange #home-button:before, // Couleur de base
 .orange #home-button:after {
-    border-color: $orange
+    border-color: $orange;
 }
 
 .orange #home-button:hover:before,
 .orange #home-button:hover:after {
-    border-color: $vert;
+    border-color: $orange;
 }
 
 .orange #home-button:hover {
     color: white;
-    background-color: transparent;
-    border-color: $orange;
+    background-color: $canard;
+    border-color: $canard;
 }
 
 .orange .panel {
