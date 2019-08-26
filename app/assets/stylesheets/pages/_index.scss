@@ -4,5 +4,9 @@
 // CSS pour toute l'app
 
 .container .app-content-inside { // conteneur cf. grid
+  height: 80vh;
+}
 
+.nav-space, .footer-space {
+  height: 10vh;
 }

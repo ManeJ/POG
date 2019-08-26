@@ -62,14 +62,12 @@
     height: 100vh;
 }
 
+
 // BOUTONS CALL FOR ACTION
 .home-links:hover {
   text-decoration: none;
 }
 
-.home-sign {
-  color: $canard;
-}
 // REACH A HAND
 
 $button-width:220px;
@@ -283,6 +281,24 @@ $button2-color: $orange;
 .frills2:after {
   top:$frill-vert-space;
 }
+
+// LIENS SIGN-IN / UP
+.home-sign {
+  color: $canard;
+  font-size: 1.6rem;
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+#vertical-line {
+  font-size: 2.5rem;
+  color: $gris;
+  font-weight: lighten;
+  margin-bottom: 0;
+}
+
+
 
 // ANCIEN DESIGN :
 
