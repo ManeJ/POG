@@ -1,42 +1,47 @@
 <div class="container app-content-inside" id="home-container">
-  <div class="row">
+  <div class="row pt-5">
     <div class="col mt-5">
       <div class="logo-home">
         <%= image_tag('logo-pog.png', id:"logo-home", border:"0") %>
         <h1>People of Gaïa</h1>
-        <p class="text-center" id="moto">Change is NOW.</p>
+        <p class="text-center" id="moto">Where will and need for action meet</p>
       </div>
     </div>
   </div>
   <div class="row">
     <div class="col mt-5">
         <div id="call-for-action">
-          <p>Act for a better tomorrow</p>
-          <div class="panel orange pb-0">
-            <%= link_to quests_path do %>
-              <button id="home-button">Find your next quest</button>
+          <div class="fancy-button">
+            <div class="left-frills frills"></div>
+            <%= link_to quests_path, class:"home-links" do %>
+              <div class="button-home">Reach a hand</div>
             <% end %>
+            <div class="right-frills frills"></div>
           </div>
         </div>
     </div>
   </div>
-</div>
-
-
-
-<!-- AVANT REFONTE -->
-<!--   <div class="container home mt-5">
-    <div class="logo">
-      <%#= image_tag('1.ico', id:"logo", border:"0") %>
-      <h1>People of Gaïa</h1>
-      <p class="text-center" id="moto">There is no change postponing</p>
+  <div class="row">
+    <div class="col mt-5">
+        <div class="d-flex justify-content-center">
+          <div class="fancy-button2">
+            <div class="left-frills frills2"></div>
+            <%= link_to new_questmaster_quest_path, class:"home-links" do %>
+              <div class="button-home-2">Ask for help</div>
+            <% end %>
+            <div class="right-frills frills2"></div>
+          </div>
+        </div>
     </div>
-    <div class="home-content mt-5">
-      <div id="call-for-action">
-        <p>Act for a better tomorrow</p>
-        <a class="btn btn-primary py-2 px-3" href="/quests">Find a quest</a>
+  </div>
+  <div class="row">
+    <div class="col mt-5">
+      <div class="d-flex justify-content-center">
+        <%= link_to "Sign-up", new_user_registration_path, class:"home-links home-sign mr-2" %>
+          <p>  |  </p>
+        <%= link_to "Sign-in", new_user_session_path, class:"home-links home-sign ml-2" %>
       </div>
     </div>
-  </div> -->
-
+  </div>
+</div>
 

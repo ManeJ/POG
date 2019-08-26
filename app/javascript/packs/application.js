@@ -41,3 +41,23 @@ $(".flipper").click(function() {
   }
   return false;
 });
+
+// BOUTONS CALL FOR ACTION HOMEPAGE
+$(function(){
+  $(".fancy-button").mousedown(function(){
+    $(this).bind('animationend webkitAnimationEnd MSAnimationEnd oAnimationEnd', function(){
+        $(this).removeClass('active');
+    })
+     $(this).addClass("active");
+  });
+});
+
+$(function(){
+  $(".fancy-button2").mousedown(function(){
+    $(this).bind('animationend webkitAnimationEnd MSAnimationEnd oAnimationEnd', function(){
+        $(this).removeClass('active');
+    })
+     $(this).addClass("active");
+  });
+});
+
