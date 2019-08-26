@@ -22,6 +22,10 @@ Rails.application.routes.draw do
     get 'result', to: 'participations#result'
   end
 
+<<<<<<< HEAD
+=======
+  get 'rewards', to:'pages#rewards'
+>>>>>>> parent of 5ac80c8... 404. needed to be transposed in the proper file
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
