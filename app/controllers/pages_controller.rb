@@ -6,4 +6,8 @@ class PagesController < ApplicationController
 
   def profile
   end
+
+  def rewards
+  end
+
 end

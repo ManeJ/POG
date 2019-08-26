@@ -36,6 +36,18 @@ class QuestsController < ApplicationController
   def validate
   end
 
+  def search
+    if params[:query].present?
+      @quests = Quest.includes(:category).where("categories.name ILIKE ?", "%#{params[:query]}%").references(:category)
+      if @geocoded_quests == []
+        @quests = Quest.where("address ILIKE ?", "%#{params[:query]}%")
+      end
+      # @quests = Quest.where("mode ILIKE ?", "%#{params[:query]}%").where.not(progress: ["Finished", "Cancelled"], user: current_user)
+    else
+      @quests = Quest.all
+    end
+  end
+
   private
 
   def set_quest

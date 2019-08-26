@@ -22,6 +22,8 @@ Rails.application.routes.draw do
     get 'result', to: 'participations#result'
   end
 
+  get '/search', to:'quests#search', as: 'search'
+  get 'rewards', to:'pages#rewards'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
