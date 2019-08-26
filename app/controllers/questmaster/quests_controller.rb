@@ -35,6 +35,7 @@ class Questmaster::QuestsController < ApplicationController
         participation.user.xp = participation.user.xp + @quest.category.xp
         participation.user.save
       end
+    level_up
     end
 
     redirect_to questmaster_quests_path
@@ -50,6 +51,28 @@ class Questmaster::QuestsController < ApplicationController
   end
 
   private
+
+  def level_up
+    @participations = @quest.participations
+    @quest.update(quest_params)
+    @participations.each do |participation|
+      if participation.user.xp > 100
+        participation.user.level = 2
+        participation.user.save
+      elsif participation.user.xp > 300
+        participation.user.level = 3
+        participation.user.save
+      elsif participation.user.xp > 600
+        participation.user.level = 4
+        participation.user.save
+      elsif participation.user.xp > 1000
+        participation.user.level = 5
+        participation.user.save
+      end
+    end
+  end
+
+
 
   def set_quest
     @quest = Quest.find(params[:id])
