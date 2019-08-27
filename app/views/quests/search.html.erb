@@ -1,20 +1,18 @@
- <div class="row nav-space"></div>
- <div class="row">
-  <div id="quests-index">
-    <div id="map-or-list">
-          <a class="btn btn-ghost" id="map-display">Map</a>
-          <a class="btn btn-ghost" id="list-display">List</a>
-    </div>
-    <div
-      id="map"
-      style="width: 100%;
-      height: 740px;"
-      data-markers="<%= @markers.to_json %>"
-      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
-    </div>
-    <div id="list">
-      <%  @quests.each do |quest| %>
-      <section class="custom">
+<%= form_tag search_path, method: :get do |f| %>
+    <%= text_field_tag :query,
+      params[:query],
+      class: "form-design form-control",
+      placeholder: "Search", collection: ["Animal rights", "Charity", "Disabled people", "Elderly people", "Environment"]
+    %>
+    <% end %>
+
+<% if @quests == [] %>
+  <p>Sorry, we can't find your research. Try a wider research please</p>
+<% elsif @quests == Quest.all %>
+<p>Find the mission in the category your want</p>
+<% else %>
+  <% @quests.each do |quest| %>
+    <section class="custom">
       <div class="flipper mt-3 d-flex justify-content-center">
         <div class="card">
           <div class="front">
@@ -77,7 +75,6 @@
         </div>
       </div>
     </section>
-    <% end %>
-  </div>
-</div>
-<div class="row footer-space"></div>
+  <% end %>
+<% end %>
+

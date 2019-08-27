@@ -1,122 +1,70 @@
-.avatar {
-  margin-top: 1rem;
-  width: 3rem;
-}
-
-.dropdow-item {
-  padding: 0.5rem 1.5rem;
-}
-
-.nav-action-link {
-  display: flex;
-  margin-right: 16px;
-}
-
-.navbar-collapse {
-  position: absolute;
-  color: black;
-  top: 3rem;
-  right: -20rem;
-  background: $yellow;
-  opacity: 0.98;
-  transition: 0.5s;
-
-  ul {
-    display :block;
-    justify-content : center;
-    align-items: center;
-  }
-
-  a:hover {
-    font-weight: 500;
-  }
-
-  a {
-    color: white;
-    font-size: 1rem;
-    font-weight: bold;
-  }
-}
-
-.navbar-collapse.show {
-  right: 1rem;
-  top: 4.5rem;
-  z-index: 3000;
-}
-
-.navbar-logo {
-  padding-Left: 2rem;
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-}
-#logo {
-  grid-column: 3 / span 1;
+.navbar-pog {
+    background: white;
+    color: black;
+    z-index: 3000;
+    position: fixed;
+    width: 100vw;
+    height: 10vh;
 }
 
 .navbar-main {
-  display: flex;
-  justify-content: center;
+    display: flex;
+    // justify-content: between;
+    align-items: center;
+    height: 100%;
+    width: 100vw;
 }
 
-.navbar-pog {
-  display: block;
-  background: white;
-  color: black;
-  z-index: 3000;
+.navbar-logo {
+    height: 100%;
+    padding: 0;
 }
 
-.navbar-pog .navbar-brand {
-  width: 40px;
+#logo-letters-ico {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    margin-top: 0.4rem;
 }
 
-.navbar-pog .navbar-brand img {
-
-  width: 48px;
-}
-.navbar-pog .nav-item-logo img {
-  width: 28px;
-}
-
-.navbar-pog .nav-item {
-  margin-left: 8px;
+.POG-navbar {
+    color: black;
+    font-size: 3.6rem;
+    height: 100%;
+    width: 100%;
+    margin-bottom: 0;
+    padding: 0;
 }
 
-// #navbarDropdown {
-//   margin-left: 16px;
+.navbar-brand {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+}
+
+#logo-navbar {
+    height: 80%;
+    margin-bottom: 0.7rem;
+}
+
+// #progress-bar {
+//   width: 80%;
 // }
 
-.navbar-pog .nav-title {
-  margin-right: auto;
-}
-
-.navbar-pog .nav-title h1 {
-  margin: auto;
-  font-size: 36px;
-}
-
-.navbar-toggler {
-  margin-top: 0.5rem;
-  height: 48px;
-}
-
-#navbar-links {
-  display: flex;
-}
-
-.menu-links {
-  display: flex;
-  list-style-type: none;
-  justify-content: space-around;
-}
-
-@media(max-width:720px){
-  .menu {
-    display: none;
+.player-info {
+  // font-size: 1.8rem;
+  // font-weight: bolder;
+  // text-align: center;
+  // padding-top: 0;
+  // // font-family: 'Permanent Marker', cursive;
+  // width: 22vw;
+  h3 {
+    // font-family: 'Indie Flower', cursive;
+    font-family: 'Londrina Solid', cursive;
+    font-size: 2rem;
+    font-weight: 300;
   }
+  justify-self: end;
 }
 
-#navbarSupportedContent {
-  margin-top: 20px;
-  height: 100vh;
-  width: 60vw;
-}

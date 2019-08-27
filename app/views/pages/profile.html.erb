@@ -1,36 +1,40 @@
-<div class="col-xs-12 col-sm-6 col-md-4 mt-4">
-                <div class="image-flip" ontouchstart="this.classList.toggle('hover');">
-                    <div class="mainflip">
-                        <div class="frontside">
-                            <div class="card">
-                                <div class="card-body text-center mt-4">
-                                    <%= image_tag("https://image.flaticon.com/icons/svg/169/169935.svg") %>
-                                    <h4 class="card-title"><%= current_user.first_name %> <%= current_user.last_name %> </h4>
-                                    <p class="card-text"><%= current_user.email %></p>
-                                    <p class="card-text"><%= current_user.telephone %></p>
-                                    <p class="card-text"><%= current_user.level %></p>
-                                    <a href="#" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="backside">
-                            <div class="card">
-                                <div class="card-body text-center mt-4">
-                                    <h4 class="card-title text-size-50"><%= current_user.username %></h4>
-                                    <p class="card-text text-size-50"> LEVEL <%= current_user.level %></p>
-                                    <h4 class="card-title text-size-50">XP</h4>
-                                    <p class="card-text"><%= current_user.xp %></p>
-                                    <p class="card-text">Keep your efforts to reach the best level possible</p>
-                                    <ul class="list-inline">
-                                        <li class="list-inline-item">
-                                            <a class="social-icon text-xs-center" target="_blank" href="#">
-                                                <%= link_to 'Edit your profile', edit_user_registration_path, class:"btn btn-warning mt-4" %>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
+<div class="row nav-space"></div>
+<div class="container app-content-inside">
+  <div class="col-xs-12 col-sm-6 col-md-4 mt-5">
+    <div class="image-flip" ontouchstart="this.classList.toggle('hover');">
+        <div class="mainflip">
+            <div class="frontside">
+                <div class="card">
+                    <div class="card-body text-center mt-4">
+                        <%= image_tag(current_user.photo) %>
+                        <h4 class="card-title"><%= current_user.first_name %> <%= current_user.last_name %> </h4>
+                        <p class="card-text"><%= current_user.email %></p>
+                        <p class="card-text"><%= current_user.telephone %></p>
+                        <p class="card-text"><%= current_user.level %></p>
+                        <a href="#" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i></a>
                     </div>
                 </div>
+            </div>
+            <div class="backside">
+                <div class="card">
+                    <div class="card-body text-center mt-4">
+                        <h4 class="card-title text-size-50"><%= current_user.username %></h4>
+                        <p class="card-text text-size-50"> LEVEL <%= current_user.level %></p>
+                        <h4 class="card-title text-size-50">XP</h4>
+                        <p class="card-text"><%= current_user.xp %></p>
+                        <p class="card-text">Keep your efforts to reach the best level possible</p>
+                        <ul class="list-inline">
+                            <li class="list-inline-item">
+                                <a class="social-icon text-xs-center" target="_blank" href="#">
+                                    <%= link_to 'Edit your profile', edit_user_registration_path, class:"btn btn-warning mt-4" %>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
 </div>
+<div class="row footer-space"></div>
