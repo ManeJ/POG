@@ -1,0 +1,4 @@
+<div class = "message <%= message.user == current_user  ? "right" : ""%>">
+  <%= image_tag message.user.photo, class:"avatar" if message.user  %>
+  <div class = "message-content"><%=message.content%></div>
+</div>
