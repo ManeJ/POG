@@ -10,4 +10,7 @@ class PagesController < ApplicationController
   def rewards
   end
 
+  def faq
+  end
+
 end
