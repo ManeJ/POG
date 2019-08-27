@@ -67,12 +67,14 @@
           <nav>
               <%= link_to 'Edit',  edit_questmaster_quest_path(quest), class: 'card-elements' %>
           </nav>
-          <nav>
-              <%= link_to 'Chat',  questmaster_quest_chat_room_path(quest, quest.chat_room), class: 'card-elements' %>
-          </nav>
            <nav>
               <%= link_to  'Cancel', questmaster_quest_path(quest, quest: { progress: "Cancelled"}), method: :patch, class: 'card-elements', data: { confirm: "Are you sure?" } %>
           </nav>
+          <% if quest.chat_room %>
+            <nav>
+              <%= link_to 'chat',  questmaster_quest_chat_room_path(quest, quest.chat_room), class: 'card_elements' %>
+            </nav>
+          <% end %>
           <% if quest.participations.any? %>
             <nav>
                 <%= link_to 'Mark as over', questmaster_quest_path(quest, quest: { progress: "Finished"}), method: :patch, class: 'card-elements' %>
