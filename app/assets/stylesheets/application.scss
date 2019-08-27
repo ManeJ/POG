@@ -16,17 +16,17 @@
 // CSS for application.html.erb
 
 body, html {
-  height: 100%
+  height: 100vh;
 }
 
 #app-structure { // conteneur général
   width: 100vw;
-  height: 100%;
+  height: 100vh;
   padding: 0;
   margin: 0;
   display: flex;
   flex-direction: column;
-  justify-content: around;
+  justify-content: between;
 }
 
 #navbar-pog { // conteneur navbar
@@ -34,8 +34,9 @@ body, html {
 }
 
 #app-content { // conteneur contenu de l'app
-  height: 80%;
-  flex: 3;
+  height: 80vh;
+  position: sticky;
+  flex-grow: 1;
 }
 
 #footer-pog { // conteneur footer
@@ -44,5 +45,46 @@ body, html {
   bottom: 0;
   width: 100%;
   height: 10vh;
+
+  // position: fixed;
+  // bottom: 0;
+  // width: 100%;
+  // height: 10vh;
+
   // voir component pour le style du contenu du footer
 }
+
+body {
+  margin: 0;
+  padding: 0;
+  a {
+    font-size: 1.8rem;
+  }
+}
+
+.wrapper-page-content {
+  height: 80vh;
+}
+
+// .wrapper-bars {
+//   height: 10vh;
+// }
+
+.btn {
+  width: 200px;
+  font-weight: bold;
+}
+
+
+
+// input:-webkit-autofill,
+// input:-webkit-autofill:hover,
+// input:-webkit-autofill:focus,
+// input:-webkit-autofill:active  {
+//     -webkit-box-shadow: 0 0 0 30px white inset !important;
+//     background-color:white;
+// }
+
+// input:-webkit-autofill {
+//     -webkit-text-fill-color: $gris !important;
+// }

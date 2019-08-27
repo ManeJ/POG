@@ -1,19 +1,19 @@
-<div class="row nav-space"></div>
-<p>(Données brutes - mise en forme plus tard cf. refonte design)</p>
-<h1><%= @quest.title %></h1>
-<p>Review by <%= @quest.user.username %></p>
+<div class="wrapper-page-content">
+  <p>(Données brutes - mise en forme plus tard cf. refonte design)</p>
+  <h1><%= @quest.title %></h1>
+  <p>Review by <%= @quest.user.username %></p>
 
-<% if @review.nil? %>
-  <p>No review yet.</p>
-<% else %>
-  <p>Sent on: <%= @review.created_at.strftime("%d/%m/%Y") %></p>
-  <% @review.rating.times do  %>
-    <%= image_tag('rating-color.png') %>
+  <% if @review.nil? %>
+    <p>No review yet.</p>
+  <% else %>
+    <p>Sent on: <%= @review.created_at.strftime("%d/%m/%Y") %></p>
+    <% @review.rating.times do  %>
+      <%= image_tag('rating-color.png') %>
+    <% end %>
+    <% @review.blank_stars.times do %>
+      <%= image_tag('rating-color.png', id:"blank_star") %>
+    <% end %>
+    <p>Comment:</p>
+    <%= @review.content %>
   <% end %>
-  <% @review.blank_stars.times do %>
-    <%= image_tag('rating-color.png', id:"blank_star") %>
-  <% end %>
-  <p>Comment:</p>
-  <%= @review.content %>
-<% end %>
-<div class="row footer-space"></div>
+</div>
