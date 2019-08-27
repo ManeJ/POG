@@ -12,37 +12,80 @@
 @import "components/index";
 @import "pages/index";
 @import "pages/rewards";
+@import "pages/faq";
 
 // CSS for application.html.erb
 
-body, html {
-  height: 100%
-}
-
-#app-structure { // conteneur général
-  width: 100vw;
+.page-pog {
+  padding: 10vh 0;
   height: 100%;
-  padding: 0;
+}
+
+h1 {
+  font-family: 'Fredericka the Great', cursive;
+  font-size: 4rem;
+  margin-top: 3rem;
+}
+
+h1.long-title {
+  font-size: 3.5rem;
+}
+
+
+// body, html {
+//   height: 100vh;
+// }
+
+// #app-structure { // conteneur général
+//   width: 100vw;
+//   height: 100vh;
+//   padding: 0;
+//   margin: 0;
+//   display: flex;
+//   flex-direction: column;
+//   justify-content: between;
+// }
+
+// #navbar-pog { // conteneur navbar
+//   // voir component
+// }
+
+// #app-content { // conteneur contenu de l'app
+//   height: 80vh;
+//   flex-grow: 1;
+// }
+
+body {
   margin: 0;
-  display: flex;
-  flex-direction: column;
-  justify-content: around;
+  padding: 0;
+  a {
+    font-size: 1.8rem;
+  }
 }
 
-#navbar-pog { // conteneur navbar
-  // voir component
+.wrapper-page-content {
+  height: 80vh;
 }
 
-#app-content { // conteneur contenu de l'app
-  height: 80%;
-  flex: 3;
-}
-
-#footer-pog { // conteneur footer
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  width: 100%;
+.wrapper-bars {
   height: 10vh;
-  // voir component pour le style du contenu du footer
 }
+
+.btn {
+  width: 200px;
+  font-weight: bold;
+}
+
+
+
+// input:-webkit-autofill,
+// input:-webkit-autofill:hover,
+// input:-webkit-autofill:focus,
+// input:-webkit-autofill:active  {
+//     -webkit-box-shadow: 0 0 0 30px white inset !important;
+//     background-color:white;
+// }
+
+// input:-webkit-autofill {
+//     -webkit-text-fill-color: $gris !important;
+// }

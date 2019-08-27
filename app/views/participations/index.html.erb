@@ -1,12 +1,12 @@
-<div class="row nav-space"></div>
-<div class='d-flex justify-content-center'>
-  <h1 class='my-participations-h1 mt-4'>My participations</h1>
+<div class="page-pog">
+  <div class='d-flex justify-content-center'>
+  <h1 class='text-center'>My good actions</h1>
   </div>
   <div class="contact-area">
     <% if @participations.empty? %>
     <div class="text-center mt-2">
         <p>No quest to display yet...</p>
-        <p>What are you wainting for? :-)</p>
+        <p>What are you waiting for? :-)</p>
       </div>
     <% end %>
   <% @participations.each do |participation| %>
@@ -61,4 +61,4 @@
     </div>
   </div>
 <% end %>
-<div class="row footer-space"></div>
+</div>
