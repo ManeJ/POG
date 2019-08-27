@@ -18,6 +18,8 @@ class Questmaster::QuestsController < ApplicationController
     @quest = Quest.new(quest_params)
     @quest.user = @user
     if @quest.save
+      @chat_room = ChatRoom.create(quest_id: @quest.id, name: @quest.title)
+      @chat_room.save
       redirect_to questmaster_quests_path
     else
       render :new

@@ -3,6 +3,7 @@ class Quest < ApplicationRecord
   belongs_to :user
   has_many :participations
   has_many :quest_reviews, through: :participations
+  has_one :chat_room
 
   validates :people_wanted, presence: true, exclusion: { in: [0],
     message: ": at least 1 participant" }
