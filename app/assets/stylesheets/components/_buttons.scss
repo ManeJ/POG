@@ -21,15 +21,16 @@
   text-decoration: underline;
 }
 
-// .btn-add {
-//   color: white;
-//   padding: 8px 24px;
-//   border-radius: 50%;
-//   background: #1EDD88;
-//   transition: background 0.3s ease;
-// }
+.btn-ghost {
+  border: 2px solid #039678;
+  border-radius: 25%;
+  padding: 2px;
+  font-weight: 400;
+  opacity: 0.6;
+  transition: opacity 0.3s ease;
+  font-size: 20px;
+}
 
-// .btn-add:hover {
-//   background: #1BCB7F;
-//   color: white;
-// }
+.btn-ghost:hover {
+  opacity: 1;
+}
