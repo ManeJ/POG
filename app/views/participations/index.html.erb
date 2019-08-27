@@ -51,9 +51,9 @@
         <% end %>
         <% elsif participation.quest.progress != 'Cancelled' %>
           <nav class="participation-card-actions">
-              <%= link_to 'Cancel participation', participation_path(participation), method: :delete, data: { confirm: "Are you sure?" } %>
+              <%= link_to 'Cancel participation', participations_path, method: :delete, data: { confirm: "Are you sure?" } %>
           </nav>
-          <nav>
+          <nav class="participation-card-actions">
               <%= link_to 'Chat', quest_chat_room_path(participation.quest, participation.quest.chat_room)%>
           </nav>
         <% end %>

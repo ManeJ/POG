@@ -13,10 +13,10 @@
               <div class="d-flex flex-column align-items-center">
                 <div>
                   <% participation.user_review.rating.times do  %>
-                    <%= image_tag('rating-color.png') %>
+                    <%= image_tag('star-plain.png', class:"rating_ico") %>
                   <% end %>
                   <% participation.user_review.blank_stars.times do %>
-                    <%= image_tag('rating-color.png', id:"blank_star") %>
+                    <%= image_tag('star-blank.png', id:"blank_star", class:"rating_ico") %>
                   <% end %>
                 </div>
                 <div>

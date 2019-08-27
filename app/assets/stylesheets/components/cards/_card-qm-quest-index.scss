@@ -244,7 +244,7 @@ body {
     @include transition(all .5s);
 
     &.active {
-      max-height: 600px;
+      max-height: 5000px;
       @include transition(all 1s);
 
       a {
@@ -333,12 +333,34 @@ body {
   cursor: hand;
 }
 
-#useful-data {
-  margin-bottom: 0;
-}
-
 .card-elements {
   font-size: 2rem;
   color: $canard;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
+}
+
+.content {
+  position: absolute;
+}
+
+#qm-quest-card-icons-right {
+  position: absolute;
+  top: 2rem;
+  right: 1.8rem;
+  height: 80%;
+  a {
+    color: black;
+    font-size: 2.5rem;
+  }
+}
+
+#qm-quest-card-icons-left {
+  position: absolute;
+  top: 2rem;
+  left: 1.8rem;
+  height: 80%;
+  a {
+    color: black;
+    font-size: 2.5rem;
+  }
 }
