@@ -1,109 +1,373 @@
 // Specific CSS for your home-page
 
-.btn-medium {
-  background-color: white;
-  border: 1px solid white;
-  padding: 16px 24px;
-  width: 60%;
-  border-radius: 0.5rem;
-  font-weight: lighter;
-  font-size: 24px;
-  transition: opacity 0.3s ease;
-  }
-
-.btn-medium:hover {
-  opacity: 0.5;
-  color: white;
-  font-weight: 400;
-  border: 2px solid white;
-  cursor: pointer;
-  }
-
-.container .home {
+#call-for-action {
   display: flex;
   justify-content: center;
-  align-items: center;
-  font-size: 24px;
-  font-weight: bold;
-  margin-top: 1rem;
-  padding-top: 1rem;
-  text-align: center;
-  align-content: center;
+
+    // position: absolute; // Ancien design :
+    // display: inline-block; // Ancien design :
+    // top: 50%; // Ancien design :
+    // transform: translateY(-50%); // Ancien design :
+    // a {
+    //     // bouton Find a quest // Ancien design :
+    //     font-size: 1.3rem; // Ancien design :
+    //     text-align: center; // Ancien design :
+    // }
+
+    p {
+        // Act for a better tomorrow
+        // text-align: center;
+        // font-size: 2.4rem;
+        // font-family: 'Londrina Solid', cursive;
+        // color: black;
+        // font-weight: 400;
+    }
 }
 
-.container .home h1 {
-  margin: 1rem;
-  text-align: center;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-  font-size: 36px;
-  font-weight: bold;
+.logo-home {
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    justify-content: space-around;
+    align-items: center;
+    padding-top: 1rem;
+    // color: #5A534A; // Ancien design :
+    // font-weight: 700; // Ancien design :
+    h1 {
+        font-size: 3.4rem;
+    }
 }
 
-.container .home .logo {
-  margin-top: 1rem;
-}
+// .logo p { // Ancien design :
+//   color: black;
+//   font-size: 20px;
+// }
 
-.home-content .block-text {
-  font-size: 20px;
-  font-weight: 700;
-  color: black;
-  margin-bottom: 1rem;
-  padding: 1rem;
-}
-
-.home-content {
-  background-image: asset_url('watercolor.png');
-  background-size: contain;
-  background-position: center;
-  background-repeat: no-repeat;
-  width: 90vw;
-  height: 300px;
-  display: flex;
-  text-align: center;
-  flex-direction: column;
-  color: #5A534A;
-  font-size: 24px;
-  font-weight: bold;
-  align-items: center;
-  position: relative;
-}
-
-#call-for-action {
-  position: absolute;
-  display: inline-block;
-  top: 50%;
-  transform: translateY(-50%);
-  a {
-    font-size: 1.3rem;
-  }
-  p {
-    text-align: center;
-    font-size: 2.4rem;
-    font-family: 'Indie Flower', cursive;
-  }
-}
-
-.logo {
-  display: flex;
-  flex-direction: column;
-  justify-items: center;
-  justify-content: space-around;
-  align-items: center;
-  padding-top: 1rem;
-  color: #5A534A;
-  font-weight: 700;
-}
-
-.logo p {
-  color: black;
-  font-size: 20px;
-}
-
-#logo {
-  height: 5rem;
-  width: 5rem;
+#logo-home {
+    height: 14rem;
+    width: 14rem;
 }
 
 #moto {
-  font-family: 'Indie Flower', cursive;
+    // Where will and need for action meet
+    font-family: 'Londrina Solid', cursive;
+    font-size: 2.1rem;
+    color: $vert;
+    font-weight: 300;
 }
+
+#home-container {
+    background-color: white;
+    color: black;
+    height: 100vh;
+}
+
+
+// BOUTONS CALL FOR ACTION
+.home-links:hover {
+  text-decoration: none;
+}
+
+// REACH A HAND
+
+$button-width:220px;
+$button-height:56px;
+// $button-color:lighten(crimson,5%);
+$button-color: $vert;
+$button-font-size: 2.2rem;
+
+$frill-vert-space:45px; //vertical spacing between frills
+$frill-horizontal-offset:14px; //initial offset
+$frill-distance:80px; //distance moved by frills
+$frill-stagger: 15px; //distance between center and edge frills
+
+$frill-rotation:34deg;
+$frill-height:8px;
+$frill-width: 38px;
+
+$speed:0.38s;
+$timing-function:ease-out;
+
+
+.button-home {
+  background:$button-color;
+  border-radius:5px;
+  color:white;
+  cursor:pointer;
+  font-family: 'Londrina Solid', cursive;
+  font-weight: 300;
+  font-size:$button-font-size;
+  height:$button-height;
+  letter-spacing:.2px;
+  line-height:$button-height;
+  text-align:center;
+  // text-transform:uppercase;
+  user-select:none;
+  width:$button-width;
+  &:hover {
+    background:lighten($button-color,4%);
+    text-decoration: none;
+  }
+  &:active {
+    box-shadow:inset 0px 2px 8px -1px darken($button-color,6%);
+    text-decoration: none;
+  }
+}
+
+.fancy-button {
+  margin:auto;
+  position:relative;
+}
+.frills, .frills:after, .frills:before {
+  position:absolute;
+  background:$button-color;
+  border-radius:($frill-height/2);
+  height:$frill-height;
+}
+.frills:after, .frills:before,  {
+  content:"";
+  display:block;
+}
+.frills:before {
+  bottom:$frill-vert-space;
+}
+.frills:after {
+  top:$frill-vert-space;
+}
+.left-frills {
+  right:$button-width + $frill-horizontal-offset;
+  top:($button-height/2)-($frill-height/2);
+  .active & {
+     animation: move-left $speed $timing-function, width-to-zero $speed $timing-function;
+  }
+
+  &:before, &:after {
+    left:$frill-stagger;
+
+  }
+  &:before {
+    .active & {
+      animation: width-to-zero $speed $timing-function, move-up $speed $timing-function;
+    }
+  }
+  &:after {
+   .active & {
+      animation: width-to-zero $speed $timing-function, move-down $speed $timing-function;
+   }
+  }
+
+}
+.right-frills {
+  left:$button-width + $frill-horizontal-offset;
+  top:($button-height/2)-($frill-height/2);
+  .active & {
+    animation: move-right $speed $timing-function, width-to-zero $speed $timing-function;
+  }
+  &:before, &:after {
+    right:$frill-stagger;
+  }
+  &:before {
+   .active & {
+      animation: width-to-zero $speed $timing-function, move-up $speed $timing-function;
+   }
+  }
+  &:after {
+    .active & {
+      animation: width-to-zero $speed $timing-function, move-down $speed $timing-function;
+    }
+  }
+}
+
+.left-frills:before, .right-frills:after {
+  transform:rotate($frill-rotation)
+
+}
+
+.left-frills:after, .right-frills:before {
+  transform:rotate(- $frill-rotation);
+}
+
+@keyframes move-left {
+ 0% {
+   transform:none;
+ }
+  65% {
+    transform: translateX(-1*$frill-distance);
+  }
+ 100% {
+   transform: translateX(-1*$frill-distance);
+ }
+}
+@keyframes move-right {
+ 0% {
+   transform:none;
+ }
+ 65% {
+   transform: translateX($frill-distance);
+ }
+  100% {
+    transform: translateX($frill-distance);
+  }
+}
+@keyframes width-to-zero {
+ 0% {
+   width:$frill-width;
+ }
+ 100% {
+   width:$frill-height;
+ }
+}
+@keyframes move-up {
+  0% {
+
+  }
+  100% {
+    bottom:$frill-vert-space*1.55;
+  }
+}
+@keyframes move-down {
+  0% {
+
+  }
+  100% {
+    top:$frill-vert-space*1.55;
+  }
+}
+
+// ASK FOR HELP (uniquement styles qui changent par rapport au style du 1er bouton)
+
+$button2-color: $orange;
+
+.button-home-2 {
+  background:$button2-color;
+  border-radius:5px;
+  color:white;
+  cursor:pointer;
+  font-family: 'Londrina Solid', cursive;
+  font-weight: 300;
+  font-size:$button-font-size;
+  height:$button-height;
+  letter-spacing:.2px;
+  line-height:$button-height;
+  text-align:center;
+  // text-transform:uppercase;
+  user-select:none;
+  width:$button-width;
+  &:hover {
+    background:lighten($button2-color,4%);
+  }
+  &:active {
+    box-shadow:inset 0px 2px 8px -1px darken($button2-color,6%);
+  }
+}
+
+.fancy-button2 {
+  margin:auto;
+  position:relative;
+}
+.frills2, .frills2:after, .frills2:before {
+  position:absolute;
+  background:$button2-color;
+  border-radius:($frill-height/2);
+  height:$frill-height;
+}
+.frills2:after, .frills2:before,  {
+  content:"";
+  display:block;
+}
+.frills2:before {
+  bottom:$frill-vert-space;
+}
+.frills2:after {
+  top:$frill-vert-space;
+}
+
+// LIENS SIGN-IN / UP
+.home-sign {
+  color: $canard;
+  font-size: 1.6rem;
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+#vertical-line {
+  font-size: 2.5rem;
+  color: $gris;
+  font-weight: lighten;
+  margin-bottom: 0;
+}
+
+
+
+// ANCIEN DESIGN :
+
+
+// .btn-medium {
+//   background-color: white;
+//   border: 1px solid white;
+//   padding: 16px 24px;
+//   width: 60%;
+//   border-radius: 0.5rem;
+//   font-weight: lighter;
+//   font-size: 24px;
+//   transition: opacity 0.3s ease;
+//   }
+
+// .btn-medium:hover {
+//   opacity: 0.5;
+//   color: white;
+//   font-weight: 400;
+//   border: 2px solid white;
+//   cursor: pointer;
+//   }
+
+// .container .home {
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+//   font-size: 24px;
+//   font-weight: bold;
+//   margin-top: 1rem;
+//   padding-top: 1rem;
+//   text-align: center;
+//   align-content: center;
+// }
+
+// .container .home h1 {
+//   margin: 1rem;
+//   text-align: center;
+//   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+//   font-size: 36px;
+//   font-weight: bold;
+// }
+
+// .container .home .logo {
+//   margin-top: 1rem;
+// }
+
+// .home-content .block-text {
+//   font-size: 20px;
+//   font-weight: 700;
+//   color: black;
+//   margin-bottom: 1rem;
+//   padding: 1rem;
+// }
+
+// .home-content {
+//   background-image: asset_url('watercolor.png');
+//   background-size: contain;
+//   background-position: center;
+//   background-repeat: no-repeat;
+//   width: 90vw;
+//   height: 300px;
+//   display: flex;
+//   text-align: center;
+//   flex-direction: column;
+//   color: #5A534A;
+//   font-size: 24px;
+//   font-weight: bold;
+//   align-items: center;
+//   position: relative;
+// }
+

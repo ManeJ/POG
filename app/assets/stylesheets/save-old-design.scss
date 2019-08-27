@@ -1,0 +1,122 @@
+// FOOTER
+
+
+ .footer-main {
+   display: flex;
+   justify-content: between;
+   align-items: center;
+   height: 100%;
+   width: 100%;
+}
+
+.footer-pog {
+  background: $gris;
+  color: black;
+  z-index: 3000;
+  position: fixed;
+  width: 100vw;
+  height: 10vh;
+}
+
+.navbar-toggler {
+  margin-top: 0.5rem;
+  height: 48px;
+}
+
+#navbarSupportedContent {
+  margin-top: 20px;
+  height: 80vh;
+  width: 40vw;
+}
+
+.avatar {
+  margin-top: 1rem;
+  width: 3rem;
+}
+
+.dropdow-item {
+  padding: 0.5rem 1.5rem;
+}
+
+.nav-action-link {
+  display: flex;
+  margin-right: 16px;
+}
+
+.navbar-collapse {
+  position: absolute;
+  color: black;
+  top: 3rem;
+  right: -20rem;
+  background: $canard;
+  opacity: 0.98;
+  transition: 0.5s;
+
+  ul {
+    display :block;
+    justify-content : center;
+    align-items: center;
+  }
+
+  a:hover {
+    font-weight: 500;
+  }
+
+  a {
+    color: white;
+    font-size: 1rem;
+    font-weight: bold;
+  }
+}
+
+.navbar-collapse.show {
+  right: 0rem;
+  top: -82.5vh;
+  z-index: 3000;
+}
+
+
+
+.navbar-pog .navbar-brand {
+  width: 40px;
+}
+
+// .navbar-pog .nav-item-logo img {
+//   width: 28px;
+// }
+
+.navbar-pog .nav-item {
+  margin-left: 8px;
+}
+
+#navbarDropdown {
+  margin-left: 16px;
+}
+
+.navbar-pog .nav-title {
+  margin-right: auto;
+}
+
+// .navbar-pog .nav-title h1 {
+//   margin: auto;
+//   font-size: 36px;
+// }
+
+#navbar-links {
+  display: flex;
+}
+
+.menu-links {
+  display: flex;
+  list-style-type: none;
+  justify-content: space-around;
+}
+
+// .navbar-toggler-icon {
+//   color: white;
+//   z-index: 2
+// }
+
+
+
+// NEXT
