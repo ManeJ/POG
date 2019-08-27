@@ -2,9 +2,10 @@
   position: relative;
   display:flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  } #map-display {
+  // justify-content: center;
+  // align-items: center;
+  }
+  #map-display {
       position: absolute;
       top: 48px;
       z-index: 3;

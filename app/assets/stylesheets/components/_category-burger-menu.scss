@@ -1,0 +1,28 @@
+.fa-1x {
+font-size: 2.5rem;
+}
+.navbar-toggler.toggler-example {
+cursor: pointer;
+}
+.dark-blue-text {
+color: #ffbe44;
+}
+.index-category{
+  border: 1px solid black;
+  background-color: #01c07d;
+}
+.navbar-brand {
+  color: white;
+  font-family: 'Londrina Solid', cursive;
+}
+.burger-category {
+  display: flex;
+  flex-direction: row;
+
+}
+.category-picture {
+  height: 24px;
+  width: 24px;
+  justify-content: space-between;
+}
+

@@ -1,84 +1,60 @@
 <div class="wrapper-bars"></div>
 <div class="wrapper-page-content">
- <div class="row-map">
-  <div id="quests-index">
-    <div id="map-or-list">
-          <a class="btn btn-ghost" id="map-display">Map</a>
-          <a class="btn btn-ghost" id="list-display">List</a>
-    </div>
-    <div
-      id="map"
-      style="width: 100%;
-      height: 80vh;"
-      data-markers="<%= @markers.to_json %>"
-      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
-    </div>
-    <div id="list">
-      <%  @quests.each do |quest| %>
-      <section class="custom">
-        <div class="flipper mt-3 d-flex justify-content-center">
-          <div class="card">
-            <div class="front">
-              <div class="d-flex flex-column align-items-center">
-                <div class="d-flex flex-column align-items-center justify-content-center p-4 qm-quest-card">
-                  <div class="rounded-circle bg-light p-2 category-pic">
-                    <%= image_tag(quest.category.picture) %>
-                  </div>
-                  <div class="d-flex flex-column justify-content-center align-items-center">
-                    <div class="d-flex justify-content-between w-100 quest-xp-ppl">
-                      <p>+ <%= quest.category.xp %> XP</p>
-                      <div>
-                        <i class="fas fa-user"></i> <%= quest.participations.count %> / <%= quest.people_wanted %>
-                      </div>
-                    </div>
-                    <div class="text-center">
-                      <h3><%= quest.title %></h3>
-                      <p><%= quest.begin_on.strftime("%d/%m/%Y") %></p>
-                      <p><%= quest.progress %></p>
-                    </div>
-                    <div class="bg-light quest-description text-justify p-2">
-                      <%= quest.description %>
-                    </div>
-                    <div class="quest-details mt-3">
-                      <p>Click for details</p>
-                    </div>
-                    <% unless user_signed_in? && quest.user == current_user || user_signed_in? && !quest.participations.where(user_id: current_user.id).blank? || quest.progress == "Finished"%>
-                    <div>
-                      <%= link_to "Join quest", quest_participations_path(quest), method: :post, class:"btn btn-warning py-3 px-4" %>
-                    </div>
-                  <% end %>
+  <div class="row-map">
+    <div id="quests-index">
+      <div id="map-or-list">
+            <a class="btn-ghost" id="map-display">Map</a>
+            <a class="btn-ghost" id="list-display">List</a>
+      </div>
+      <div
+        id="map"
+        style="width: 100%;
+        height: 80vh;"
+        data-markers="<%= @markers.to_json %>"
+        data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+      </div>
+      <div id="list">
+
+        <%  Category.all.each do |category| %>
+          <nav class="index-category navbar ">
+            <div class="burger-category">
+              <div>
+                <%= image_tag(category.picture) %>
+              </div>
+                <a class="navbar-brand" href="#"><%=category.name %></a>
+              <button class="navbar-toggler toggler-example" type="button" data-toggle="collapse" data-target="#navbarSupportedContent1"
+                aria-controls="navbarSupportedContent1" aria-expanded="false" aria-label="Toggle navigation"><span class="dark-blue-text"><i
+                    class="fas fa-bars fa-1x"></i></span></button>
+            </div>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent1">
+              <% @quests.each do |quest| %>
+                <div class="carousel-inner">
+                  <div class="carousel-item active">
+                    <p>Sous-productif man c'est moiiiiiii</p>
                   </div>
                 </div>
-              </div>
+              <% end %>
+              <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+              </a>
+              <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+              </a>
             </div>
-            <div class="back">
-              <div class="d-flex flex-column align-items-center">
-                <div class="d-flex flex-column align-items-center justify-content-center p-4 qm-quest-card">
-                  <div class="d-flex flex-column justify-content-center align-items-center">
-                    <div class="quest-details p-3">
-                      <h3>Details</h3>
-                      <p class="text-justify mt-3"><span>Questmaster:</span></br>
-                        <%= quest.user.username %> <% if quest.user.telephone %>
-                        (<%= quest.user.telephone %>)
-                        <% end %></p>
-                      <p class="text-justify"><span>Duration:</span></br>
-                        <%= quest.duration %></p>
-                      <p class="text-left"><span>Location:</span></br>
-                        <%= quest.address %></p>
-                    </div>
-                  </div>
-                  <% unless user_signed_in? && quest.user == current_user || user_signed_in? && !quest.participations.where(user_id: current_user.id).blank? || quest.progress == "Finished" %>
-                    <div>
-                      <%= link_to "Join quest", quest_participations_path(quest), method: :post, class:"btn btn-warning py-3 px-4" %>
-                    </div>
-                  <% end %>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-    <% end %>
+          </nav>
+        <% end %>
+      </div>
+    </div>
   </div>
 </div>
 <div class="wrapper-bars"></div>
+
+
+
+
+<!-- créer une partial _info_category_s_quests -->
+                <!-- stocker pour chaque categorie les quêtes disponible -->
+                <!-- display les cards dans carousel/category -->
