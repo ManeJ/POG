@@ -1,82 +1,80 @@
- <div class="row nav-space"></div>
- <div class="row">
-  <div id="quests-index">
-    <div id="map-or-list">
-          <a class="btn btn-ghost" id="map-display">Map</a>
-          <a class="btn btn-ghost" id="list-display">List</a>
-    </div>
-    <div
-      id="map"
-      style="width: 100%;
-      height: 740px;"
-      data-markers="<%= @markers.to_json %>"
-      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
-    </div>
-    <div id="list">
-      <%  @quests.each do |quest| %>
+<div id="quests-index">
+  <div id="map-or-list">
+        <a class="btn btn-ghost" id="map-display">Map</a>
+        <a class="btn btn-ghost" id="list-display">List</a>
+  </div>
+  <div
+    id="map"
+    style="width: 100%;
+    height: 740px;"
+    data-markers="<%= @markers.to_json %>"
+    data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+  </div>
+  <div id="list">
+    <%  @quests.each do |quest| %>
       <section class="custom">
-      <div class="flipper mt-3 d-flex justify-content-center">
-        <div class="card">
-          <div class="front">
-            <div class="d-flex flex-column align-items-center">
-              <div class="d-flex flex-column align-items-center justify-content-center p-4 qm-quest-card">
-                <div class="rounded-circle bg-light p-2 category-pic">
-                  <%= image_tag(quest.category.picture) %>
-                </div>
-                <div class="d-flex flex-column justify-content-center align-items-center">
-                  <div class="d-flex justify-content-between w-100 quest-xp-ppl">
-                    <p>+ <%= quest.category.xp %> XP</p>
-                    <div>
-                      <i class="fas fa-user"></i> <%= quest.participations.count %> / <%= quest.people_wanted %>
+        <div class="flipper mt-3 d-flex justify-content-center">
+          <div class="card">
+            <div class="front">
+              <div class="d-flex flex-column align-items-center">
+                <div class="d-flex flex-column align-items-center justify-content-center p-4 qm-quest-card">
+                  <div class="rounded-circle bg-light p-2 category-pic">
+                    <%= image_tag(quest.category.picture) %>
+                  </div>
+                  <div class="d-flex flex-column justify-content-center align-items-center">
+                    <div class="d-flex justify-content-between w-100 quest-xp-ppl">
+                      <p>+ <%= quest.category.xp %> XP</p>
+                      <div>
+                        <i class="fas fa-user"></i> <%= quest.participations.count %> / <%= quest.people_wanted %>
+                      </div>
                     </div>
+                    <div class="text-center">
+                      <h3><%= quest.title %></h3>
+                      <p><%= quest.begin_on.strftime("%d/%m/%Y") %></p>
+                      <p><%= quest.progress %></p>
+                    </div>
+                    <div class="bg-light quest-description text-justify p-2">
+                      <%= quest.description %>
+                    </div>
+                    <div class="quest-details mt-3">
+                      <p>Click for details</p>
+                    </div>
+                    <% unless user_signed_in? && quest.user == current_user || user_signed_in? && !quest.participations.where(user_id: current_user.id).blank? || quest.progress == "Finished"%>
+                    <div>
+                      <%= link_to "Join quest", quest_participations_path(quest), method: :post, class:"btn btn-warning py-3 px-4" %>
+                    </div>
+                  <% end %>
                   </div>
-                  <div class="text-center">
-                    <h3><%= quest.title %></h3>
-                    <p><%= quest.begin_on.strftime("%d/%m/%Y") %></p>
-                    <p><%= quest.progress %></p>
-                  </div>
-                  <div class="bg-light quest-description text-justify p-2">
-                    <%= quest.description %>
-                  </div>
-                  <div class="quest-details mt-3">
-                    <p>Click for details</p>
-                  </div>
-                  <% unless user_signed_in? && quest.user == current_user || user_signed_in? && !quest.participations.where(user_id: current_user.id).blank? || quest.progress == "Finished"%>
-                  <div>
-                    <%= link_to "Join quest", quest_participations_path(quest), method: :post, class:"btn btn-warning py-3 px-4" %>
-                  </div>
-                <% end %>
                 </div>
               </div>
             </div>
-          </div>
-          <div class="back">
-            <div class="d-flex flex-column align-items-center">
-              <div class="d-flex flex-column align-items-center justify-content-center p-4 qm-quest-card">
-                <div class="d-flex flex-column justify-content-center align-items-center">
-                  <div class="quest-details p-3">
-                    <h3>Details</h3>
-                    <p class="text-justify mt-3"><span>Questmaster:</span></br>
-                      <%= quest.user.username %> <% if quest.user.telephone %>
-                      (<%= quest.user.telephone %>)
-                      <% end %></p>
-                    <p class="text-justify"><span>Duration:</span></br>
-                      <%= quest.duration %></p>
-                    <p class="text-left"><span>Location:</span></br>
-                      <%= quest.address %></p>
+            <div class="back">
+              <div class="d-flex flex-column align-items-center">
+                <div class="d-flex flex-column align-items-center justify-content-center p-4 qm-quest-card">
+                  <div class="d-flex flex-column justify-content-center align-items-center">
+                    <div class="quest-details p-3">
+                      <h3>Details</h3>
+                      <p class="text-justify mt-3"><span>Questmaster:</span></br>
+                        <%= quest.user.username %> <% if quest.user.telephone %>
+                        (<%= quest.user.telephone %>)
+                        <% end %></p>
+                      <p class="text-justify"><span>Duration:</span></br>
+                        <%= quest.duration %></p>
+                      <p class="text-left"><span>Location:</span></br>
+                        <%= quest.address %></p>
+                    </div>
                   </div>
+                  <% unless user_signed_in? && quest.user == current_user || user_signed_in? && !quest.participations.where(user_id: current_user.id).blank? || quest.progress == "Finished" %>
+                    <div>
+                      <%= link_to "Join quest", quest_participations_path(quest), method: :post, class:"btn btn-warning py-3 px-4" %>
+                    </div>
+                  <% end %>
                 </div>
-                <% unless user_signed_in? && quest.user == current_user || user_signed_in? && !quest.participations.where(user_id: current_user.id).blank? || quest.progress == "Finished" %>
-                  <div>
-                    <%= link_to "Join quest", quest_participations_path(quest), method: :post, class:"btn btn-warning py-3 px-4" %>
-                  </div>
-                <% end %>
               </div>
             </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
     <% end %>
   </div>
 </div>
