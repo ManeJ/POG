@@ -7,10 +7,10 @@
     <p>Last updated on <%= @review.updated_at.strftime("%d/%m/%Y") %></p>
   <% end %>
   <% @participation.user_review.rating.times do  %>
-    <%= image_tag('rating-color.png') %>
+    <%= image_tag('star-plain.png') %>
   <% end %>
   <% @participation.user_review.blank_stars.times do %>
-    <%= image_tag('rating-color.png', id:"blank_star") %>
+    <%= image_tag('star-blank.png', id:"blank_star") %>
   <% end %>
   <p>Comment:</p>
   <%= @review.content %>
