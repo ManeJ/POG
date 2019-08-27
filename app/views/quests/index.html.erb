@@ -1,5 +1,6 @@
+<div class="wrapper-bars"></div>
 <div class="wrapper-page-content">
- <div class="row">
+ <div class="row-map">
   <div id="quests-index">
     <div id="map-or-list">
           <a class="btn btn-ghost" id="map-display">Map</a>
@@ -8,7 +9,7 @@
     <div
       id="map"
       style="width: 100%;
-      height: 740px;"
+      height: 80vh;"
       data-markers="<%= @markers.to_json %>"
       data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
     </div>
@@ -80,3 +81,4 @@
     <% end %>
   </div>
 </div>
+<div class="wrapper-bars"></div>

@@ -21,7 +21,7 @@ body, html {
 
 #app-structure { // conteneur général
   width: 100vw;
-  height: 100vh;
+  height: 100%;
   padding: 0;
   margin: 0;
   display: flex;
@@ -66,9 +66,9 @@ body {
   height: 80vh;
 }
 
-// .wrapper-bars {
-//   height: 10vh;
-// }
+.wrapper-bars {
+  height: 10vh;
+}
 
 .btn {
   width: 200px;
