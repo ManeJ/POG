@@ -1,6 +1,6 @@
-<div class="wrapper-page-content">
+<div class="page-pog">
   <p>(Données brutes - mise en forme plus tard cf. refonte design)</p>
-  <h1>Your review of <%= @quest.title %></h1>
+  <h1 class="long-title">Your review of <%= @quest.title %></h1>
   <p>Sent on <%= @review.created_at.strftime("%d/%m/%Y") %></p>
   <% @review.rating.times do  %>
     <%= image_tag('rating-color.png') %>

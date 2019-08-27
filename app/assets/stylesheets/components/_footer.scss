@@ -1,3 +1,21 @@
+#footer-pog {
+  background: white;
+  color: black;
+  z-index: 3000;
+
+  // position: absolute;
+  // left: 0;
+  // bottom: 0;
+  // width: 100%;
+  // height: 10vh;
+
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 10vh;
+
+}
+
 // BURGER MENU
 
 #menu-footer a
@@ -187,15 +205,6 @@
    align-items: center;
    height: 100%;
    width: 100%;
-}
-
-.footer-pog {
-  background: white;
-  color: black;
-  z-index: 3000;
-  position: fixed;
-  width: 100vw;
-  height: 10vh;
 }
 
 // .navbar-toggler {
