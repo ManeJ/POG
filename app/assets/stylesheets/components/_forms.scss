@@ -4,7 +4,7 @@
 // VALABLE POUR TOUS LES FORMS :
 
 .form {
-  font-size: 1.4rem;
+  font-size: 1.8rem;
   border-radius: 3px;
   margin-top: 1rem;
 }
@@ -16,14 +16,26 @@
   // }
 }
 
+.form-control {
+  font-size: 1.8rem !important;
+  option {
+    font-size: 1.4rem;
+  }
+}
+
+#quest_category_id, #quest_mode, #user_role {
+  height: 3.8rem !important;
+}
+
 .form-small-font {
-  font-size: 1.2rem;
-  line-height: 2rem;
-  height: 2rem;
+  // font-size: 1.2rem;
+  // line-height: 2rem;
+  // height: 2rem;
 }
 
 .form-text-area {
   font-size: 1.4rem;
+  height: 200px !important;
 }
 
 // Smallest device
