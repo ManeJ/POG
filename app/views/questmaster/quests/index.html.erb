@@ -12,22 +12,25 @@
 
             <aside>
               <h2><%= quest.title.capitalize %></h2>
-              <p><%= quest.progress %></p>
+              <p>- <%= quest.progress %> -</p>
+              <p class="useful-data">Useful data</p>
             </aside>
-              <a id='details' class = 'more, text-center'>More Details</a>
+              <a id='details' class = 'more'><i class="fas fa-info-circle mt-2"></i></a>
               <div id='more'>
-                <h5 class= "mt-3">Participants : <%= quest.participations.count %></h5>
-                <h5>Average rating:</h5>
-                <% if quest.participations.any? { |participation| participation.quest_review_id != nil } %>
-                  <% quest.average_rating.times do  %>
-                    <%= image_tag('rating-color.png', class:"rating_ico") %>
+                <div>
+                  <h5 class= "mt-3">Participants : <%= quest.participations.count %></h5>
+                  <h5 class= "mt-3">Average rating:</h5>
+                  <% if quest.participations.any? { |participation| participation.quest_review_id != nil } %>
+                    <% quest.average_rating.times do  %>
+                      <%= image_tag('rating-color.png', class:"rating_ico") %>
+                    <% end %>
+                    <% (5 - quest.average_rating).times do %>
+                      <%= image_tag('rating-color.png', id:"blank_star", class:"rating_ico") %>
+                    <% end %>
+                  <% else %>
+                    <p>No reviews yet</p>
                   <% end %>
-                  <% (5 - quest.average_rating).times do %>
-                    <%= image_tag('rating-color.png', id:"blank_star", class:"rating_ico") %>
-                  <% end %>
-                <% else %>
-                  <p>No reviews yet</p>
-                <% end %>
+                </div>
               </div>
 
             <button>
@@ -42,6 +45,9 @@
       </main>
 
       <div class="links">
+        <nav>
+            <%= link_to 'See details',  questmaster_quest_path(quest), class: 'card-elements' %>
+        </nav>
         <% if quest.progress == "Finished" %>
           <nav>
               <% if quest.participations.any? { |participation| participation.user_review_id.nil? } %>
