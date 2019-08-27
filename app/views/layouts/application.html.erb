@@ -16,23 +16,24 @@
   <body>
     <div class="container" id="app-structure">
       <% unless current_page?(root_path) %>
-        <div class="row" id="navbar-pog">  <!-- Navbar -->
-          <div class="col">
+        <div id="navbar-pog">  <!-- Navbar -->
+
             <%= render 'shared/navbar' %>
-          </div>
+
         </div>
       <% end %>
-      <div class="row" id="app-content-around">  <!-- Pages -->
-        <div class="col h-100">
+
+      <div id="app-content-around">  <!-- Pages -->
+
           <%= render 'shared/flashes' %>
           <%= yield %>
-        </div>
+
       </div>
+
       <% unless current_page?(root_path) %>
-        <div class="row" id="footer-pog">  <!-- Footer -->
-          <div class="col">
+        <div id="footer-pog">  <!-- Footer -->
+
             <%= render 'shared/footer' %>
-          </div>
         </div>
       <% end %>
     </div>

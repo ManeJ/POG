@@ -1,4 +1,4 @@
-<div class="row nav-space"></div>
+<div class="wrapper-page-content">
 <div class="d-flex flex-column align-items-center">
   <h1 class="px-2 pt-4 pb-5 text-center">People who joined "<%= @quest.title %>"</h1>
   <div id="qm-participations-container">
@@ -36,5 +36,5 @@
   <%= link_to "Back to my quests", questmaster_quests_path %>
   <%= link_to "Go to #{@quest.title}", questmaster_quest_path(@quest) %>
 </div>
-<div class="row footer-space"></div>
+</div>
 
