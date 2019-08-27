@@ -1,5 +1,5 @@
 <div class="page-pog">
-  <div class='d-flex justify-content-center'>
+  <div class='d-flex justify-content-center px-4 pb-3'>
   <h1 class='text-center'>My good actions</h1>
   </div>
   <div class="contact-area">
@@ -13,45 +13,45 @@
   <div class="contact-area">
     <div class="contact">
       <main>
-        <section>
+        <div class="card-player-participations">
           <div class="content">
-            <aside id="participation-card-content">
+            <aside class="participation-card-content">
               <%= image_tag(participation.quest.category.picture, class:"rounded-circle bg-light p-2 category-pic-participation-show", id:"avatar-participation") %>
-              <h1><%= participation.quest.title %></h1>
-              <%= participation.quest.begin_on.strftime("%d/%m/%Y") %>
-              <p>Status: <%= participation.quest.progress %></p>
+              <h2 class="mt-5"><%= participation.quest.title %></h2>
+              <p class="card-player-participations-status"><%= participation.quest.progress %></p>
+              <p><%= participation.quest.begin_on.strftime("%d/%m/%Y") %></p>
             </aside>
 
-            <button>
+            <button class="participation-card-btn">
               <span>Actions</span>
               <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48"> <g class="nc-icon-wrapper" fill="#444444"> <path d="M14.83 30.83L24 21.66l9.17 9.17L36 28 24 16 12 28z"></path> </g> </svg>
             </button>
           </div>
-        </section>
+        </div>
       </main>
 
-      <div class="links">
-        <nav>
-            <%= link_to 'See quest', quest_path(participation.quest) %>
+      <div class="participation-card-action-list">
+        <nav class="participation-card-actions">
+            <%= link_to 'See details', quest_path(participation.quest) %>
         </nav>
         <% if participation.quest.progress == 'Finished' %>
           <% if participation.quest_review_id.nil? %>
-            <nav>
+            <nav class="participation-card-actions">
               <%= link_to 'Send a review', new_participation_review_path(participation) %>
             </nav>
           <% else %>
-            <nav>
+            <nav class="participation-card-actions">
               <%= link_to 'See the review I sent', participation_review_path(participation, participation.quest_review_id) %>
             </nav>
           <% end %>
         <% if participation.user_review_id != nil %>
-          <nav>
+          <nav class="participation-card-actions">
             <%= link_to 'See the review I got', participation_result_path(participation) %>
           </nav>
         <% end %>
         <% elsif participation.quest.progress != 'Cancelled' %>
-          <nav>
-              <%= link_to 'Cancel participation', participation_path(participation), method: :delete, class: 'card-elements', data: { confirm: "Are you sure?" } %>
+          <nav class="participation-card-actions">
+              <%= link_to 'Cancel participation', participation_path(participation), method: :delete, data: { confirm: "Are you sure?" } %>
           </nav>
         <% end %>
       </div>

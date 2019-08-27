@@ -116,16 +116,16 @@ body {
             width: 60%;
           }
 
-          h1 {
-            font-weight: 100;
-            font-size: 22px;
-            margin-bottom: 10px;
-          }
+          // h1 {
+          //   font-weight: 100;
+          //   font-size: 22px;
+          //   margin-bottom: 10px;
+          // }
 
           p {
-            font-size: 14px;
-            letter-spacing: .5px;
-            line-height: 160%;
+            font-size: 2rem;
+          //   letter-spacing: .5px;
+          //   line-height: 160%;
           }
         }
       }
@@ -153,7 +153,7 @@ body {
       p {
         padding: 15px 30px;
         color: black;
-        font-size: 16px;
+        font-size: 2rem;
         display: inline-block;
         font-weight: 500;
         text-transform: uppercase;
@@ -171,10 +171,10 @@ body {
       color: white;
       border: 0;
       width: 200px;
-      height: 48px;
+      height: 60px;
       text-align: center;
       border-radius: 30px;
-      font-size: 16px;
+      font-size: 2rem;
       letter-spacing: .5px;
       text-transform: uppercase;
       margin-bottom: -24px;
@@ -194,6 +194,7 @@ body {
         width: 200px;
         float: left;
         padding: 15px 0px;
+        box-shadow: 0 0 15px rgba(0,0,0,0.2);
       }
 
       svg {
@@ -270,7 +271,7 @@ body {
       width: 100%;
       margin-top: 18px;
       background-color: white;
-      color: canard;
+      color: $tomato;
       padding: 18px 20px;
       border-radius: 5px;
       text-decoration: none;
@@ -295,18 +296,19 @@ body {
       }
 
       .content {
-        h1 {
-          font-size: 20px;
-          font-weight: 400;
-          line-height: 160%;
-          letter-spacing: .4px;
-        }
+        // h1 {
+        //   font-size: 20px;
+        //   font-weight: 400;
+        //   line-height: 160%;
+        //   letter-spacing: .4px;
+        // }
 
         span {
-          font-size: 14px;
+          // font-size: 2rem;
           color: darken(white, 30%);
           display: block;
           letter-spacing: .4px;
+          // height: 3rem;
         }
       }
     }
@@ -317,4 +319,26 @@ body {
 .links {
   text-decoration: none;
   color: $canard;
+}
+
+#more {
+  p {
+    font-size: 2rem;
+  }
+}
+
+
+.fa-info-circle {
+  font-size: 3rem;
+  cursor: hand;
+}
+
+#useful-data {
+  margin-bottom: 0;
+}
+
+.card-elements {
+  font-size: 2rem;
+  color: $canard;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
 }
