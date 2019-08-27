@@ -15,44 +15,44 @@
 
 // CSS for application.html.erb
 
-body, html {
-  height: 100vh;
-}
-
-#app-structure { // conteneur général
-  width: 100vw;
+.page-pog {
+  padding: 10vh 0;
   height: 100%;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  flex-direction: column;
-  justify-content: between;
 }
 
-#navbar-pog { // conteneur navbar
-  // voir component
+h1 {
+  font-family: 'Fredericka the Great', cursive;
+  font-size: 4rem;
+  margin-top: 3rem;
 }
 
-#app-content { // conteneur contenu de l'app
-  height: 80vh;
-  position: sticky;
-  flex-grow: 1;
+h1.long-title {
+  font-size: 3.5rem;
 }
 
-#footer-pog { // conteneur footer
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  height: 10vh;
 
-  // position: fixed;
-  // bottom: 0;
-  // width: 100%;
-  // height: 10vh;
+// body, html {
+//   height: 100vh;
+// }
 
-  // voir component pour le style du contenu du footer
-}
+// #app-structure { // conteneur général
+//   width: 100vw;
+//   height: 100vh;
+//   padding: 0;
+//   margin: 0;
+//   display: flex;
+//   flex-direction: column;
+//   justify-content: between;
+// }
+
+// #navbar-pog { // conteneur navbar
+//   // voir component
+// }
+
+// #app-content { // conteneur contenu de l'app
+//   height: 80vh;
+//   flex-grow: 1;
+// }
 
 body {
   margin: 0;

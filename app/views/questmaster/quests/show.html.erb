@@ -1,50 +1,50 @@
-<div class="wrapper-page-content">
-<section class="custom">
-  <div class="flipper mt-5 d-flex justify-content-center">
-    <div class="card">
-      <div class="front">
-        <div class="d-flex flex-column align-items-center">
-          <div class="d-flex flex-column align-items-center justify-content-center p-4 qm-quest-card">
-            <div class="rounded-circle bg-light p-2 category-pic">
-              <%= image_tag(@quest.category.picture) %>
-            </div>
-            <div class="d-flex flex-column justify-content-center align-items-center">
-              <div class="d-flex justify-content-between w-100 quest-xp-ppl">
-                <p>+ <%= @quest.category.xp %> XP</p>
-                <div>
-                  <i class="fas fa-user"></i> <%= @quest.participations.count %> / <%= @quest.people_wanted %>
+<div class="page-pog">
+  <section class="custom">
+    <div class="flipper mt-5 d-flex justify-content-center">
+      <div class="card">
+        <div class="front">
+          <div class="d-flex flex-column align-items-center">
+            <div class="d-flex flex-column align-items-center justify-content-center p-4 qm-quest-card">
+              <div class="rounded-circle bg-light p-2 category-pic">
+                <%= image_tag(@quest.category.picture) %>
+              </div>
+              <div class="d-flex flex-column justify-content-center align-items-center">
+                <div class="d-flex justify-content-between w-100 quest-xp-ppl">
+                  <p>+ <%= @quest.category.xp %> XP</p>
+                  <div>
+                    <i class="fas fa-user"></i> <%= @quest.participations.count %> / <%= @quest.people_wanted %>
+                  </div>
                 </div>
-              </div>
-              <div class="text-center">
-                <h3><%= @quest.title.capitalize %></h3>
-                <p><%= @quest.begin_on.strftime("%d/%m/%Y") %></p>
-              </div>
-              <div class="bg-light quest-description text-justify p-2">
-                <%= @quest.description.capitalize %>
-              </div>
-              <div class="quest-details mt-3">
-                <p>Click for details</p>
+                <div class="text-center">
+                  <h3><%= @quest.title.capitalize %></h3>
+                  <p><%= @quest.begin_on.strftime("%d/%m/%Y") %></p>
+                </div>
+                <div class="bg-light quest-description text-justify p-2">
+                  <%= @quest.description.capitalize %>
+                </div>
+                <div class="quest-details mt-3">
+                  <p>Click for details</p>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-      <div class="back">
-        <div class="d-flex flex-column align-items-center">
-          <div class="d-flex flex-column align-items-center justify-content-center p-4 qm-quest-card">
-            <div class="d-flex flex-column justify-content-center align-items-center">
-              <div class="quest-details">
-                <h3>Details</h3>
-                <p class="text-justify"><span>Duration:</span></br>
-                  <%= @quest.duration %></p>
-                <p class="text-left"><span>Location:</span></br>
-                  <%= @quest.address %></p>
+        <div class="back">
+          <div class="d-flex flex-column align-items-center">
+            <div class="d-flex flex-column align-items-center justify-content-center p-4 qm-quest-card">
+              <div class="d-flex flex-column justify-content-center align-items-center">
+                <div class="quest-details">
+                  <h3>Details</h3>
+                  <p class="text-justify"><span>Duration:</span></br>
+                    <%= @quest.duration %></p>
+                  <p class="text-left"><span>Location:</span></br>
+                    <%= @quest.address %></p>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 </div>

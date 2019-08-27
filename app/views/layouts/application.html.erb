@@ -14,29 +14,18 @@
     <%= stylesheet_pack_tag 'application', media: 'all' %>
   </head>
   <body>
-    <div class="container" id="app-structure">
-      <% unless current_page?(root_path) %>
-        <div id="navbar-pog">  <!-- Navbar -->
-
-            <%= render 'shared/navbar' %>
-
-        </div>
-      <% end %>
-
-      <div id="app-content-around">  <!-- Pages -->
-
-          <%= render 'shared/flashes' %>
-          <%= yield %>
-
-      </div>
 
       <% unless current_page?(root_path) %>
-        <div id="footer-pog">  <!-- Footer -->
-
-            <%= render 'shared/footer' %>
-        </div>
+        <%= render 'shared/navbar' %>
       <% end %>
-    </div>
+
+      <%= render 'shared/flashes' %>
+      <%= yield %>
+
+      <% unless current_page?(root_path) %>
+        <%= render 'shared/footer' %>
+      <% end %>
+
     <%= javascript_include_tag 'application' %>
     <%= javascript_pack_tag 'application' %>
   </body>

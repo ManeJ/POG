@@ -1,6 +1,6 @@
-<div class="wrapper-page-content">
+<div class="page-pog">
   <div class="d-flex justify-content-center flex-column mt-5 align-items-center">
-    <h2 class="mb-4">Review for "<%= @quest.title %>"</h2>
+    <h1 class="mb-4">Review for "<%= @quest.title %>"</h1>
     <% if @quest.participations.any? { |p| p.user_review_id.nil? } %>
       <div class="global-review-container">
         <p>Global rating</p>
