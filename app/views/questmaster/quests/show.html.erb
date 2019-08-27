@@ -15,11 +15,11 @@
                 </div>
               </div>
               <div class="text-center">
-                <h3><%= @quest.title %></h3>
+                <h3><%= @quest.title.capitalize %></h3>
                 <p><%= @quest.begin_on.strftime("%d/%m/%Y") %></p>
               </div>
               <div class="bg-light quest-description text-justify p-2">
-                <%= @quest.description %>
+                <%= @quest.description.capitalize %>
               </div>
               <div class="quest-details mt-3">
                 <p>Click for details</p>

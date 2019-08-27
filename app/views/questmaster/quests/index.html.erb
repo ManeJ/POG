@@ -10,8 +10,8 @@
         <div class="content">
 
           <aside>
-            <h1><%= quest.title %></h1>
-            <p><%= quest.description %></p>
+            <h1><%= quest.title.capitalize %></h1>
+            <p><%= quest.description.capitalize %></p>
             <% if quest.participations.any? { |participation| participation.quest_review_id != nil } %>
               <% quest.average_rating.times do  %>
                 <%= image_tag('rating-color.png', class:"rating_ico") %>
