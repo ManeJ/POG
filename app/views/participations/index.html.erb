@@ -54,7 +54,7 @@
               <%= link_to 'Cancel participation', participation_path(participation), method: :delete, data: { confirm: "Are you sure?" } %>
           </nav>
           <nav>
-              <%= link_to 'chat', quest_chat_room_path(participation.quest, participation.quest.chat_room), class: 'card-elements'%>
+              <%= link_to 'Chat', quest_chat_room_path(participation.quest, participation.quest.chat_room)%>
           </nav>
         <% end %>
       </div>
