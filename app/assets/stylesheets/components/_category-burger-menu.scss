@@ -7,22 +7,22 @@ cursor: pointer;
 .dark-blue-text {
 color: #ffbe44;
 }
+#list{
+  margin-top: 40px;
+}
 .index-category{
   border: 1px solid black;
   background-color: #01c07d;
+  margin:16px 8px;
+  border-radius: 4px;
+  box-shadow: 4px 4px 16px #0b7c53;
 }
 .navbar-brand {
   color: white;
-  font-family: 'Londrina Solid', cursive;
+  font-family: "Fredericka the Great", cursive;
 }
 .burger-category {
   display: flex;
   flex-direction: row;
-
-}
-.category-picture {
-  height: 24px;
-  width: 24px;
-  justify-content: space-between;
 }
 
