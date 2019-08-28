@@ -1,5 +1,5 @@
-.player-quest-card {
-  background-color: $green;
+.qm-quest-card {
+  background-color: $yellow; // MODIFIE POUR QM
   border-radius: 5px;
   position: relative;
 }
@@ -14,10 +14,6 @@
 .quest-xp-ppl {
   p, i, div {
     font-weight: bold;
-  }
-
-  p, i {
-    font-size: 2rem;
   }
 }
 
@@ -91,18 +87,18 @@
 
 // STYLE FOR FLIPPING EFFECT
 
-section {
+#qm-card-show { // MODIF SELECTEUR POUR QM
   &.custom {
     cursor: pointer;
     .card {
       text-align: center;
-      color: #FFFFFF;
+      color: black;
       width: 90%;
       height: 315px;
       transition: 0.6s;
       transform-style: preserve-3d;
       position: relative;
-      background-color: $green;
+      background-color: $yellow; // MODIFIE POUR QM
     }
     .flipper {
       padding-left: 0px;
@@ -133,6 +129,7 @@ section {
     }
   }
 }
+
 
 .ppl {
   width: 20%;
