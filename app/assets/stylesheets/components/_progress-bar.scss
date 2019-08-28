@@ -1,0 +1,147 @@
+// LEVELS
+
+#levels {
+  width: 100%;
+  h6 {
+    line-height: 50px;
+    margin-bottom: 10px;
+    padding: 10px 0;
+  }
+
+}
+
+
+/* -- Stepped Progress Bar -- */
+$ProgressBase: rgb(128, 128, 128);    // Color of the upcoming steps - lightened for the connecting bar
+$ProgressComplete: $vert;   // Color of completed steps
+$VerticalBreakPoint: 480px; // Max Width for When do we switch to vertical style
+
+
+ul.SteppedProgress {
+  counter-reset: step;
+  display: flex;
+  margin: auto;
+  overflow: hidden;
+  padding: 0;
+  position: relative;
+  text-align: center;
+  z-index: 1;
+}
+
+.SteppedProgress li {
+  list-style-type: none;
+  color: #404140;
+  line-height: normal;
+  text-transform: uppercase;
+  flex: 1;
+  font-size: 3rem;
+  position: relative;
+  padding: 0 2%;
+}
+
+.SteppedProgress li:before {
+  content: counter(step);
+  counter-increment: step;
+  width: 50px;
+  line-height: 50px;
+  display: block;
+  font-size: 22px;
+  color: #FFF;
+  background: $ProgressBase;
+  border-radius: 25px;
+  margin: 0 auto 10px;
+  position: relative;
+  z-index: 1;
+}
+
+.SteppedProgress li:after {
+  content: '';
+  width: 100%;
+  height: 6px;
+  background: lighten( $ProgressBase, 25 );
+  position: absolute;
+  left: -50%;
+  top: 15px;
+  z-index: -1;
+}
+.SteppedProgress li:first-child:after {
+  content: none;
+}
+
+.SteppedProgress li.complete:before{
+  background: $ProgressComplete;
+  color: black;
+  font-weight: bold;
+}
+.SteppedProgress li.complete:after{
+  background: transparentize( $ProgressComplete, .4);
+}
+
+ul.SteppedProgress.Vertical{
+  display: block;
+}
+.SteppedProgress.Vertical li{
+  flex: none;
+  clear: both;
+  text-align: left;
+  padding: 0;
+  margin-left: 0;
+  min-height: 2.2em;
+}
+
+.SteppedProgress.Vertical li span{
+  white-space: nowrap;
+}
+
+ul.SteppedProgress.Vertical li:before{
+  float: none;
+  display: inline-block;
+  margin-right: 10px;
+  text-align: center;
+  margin-left: 0;
+}
+.SteppedProgress.Vertical li:after {
+  content: '';
+  width: 6px;
+  height: 100%;
+  position: absolute;
+  left: 12px;
+  top: -50%;
+  z-index: -1;
+}
+
+@media (max-width: $VerticalBreakPoint) {
+  ul.SteppedProgress{
+    display: block;
+  }
+  .SteppedProgress li{
+    flex: none;
+    clear: both;
+    text-align: left;
+    padding: 0;
+    margin-left: 0;
+    min-height: 2.2em;
+  }
+
+  .SteppedProgress li span{
+    white-space: nowrap;
+  }
+
+  ul.SteppedProgress li:before{
+    float: none;
+    display: inline-block;
+    // margin-right: 10px;
+      text-align: center;
+    margin-left: 0;
+  }
+  .SteppedProgress li:after {
+    content: '';
+    width: 6px;
+    height: 100%;
+    position: absolute;
+    left: 45%;
+    top: -50%;
+    z-index: -1;
+  }
+}
+

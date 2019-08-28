@@ -58,16 +58,16 @@ class Questmaster::QuestsController < ApplicationController
     @participations = @quest.participations
     @quest.update(quest_params)
     @participations.each do |participation|
-      if participation.user.xp > 100
+      if participation.user.xp > 250
         participation.user.level = 2
         participation.user.save
-      elsif participation.user.xp > 300
+      elsif participation.user.xp > 700
         participation.user.level = 3
         participation.user.save
-      elsif participation.user.xp > 600
+      elsif participation.user.xp > 1200
         participation.user.level = 4
         participation.user.save
-      elsif participation.user.xp > 1000
+      elsif participation.user.xp > 2000
         participation.user.level = 5
         participation.user.save
       end
