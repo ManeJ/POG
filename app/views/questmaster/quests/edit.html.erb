@@ -1,24 +1,29 @@
-<h2 class="text-center mt-3">Edit your quest</h2>
-<div class="d-flex flex-column align-items-center">
-  <div class="col-12 col-md-4 p-3 form">
-    <%= simple_form_for(@quest, url: questmaster_quest_path(@quest), method: :patch) do |f| %>
-      <div class="form-inputs">
-        <%= f.input :title %>
-        <%= f.association :category %>
-        <%= f.input :mode, collection: ["Solo", "Group"] %>
-        <%= f.input :people_wanted %>
-        <%= f.input :description %>
-        <%= f.input :address, { id: "quest_address" } %>
-        <%= f.input :begin_on, as: :string, required: false, input_html: {class: "datepicker"} %>
-        <%= f.input :duration %>
-      </div>
+<div class="page-pog px-4">
+  <h1 class="text-center">Edit your quest</h1>
+  <div class="d-flex flex-column align-items-center">
+    <div class="col-12 col-md-4 p-3 form">
+      <%= simple_form_for(@quest, url: questmaster_quest_path(@quest), method: :patch) do |f| %>
+        <div class="form-inputs">
+          <%= f.input :title %>
+          <%= f.association :category,
+                      input_html: {class: "form-small-font"} %>
+          <%= f.input :mode, collection: ["Solo", "Group"],
+                      input_html: {class: "form-small-font"} %>
+          <%= f.input :people_wanted %>
+          <%= f.input :description,
+                      input_html: {class: "form-text-area"} %>
+          <%= f.input :address, { id: "quest_address" } %>
+          <%= f.input :begin_on, as: :string, required: false, input_html: {class: "datepicker"} %>
+          <%= f.input :duration %>
+        </div>
 
-      <div class="form-actions d-flex justify-content-center">
-        <%= f.button :submit, "Edit quest", class:"btn btn-primary" %>
-      </div>
-    <% end %>
-  </div>
-  <div class="my-4">
-    <%= link_to "Back to map", quests_path %>
+        <div class="form-actions d-flex justify-content-center">
+          <%= f.button :submit, "Edit quest", class:"btn btn-primary" %>
+        </div>
+      <% end %>
+    </div>
+    <div class="my-4">
+      <%= link_to "Back to map", quests_path %>
+    </div>
   </div>
 </div>

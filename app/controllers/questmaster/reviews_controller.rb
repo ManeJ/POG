@@ -1,6 +1,6 @@
 class Questmaster::ReviewsController < ApplicationController
   before_action :set_review, only: [:edit, :update]
-  before_action :set_quest, only: [:new, :create, :edit, :index]
+  before_action :set_quest, only: [:new, :create, :edit, :index, :update]
   before_action :set_participation, only: [:edit, :update]
 
   def index
@@ -16,6 +16,7 @@ class Questmaster::ReviewsController < ApplicationController
       @review = Review.new(review_params)
       if @review.save
         participation.user_review_id = @review.id
+        participation.user.xp += - @quest.category.xp + (@quest.category.xp * review_params[:rating].to_i / 5)
         participation.save
       else
         render :new
@@ -28,6 +29,9 @@ class Questmaster::ReviewsController < ApplicationController
   end
 
   def update
+    current_rating = @review.rating
+    @participation.user.xp += -(@quest.category.xp * current_rating / 5) + (@quest.category.xp * review_params[:rating].to_i / 5)
+    @participation.user.save
     @review.update(review_params)
     redirect_to questmaster_quest_participations_path(@participation.quest_id)
   end

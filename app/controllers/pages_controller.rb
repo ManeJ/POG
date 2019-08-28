@@ -6,7 +6,11 @@ class PagesController < ApplicationController
 
   def profile
   end
-
-  def error_404
+  
+  def rewards
   end
+
+  def faq
+  end
+  
 end

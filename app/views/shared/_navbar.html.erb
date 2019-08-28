@@ -1,51 +1,35 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-pog">
-    <div class="navbar-main">
+<div class="navbar navbar-pog fixed-top">
+  <% if user_signed_in? %>
+    <div class="navbar-main d-flex justify-content-between">
+      <div class="d-flex align-items-center player-info flex-column align-self-end">
+        <%= image_tag("reward.png", size: "24x24", class:"mr-1") %>
+        <h3>LVL <%= current_user.level %></h3>
+      </div>
       <div class="navbar-logo">
-        <div id="logo">
-          <%= link_to quests_path, class: "navbar-brand" do %>
-          <h1><span>P</span><%= image_tag('1.ico') %><span>G</span></h1>
-          <% end %>
+        <%= link_to quests_path, class: "navbar-brand" do %>
+        <div id="logo-letters-ico">
+        <h1 class="POG-navbar">P</h1>
+        <%= image_tag('logo-pog.png', id:"logo-navbar") %>
+        <h1 class="POG-navbar">G</h1>
         </div>
-      </div>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-    </div>
-    <div class="menu">
-      <ul class="menu-links">
-        <% if user_signed_in? %>
-          <li><%= link_to "My Profile", "#" %></li>
-          <li><%= link_to "My Participations", participations_path %></li>
-          <li><%= link_to "My Quests", questmaster_quests_path %></li>
-          <li><%= link_to "Who we are", "#" %></li>
-          <li><%= link_to "How it works", "#" %></li>
-        <% else %>
-          <li><%= link_to "Who we are", "#" %></li>
-          <li><%= link_to "How it works", "#" %></li>
         <% end %>
-      </ul>
-    </div>
-
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
-          <% if user_signed_in? %>
-            <li class="nav-item dropdown">
-              <div class="d-flex flex-column align-items-center mt-4">
-                <%= image_tag(current_user.photo, id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false, size: "50x50") %>
-                <%= current_user.username %>
-              </div>
-              <%= link_to "My profile",  profile_path, class: "dropdown-item mt-3" %>
-              <%= link_to "My participations", participations_path, class: "dropdown-item mt-2" %>
-              <%= link_to "My quests", questmaster_quests_path, class: "dropdown-item" %>
-              <%= link_to "Launch a quest", new_questmaster_quest_path, class: "dropdown-item mt-2" %>
-              <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item mt-2" %>
-
-            </li>
-          <% else %>
-            <li class="nav-item dropdown">
-              <%= link_to "Login", new_user_session_path, class: "dropdown-item p-4" %>
-            </li>
-          <% end %>
-        </ul>
       </div>
-  </div>
+      <div class="d-flex flex-column align-self-end player-info align-items-center">
+        <%= image_tag("gamepad.png", size: "24x24", class:"mr-1") %>
+        <h3><%= current_user.xp %> XP</h3>
+      </div>
+    </div>
+  <% else %>
+    <div class="navbar-main d-flex justify-content-center">
+      <div class="navbar-logo">
+        <%= link_to quests_path, class: "navbar-brand" do %>
+        <div id="logo-letters-ico">
+        <h1 class="POG-navbar">P</h1>
+        <%= image_tag('logo-pog.png', id:"logo-navbar") %>
+        <h1 class="POG-navbar">G</h1>
+        </div>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+</div>

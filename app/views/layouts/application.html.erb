@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="icon" type="images/png" href="https://ibb.co/p4GdCmk">
+    <link rel="icon" type="images/png" href="https://i.ibb.co/SVWBqLZ/1.png">
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -14,10 +14,20 @@
     <%= stylesheet_pack_tag 'application', media: 'all' %>
   </head>
   <body>
-    <%= render 'shared/navbar' unless current_page?(root_path) %>
-    <%= render 'shared/flashes' %>
-    <%= yield %>
+
+      <% unless current_page?(root_path) %>
+        <%= render 'shared/navbar' %>
+      <% end %>
+
+      <%= render 'shared/flashes' %>
+      <%= yield %>
+
+      <% unless current_page?(root_path) %>
+        <%= render 'shared/footer' %>
+      <% end %>
+
     <%= javascript_include_tag 'application' %>
     <%= javascript_pack_tag 'application' %>
+    <%= yield :after_js  %>
   </body>
 </html>

@@ -1,21 +1,39 @@
-<p>(Données brutes - mise en forme plus tard cf. refonte design)</p>
-<h1>Reviews I got for <%= @quest.title %></h1>
-
-<% if @participations.any? { |participation| participation.quest_review != nil } %>
-  <% @participations.each do |participation| %>
-    <% if participation.quest_review != nil %>
-      <p>From: <%= participation.user.username %></p>
-      <p>Sent on: <%= participation.quest_review.created_at.strftime("%d/%m/%Y") %></p>
-      <% participation.quest_review.rating.times do  %>
-        <%= image_tag('rating-color.png') %>
-      <% end %>
-      <% participation.quest_review.blank_stars.times do %>
-        <%= image_tag('rating-color.png', id:"blank_star") %>
-      <% end %>
-      <p>Comment:</p>
-      <%= participation.quest_review.content %>
+<div class="page-pog">
+  <h1 class="text-center px-2">Reviews for <%= @quest.title %></h1>
+  <% if @participations.any? { |participation| participation.quest_review != nil } %>
+    <% @participations.each do |participation| %>
+    <div class="contact-area">
+      <div class="contact">
+        <main>
+          <section>
+            <div class="content">
+              <aside>
+                  <div class="d-flex flex-column justify-content-center align-items-center">
+                    <% if participation.quest_review != nil %>
+                      <p class="mb-0">From</p>
+                      <h2><%= participation.user.username %></h2>
+                      <p class="mb-5">On <%= participation.quest_review.created_at.strftime("%d/%m/%Y") %></p>
+                      <div>
+                        <% participation.quest_review.rating.times do  %>
+                          <%= image_tag('star-plain.png', class:"rating_ico") %>
+                        <% end %>
+                        <% participation.quest_review.blank_stars.times do %>
+                          <%= image_tag('star-blank.png', id:"blank_star", class:"rating_ico") %>
+                        <% end %>
+                      </div>
+                      <p class="font-italic">
+                        " <%= participation.quest_review.content %> "
+                        </p>
+                    <% else %>
+                      <p>No review yet</p>
+                    <% end %>
+                  </div>
+                </aside>
+              </div>
+            </section>
+          </main>
+        </div>
+      </div>
     <% end %>
   <% end %>
-<% else %>
-  <p>No review yet</p>
-<% end %>
+</div>

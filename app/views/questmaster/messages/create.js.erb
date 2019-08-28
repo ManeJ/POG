@@ -1,0 +1,8 @@
+<% if @message.errors.any? %>
+<% else %>
+  var messagesContainer = document.querySelector('.messages');
+  messagesContainer.insertAdjacentHTML('beforeend', '<%= j render "shared/messages", chat_room: @chat_room, message: @message, user_is_messages_author: true %>');
+  var input = document.querySelector('#message_content');
+  input.value = '';
+  input.blur();
+<% end %>

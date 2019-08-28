@@ -1,0 +1,34 @@
+#quests-index {
+  position: relative;
+  display:flex;
+  flex-direction: column;
+  // justify-content: center;
+  // align-items: center;
+  }
+  #map-display {
+      position: absolute;
+      top: 1vh;
+      z-index: 3;
+      margin-left: 1vh;
+      color: black;
+    }
+    #list-display {
+      position: absolute;
+      top: 1vh;
+      z-index: 3;
+      margin-left: 7vh;
+      color: black;
+    }
+
+.row-map {
+  width: 100%;
+  height: 80vh;
+}
+
+#map {
+  height:100%;
+}
+
+#list {
+  margin-top: 5rem;
+}
