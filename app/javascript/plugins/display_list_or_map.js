@@ -1,5 +1,3 @@
-//import { initMapbox } from 'init_mapbox';
-
 const display_map = document.getElementById('map-display');
 const display_list = document.getElementById('list-display');
 const map = document.getElementById('map');
