@@ -128,7 +128,7 @@
 
   .box__description {
     position: absolute;
-    bottom: 15%;
+    bottom: 20%;
     left: 50%;
     transform: translateX(-50%);
   }
@@ -161,7 +161,7 @@
   .box__button {
     display: block;
     position: relative;
-    background: white;
+    background:#00d89f;;
     border: 1px solid transparent;
     border-radius: 50px;
     height: 50px;
@@ -174,14 +174,9 @@
     padding: 0 70px;
     white-space: nowrap;
     margin-top: 50px;
-    transition: background .5s ease;
+    transition: .5s ease;
     overflow: hidden;
     -webkit-mask-image: -webkit-radial-gradient(white, black);
-  }
-
-  .box__button:hover{
-    background: transparent;
-    border-color: pink;
   }
 
 
@@ -242,20 +237,16 @@
             </div>
           </div>
         </div>
-        <div class="shadow">
-          <div class="box__ghost-shadow1"></div>
-          <div class="box__ghost-shadow2"></div>
-        </div>
         
       </div>
       <div class="box__description">
         <div class="box__description-container">
           <div class="box__description-title">Whoops!</div>
           <div class="box__description-subtitle">We are sorry but something went wrong.</div>
-          <div class="box__description-text">You owe us 1 million dollars</div>
+          <div class="box__description-text">You owe us 1 million dollars!</div>
         </div>
         
-        <a href="/quests" target="_blank" class="box__button">Go back</a>
+        <a href="/quests" class="box__button">Go back</a>
         
       </div>
     </div>
