@@ -1,26 +1,24 @@
 #quests-index {
-  // position: relative;
-  // display:flex;
-  // flex-direction: column;
+  position: relative;
+  display:flex;
+  flex-direction: column;
   // justify-content: center;
   // align-items: center;
   }
-
-#map-display {
-    position: absolute;
-    top: 48px;
-    z-index: 3;
-    margin-left: 16px;
-    color: #039678;
-  }
-
-#list-display {
-  position: absolute;
-  top: 8px;
-  z-index: 3;
-  margin-left: 16px;
-  color: #039678;
-}
+  #map-display {
+      position: absolute;
+      top: 1vh;
+      z-index: 3;
+      margin-left: 1vh;
+      color: black;
+    }
+    #list-display {
+      position: absolute;
+      top: 1vh;
+      z-index: 3;
+      margin-left: 7vh;
+      color: black;
+    }
 
 .row-map {
   width: 100%;

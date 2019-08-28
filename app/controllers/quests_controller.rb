@@ -18,6 +18,17 @@ class QuestsController < ApplicationController
   def show
   end
 
+  def filter_by_category
+    place = params[:query]
+
+    category = Category.find(params[:category_id])
+    if place == "empty"
+      @quests = category.quests
+    else
+      @quests = category.quests.near(place, 10)
+    end
+  end
+
   private
 
   def set_quest
