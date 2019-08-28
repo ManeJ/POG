@@ -1,13 +1,39 @@
-<div class="wrapper-page-content">
-  <p>(Données brutes - mise en forme plus tard cf. refonte design)</p>
-  <h1>Your review of <%= @quest.title %></h1>
-  <p>Sent on <%= @review.created_at.strftime("%d/%m/%Y") %></p>
-  <% @review.rating.times do  %>
-    <%= image_tag('rating-color.png') %>
-  <% end %>
-  <% @review.blank_stars.times do %>
-    <%= image_tag('rating-color.png', id:"blank_star") %>
-  <% end %>
-  <p>Comment:</p>
-  <%= @review.content %>
+<div class="page-pog">
+  <h1 class="text-center">Review you sent</h1>
+  <div class="contact-area">
+    <div class="contact">
+      <main>
+        <div class="card-player-reviews">
+          <div class="content">
+            <aside>
+              <div class="d-flex flex-column justify-content-center align-items-center">
+                <p class="mb-0">About</p>
+                <h2 class="mb-0"><%= @quest.title %></h2>
+                <p>(<%= @quest.user.username %>)</p>
+                <p class="mb-5">On <%= @review.created_at.strftime("%d/%m/%Y") %></p>
+                <div>
+                  <% @review.rating.times do  %>
+                    <%= image_tag('star-plain.png', class:"rating_ico") %>
+                  <% end %>
+                  <% @review.blank_stars.times do %>
+                    <%= image_tag('star-blank.png', id:"blank_star", class:"rating_ico") %>
+                  <% end %>
+                </div>
+                <p class="font-italic">
+                  <!-- <i class="fas fa-quote-left"></i> -->
+                  " <%= @review.content %> "
+                  <!-- <i class="fas fa-quote-right"></i> -->
+                </p>
+              </div>
+            </aside>
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>
+  <div class="d-flex justify-content-center">
+    <%= link_to participations_path do %>
+      <i class="fas fa-backward"></i>
+    <% end %>
+  </div>
 </div>

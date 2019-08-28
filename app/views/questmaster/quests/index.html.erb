@@ -1,102 +1,89 @@
-<div class="row nav-space"></div>
-<div class='d-flex justify-content-center'>
-  <h1 class='mt-4'>My Quests</h1>
-</div>
-<div class="contact-area">
-<% @quests.each do |quest| %>
-<div class="contact-area">
-  <div class="contact">
-    <main>
-      <section>
-        <div class="content">
+<div class="page-pog">
+  <div class='d-flex justify-content-center'>
+    <h1>My Quests</h1>
+  </div>
+  <div class="contact-area">
+  <% @quests.each do |quest| %>
+  <div class="contact-area">
+    <div class="contact">
+      <main>
+        <section>
+          <div class="content">
+            <aside>
+              <h2><%= quest.title.capitalize %></h2>
+              <p>- <%= quest.progress %> -</p>
+              <div class="d-flex flex-column align-items-center" id="qm-quest-card-icons-right">
+                <% if quest.progress != "Finished" && quest.progress != "Cancelled" %>
+                  <%= link_to edit_questmaster_quest_path(quest) do %>
+                    <i class="fas fa-pencil-alt"></i>
+                  <% end %>
+                  <%= link_to questmaster_quest_path(quest, quest: { progress: "Cancelled"}), method: :patch, data: { confirm: "Are you sure?" } do %>
+                    <i class="fas fa-trash-alt"></i>
+                  <% end %>
+                <% end %>
+              </div>
+              <div id="qm-quest-card-icons-left">
+                <% if quest.chat_room %>
+                  <%= link_to questmaster_quest_chat_room_path(quest, quest.chat_room) do %>
+                    <i class="fas fa-comment-dots"></i>
+                  <% end %>
+                <% end %>
+              </div>
+            </aside>
+              <a id='details' class = 'more'><i class="fas fa-info-circle mt-2"></i></a>
+              <div id='more'>
+                <div>
+                  <h5 class= "mt-3">Participants : <%= quest.participations.count %></h5>
+                  <h5 class= "mt-3">Average rating:</h5>
+                  <% if quest.participations.any? { |participation| participation.quest_review_id != nil } %>
+                    <% quest.average_rating.times do  %>
+                      <%= image_tag('star-plain.png', class:"rating_ico") %>
+                    <% end %>
+                    <% (5 - quest.average_rating).times do %>
+                      <%= image_tag('star-blank.png', id:"blank_star", class:"rating_ico") %>
+                    <% end %>
+                  <% else %>
+                    <p>No reviews yet</p>
+                  <% end %>
+                </div>
+              </div>
+            <button class = "action-btn">
+              <span>Actions</span>
+              <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48"> <g class="nc-icon-wrapper" fill="#444444"> <path d="M14.83 30.83L24 21.66l9.17 9.17L36 28 24 16 12 28z"></path> </g> </svg>
+            </button>
+          </div>
+          <div class="title"><p>details</p></div>
+        </section>
 
-          <aside>
-            <h1><%= quest.title.capitalize %></h1>
-            <p><%= quest.description.capitalize %></p>
-            <% if quest.participations.any? { |participation| participation.quest_review_id != nil } %>
-              <% quest.average_rating.times do  %>
-                <%= image_tag('rating-color.png', class:"rating_ico") %>
-              <% end %>
-              <% (5 - quest.average_rating).times do %>
-                <%= image_tag('rating-color.png', id:"blank_star", class:"rating_ico") %>
-              <% end %>
+      </main>
 
-            <% end %>
-          </aside>
-            <a id='details' style="color:white; text-align:center" class = 'more'>More Details</a>
-            <div class='text-white' id='more'>
-              <h4 class="mt-3">Address</h4>
-              <p><%= quest.address %></p>
-              <h4>Date</h4>
-              <p><%= quest.begin_on.strftime("%d/%m/%Y") %></p>
-              <h4>People expected</h4>
-              <p><%= quest.people_wanted %></p>
-              <h4>Progress</h4>
-              <p><%= quest.progress %></p>
-            </div>
-
-          <button class = "action-btn">
-            <span>Actions</span>
-            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48"> <g class="nc-icon-wrapper" fill="#444444"> <path d="M14.83 30.83L24 21.66l9.17 9.17L36 28 24 16 12 28z"></path> </g> </svg>
-          </button>
-        </div>
-
-        <div class="title"><p>details</p></div>
-      </section>
-
-    </main>
-
-    <div class="links">
-      <% if quest.progress == "Finished" %>
+      <div class="links">
         <nav>
-            <% if quest.participations.any? { |participation| participation.user_review_id.nil? } %>
-              <%= link_to 'Make a global review', new_questmaster_quest_review_path(quest), class: 'card-elements' %>
-            <% else %>
-              <a href="#">Global review already sent</a>
-            <% end %>
-            <% if quest.participations.any? { |participation| participation.quest_review_id != nil } %>
-              <%= link_to 'See reviews I got', questmaster_quest_reviews_path(quest), class: 'card-elements' %>
-            <% end %>
-        </nav>
-      <% elsif quest.progress == "Cancelled" %>
-        <nav>
-          <a href="#">No action available</a>
-        </nav>
-      <% else %>
-        <nav>
-            <%= link_to 'Edit',  edit_questmaster_quest_path(quest), class: 'card-elements' %>
-        </nav>
-        <nav>
-            <%= link_to  'Cancel', questmaster_quest_path(quest, quest: { progress: "Cancelled"}), method: :patch, class: 'card-elements', data: { confirm: "Are you sure?" } %>
+            <%= link_to 'Quest details', questmaster_quest_path(quest), class: 'card-elements' %>
         </nav>
         <% if quest.participations.any? %>
           <nav>
-              <%= link_to 'Mark as over', questmaster_quest_path(quest, quest: { progress: "Finished"}), method: :patch, class: 'card-elements' %>
+              <%= link_to 'Participants', questmaster_quest_participations_path(quest), class: 'card-elements' %>
           </nav>
         <% end %>
-      <% end %>
-    </div>
-  </div>
-  </div>
-  <div class="modal" tabindex="-1" role="dialog">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title">Modal title</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <p>Modal body text goes here.</p>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+        <% if quest.progress == "Finished" %>
+          <nav>
+              <% if quest.participations.any? { |participation| participation.user_review_id.nil? } %>
+                <%= link_to 'Collective review', new_questmaster_quest_review_path(quest), class: 'card-elements' %>
+              <% end %>
+              <% if quest.participations.any? { |participation| participation.quest_review_id != nil } %>
+                <%= link_to 'Reviews received', questmaster_quest_reviews_path(quest), class: 'card-elements' %>
+              <% end %>
+          </nav>
+        <% else %>
+          <% if quest.participations.any? && quest.progress != "Cancelled"  %>
+            <nav>
+                <%= link_to 'Quest validation', questmaster_quest_path(quest, quest: { progress: "Finished"}), method: :patch, class: 'card-elements' %>
+            </nav>
+          <% end %>
+        <% end %>
       </div>
     </div>
-  </div>
+    </div>
+  <% end %>
 </div>
-<% end %>
-<div class="row footer-space"></div>
-
