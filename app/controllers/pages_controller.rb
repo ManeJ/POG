@@ -6,11 +6,11 @@ class PagesController < ApplicationController
 
   def profile
   end
-
+  
   def rewards
   end
 
   def faq
   end
-
+  
 end

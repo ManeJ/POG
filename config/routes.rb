@@ -28,6 +28,7 @@ Rails.application.routes.draw do
     get 'result', to: 'participations#result'
   end
 
+  get 'rewards', to:'pages#rewards'
   get '/search', to:'quests#search', as: 'search'
   get 'rewards', to:'pages#rewards'
   get 'faq', to:'pages#faq'
