@@ -28,7 +28,8 @@ collapseBtns.forEach((btn) => {
                             <p class="font-italic">
                               <p>${quest.desc}</p>
                             </p>
-                            <a href=""></a>
+                            <buton></buton>
+                            <a href="/quests/${quest.id}" style="black">More Details</a>
                           </div>
                         </aside>
                       </div>
@@ -42,3 +43,5 @@ collapseBtns.forEach((btn) => {
       });
   });
 });
+
+const input = document.querySelector(".mapboxgl-ctrl-geocoder--input");
