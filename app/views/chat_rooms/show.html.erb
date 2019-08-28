@@ -5,7 +5,7 @@
         <div class = "chat-header"> <h4>#<%= @chat_room.name %></h4></div>
         <div id=<%= @chat_room.id %> class ="messages">
           <% @chat_room.messages.each do |message| %>
-            <%= render "shared/messages", message: message %>
+            <%= render "shared/messages", message: message, user_is_messages_author: message.user == current_user %>
           <% end %>
         </div>
         <div id= "create-message">
@@ -17,3 +17,17 @@
     </div>
   </div>
 </div>
+<% content_for :after_js do %>
+  <<script>
+    App['chat_room_<%= @chat_room.id %>'] = App.cable.subscriptions.create(
+      { channel: 'ChatRoomsChannel', chat_room_id: <%= @chat_room.id %> },
+      { received: (data) => {
+        <% if @chat_room.messages.last.user == current_user %>
+        <% else %>
+        const messagesContainer = document.querySelector('.messages');
+        messagesContainer.insertAdjacentHTML('beforeend', data.message_partial);
+        }
+        <% end %>
+       })
+  </script>
+<% end %>
