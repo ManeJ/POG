@@ -1,39 +1,150 @@
 <div class="page-pog">
-  <h1 class="text-center">Your profile</h1>
-  <div class="col-xs-12 col-sm-6 col-md-4 mt-5">
-    <div class="image-flip" ontouchstart="this.classList.toggle('hover');">
-        <div class="mainflip">
-            <div class="frontside">
-                <div class="card">
-                    <div class="card-body text-center mt-4">
-                        <%= image_tag(current_user.photo) %>
-                        <h4 class="card-title"><%= current_user.first_name %> <%= current_user.last_name %> </h4>
-                        <p class="card-text"><%= current_user.email %></p>
-                        <p class="card-text"><%= current_user.telephone %></p>
-                        <p class="card-text"><%= current_user.level %></p>
-                        <a href="#" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i></a>
-                    </div>
+  <!-- <h1 class="text-center px-5">Hi <%= current_user.first_name %></h1> -->
+  <!-- <h2 class="text-center mt-5">#<%= current_user.username %></h2> -->
+
+  <div class="contact-area">
+    <div class="contact">
+      <main>
+        <div class="card-profile">
+          <div class="content" id="card-profile-content">
+            <aside>
+              <div class="d-flex flex-column align-items-center justify-content-center" id="profile-card-inner">
+                <%= link_to edit_user_registration_path do %>
+                  <i class="fas fa-pencil-alt" id="pencil-card-profile"></i>
+                <% end %>
+                <div>
+                  <%= image_tag(current_user.photo, id:"avatar-profile") %>
                 </div>
-            </div>
-            <div class="backside">
-                <div class="card">
-                    <div class="card-body text-center mt-4">
-                        <h4 class="card-title text-size-50"><%= current_user.username %></h4>
-                        <p class="card-text text-size-50"> LEVEL <%= current_user.level %></p>
-                        <h4 class="card-title text-size-50">XP</h4>
-                        <p class="card-text"><%= current_user.xp %></p>
-                        <p class="card-text">Keep your efforts to reach the best level possible</p>
-                        <ul class="list-inline">
-                            <li class="list-inline-item">
-                                <a class="social-icon text-xs-center" target="_blank" href="#">
-                                    <%= link_to 'Edit your profile', edit_user_registration_path, class:"btn btn-warning mt-4" %>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
+                <h5>#<%= current_user.username %></h5>
+                <div class="d-flex justify-content-between" id="player-data">
+                  <h4><%= current_user.xp %> XP</h4>
+                  <h4>LEVEL <%= current_user.level %></h4>
                 </div>
-            </div>
+              </div>
+            </aside>
+          </div>
         </div>
+      </main>
     </div>
   </div>
+
+<!--   <div class="d-flex justify-content-center">
+    <i class="fas fa-anchor mr-3 fa-2x" aria-hidden="true"></i>
+    <i class="far fa-life-ring mr-3 fa-2x" aria-hidden="true"></i>
+    <i class="far fa-star fa-2x" aria-hidden="true"></i>
+  </div> -->
+
+  <!--Accordion wrapper-->
+  <div class="accordion md-accordion accordion-3 z-depth-1-half accordion-profile" id="accordionEx194" role="tablist"
+  aria-multiselectable="true">
+  <hr class="mb-0">
+
+   <!-- Accordion card -->
+  <div class="card">
+
+    <!-- Card header -->
+    <div class="card-header" role="tab" id="heading5">
+      <a class="collapsed" data-toggle="collapse" data-parent="#accordionEx194" href="#collapse5" aria-expanded="false"
+        aria-controls="collapse5">
+        <h4 class="mb-0 text-center">
+          Personal info <div class="animated-icon1 float-right mt-1"><span></span><span></span><span></span></div>
+        </h4>
+      </a>
+    </div>
+
+    <!-- Card body -->
+    <div id="collapse5" class="collapse" role="tabpanel" aria-labelledby="heading5" data-parent="#accordionEx194">
+      <div class="card-body pt-0">
+        <div class="p-1">
+          <div class="row d-flex align-items-center pt-4">
+            <div class="col-5">
+              <h5>Full name:</h5>
+            </div>
+            <div class="col-7">
+              <span><%= "#{current_user.first_name.capitalize} #{current_user.last_name.capitalize}" %></span>
+            </div>
+          </div>
+          <div class="row d-flex align-items-center">
+            <div class="col-5">
+              <h5>Username:</h5>
+            </div>
+            <div class="col-7">
+              <span><%= current_user.username %></span>
+            </div>
+          </div>
+          <div class="row d-flex align-items-center">
+            <div class="col-5">
+              <h5>Email:</h5>
+            </div>
+            <div class="col-7">
+              <span><%= current_user.email %></span>
+            </div>
+          </div>
+          <div class="row d-flex align-items-center">
+            <div class="col-5">
+              <h5>Phone:</h5>
+            </div>
+            <div class="col-7">
+              <span>
+                <% if current_user.telephone %>
+                  current_user.telephone
+                <% else %>
+                  <p class="italic" id="no-phone">Not provided</p>
+                <% end %>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Accordion card -->
+
+  <!-- Accordion card -->
+  <div class="card">
+
+    <!-- Card header -->
+    <div class="card-header" role="tab" id="heading4">
+      <a data-toggle="collapse" data-parent="#accordionEx194" href="#collapse4" aria-expanded="false"
+        aria-controls="collapse4">
+        <h4 class="mb-0 text-center">
+          Next level? <div class="animated-icon1 float-right mt-1"><span></span><span></span><span></span></div>
+        </h4>
+      </a>
+    </div>
+
+    <!-- Card body -->
+    <div id="collapse4" class="collapse" role="tabpanel" aria-labelledby="heading4" data-parent="#accordionEx194">
+      <div class="card-body pt-0">
+        <div class="row d-flex pt-4">
+          <div class="col-4">
+            <div class="d-flex flex-column justify-content-center">
+              <ul class="SteppedProgress">
+                <% (current_user.level).times do %>
+                  <li class="complete"></li>
+                <% end %>
+                <% (5 - current_user.level).times do %>
+                  <li></li>
+                <% end %>
+              </ul>
+            </div>
+          </div>
+          <div class="col-8" id="levels">
+            <h6>Baby seed</h6>
+            <h6>Little Bud</h6> <!-- Bourgeon -->
+            <h6>Happiness flower</h6>
+            <h6>Compassion garden</h6>
+            <h6>Tree of life</h6>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Accordion card -->
+  </div>
+  <!--/.Accordion wrapper-->
+<!--   <%#= link_to quests_path do %>
+    <h2 class="text-center text-uppercase py-4 px-3" id="play-more">Play more!</h2>
+  <%# end %> -->
+  <h2 class="text-center text-uppercase py-4 px-3">Keep playing!</h2>
 </div>
