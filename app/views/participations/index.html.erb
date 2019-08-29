@@ -1,13 +1,13 @@
 <div class="page-pog">
-  <div class='d-flex justify-content-center px-4 pb-3'>
+  <div class='d-flex flex-column justify-content-center px-4 pb-3'>
     <h1 class='text-center'>My good actions</h1>
+    <% if @participations.empty? %>
+      <div class="text-center mt-2">
+        <p>No quests to display yet...</p>
+        <p>What are you waiting for? :-)</p>
+      </div>
+    <% end %>
   </div>
-  <% if @participations.empty? %>
-    <div class="text-center mt-2">
-      <p>No quest to display yet...</p>
-      <p>What are you waiting for? :-)</p>
-    </div>
-  <% end %>
   <% @participations.each do |participation| %>
   <div class="contact-area">
     <div class="contact">
@@ -15,7 +15,7 @@
         <div class="card-player-participations">
           <div class="content">
             <aside class="participation-card-content">
-              <%= image_tag(participation.quest.category.picture, class:"rounded-circle bg-light p-2 category-pic-participation-show", id:"avatar-participation") %>
+              <%= image_tag(participation.quest.category.picture, class:"rounded-circle bg-light p-2 category-pic-participation-show", id:"avatar-participation-player") %>
               <h2 class="mt-5"><%= participation.quest.title %></h2>
               <p class="card-player-participations-status"><%= participation.quest.progress %></p>
               <p><%= participation.quest.begin_on.strftime("%d/%m/%Y") %></p>
@@ -26,7 +26,7 @@
                   <% end %>
                 </div>
                 <div class="d-flex flex-column align-items-center" id="qm-quest-card-icons-right-participation">
-                  <%= link_to participations_path, method: :delete, data: { confirm: "Are you sure?" } do %>
+                  <%= link_to participation_path(participation), method: :delete, data: { confirm: "Are you sure?" } do %>
                     <i class="fas fa-trash-alt"></i>
                   <% end %>
               <% end %>

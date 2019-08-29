@@ -1,15 +1,30 @@
 <div class="page-pog page-qm">
   <div class="d-flex flex-column align-items-center" id="qm-participations-wrapper">
-    <h1 class="px-2 pt-4 pb-5 text-center">People who joined "<%= @quest.title %>"</h1>
+    <h1 class="px-3 pt-4 pb-5 text-center">Participants for "<%= @quest.title %>"</h1>
     <div id="qm-participations-container">
       <% @participations.each do |participation| %>
         <div class="col-12 p-3 qm-participations-card mb-3">
-          <div class="d-flex justify-content-center">
+          <div class="d-flex justify-content-between align-items-center pr-4">
             <%= image_tag(participation.user.photo, class:"avatar-card") %>
-            <h3 class ="participant-center ml-5"><%= participation.user.username %></h3>
+            <h3><%= participation.user.username %></h3>
           </div>
           <hr>
-          <% unless participation.user_review_id.nil? %>
+          <% if participation.user_review_id.nil? %>
+            <div class="row d-flex align-items-center justify-content-center p-2 mt-5">
+              <div class="col-5">
+                <h5 class="mb-2">Phone #:</h5>
+              </div>
+              <div class="col-7">
+                <p class="pb-0 mb-0">
+                  <% if participation.user.telephone %>
+                    <%= participation.user.telephone %>
+                  <% else %>
+                    <p class="font-italic">Not provided</p>
+                  <% end %>
+                </p>
+              </div>
+            </div>
+          <% else %>
             <div class="d-flex justify-content-center" id="user-participation-review">
               <div class="d-flex align-items-center">
                 <div class = "align-content-center">
@@ -38,7 +53,5 @@
         </div>
       <% end %>
     </div>
-    <%= link_to "Back to my quests", questmaster_quests_path %>
-    <%= link_to "Go to #{@quest.title}", questmaster_quest_path(@quest) %>
   </div>
 </div>

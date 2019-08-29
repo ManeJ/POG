@@ -23,6 +23,14 @@
   left: 112px;
 }
 
+#avatar-participation-player { // pour participations#index cote player (qui a sinon exactement le mm style)
+  position: absolute;
+  top: -2.7rem;
+  left: 38%;
+  border: 3px solid black;
+  width: 88px;
+}
+
 // .avatar-card {
 //   position: absolute;
 //   top: -35px;
