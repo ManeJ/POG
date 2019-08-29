@@ -1,64 +1,63 @@
 <div class="page-pog">
   <div class='d-flex justify-content-center px-4 pb-3'>
-  <h1 class='text-center'>My good actions</h1>
+    <h1 class='text-center'>My good actions</h1>
   </div>
-  <div class="contact-area">
-    <% if @participations.empty? %>
+  <% if @participations.empty? %>
     <div class="text-center mt-2">
-        <p>No quest to display yet...</p>
-        <p>What are you waiting for? :-)</p>
-      </div>
-    <% end %>
+      <p>No quest to display yet...</p>
+      <p>What are you waiting for? :-)</p>
+    </div>
+  <% end %>
   <% @participations.each do |participation| %>
-  <div class="contact-area">
-    <div class="contact">
-      <main>
-        <div class="card-player-participations">
-          <div class="content">
-            <aside class="participation-card-content">
-              <%= image_tag(participation.quest.category.picture, class:"rounded-circle bg-light p-2 category-pic-participation-show", id:"avatar-participation") %>
-              <h2 class="mt-5"><%= participation.quest.title %></h2>
-              <p class="card-player-participations-status"><%= participation.quest.progress %></p>
-              <p><%= participation.quest.begin_on.strftime("%d/%m/%Y") %></p>
-            </aside>
-            
-            <button class="participation-card-btn action-btn">
-              <span>Actions</span>
-              <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48"> <g class="nc-icon-wrapper" fill="#444444"> <path d="M14.83 30.83L24 21.66l9.17 9.17L36 28 24 16 12 28z"></path> </g> </svg>
-            </button>
-          </div>
-        </div>
-      </main>
+    <div class="contact-area">
+      <div class="contact">
+        <main>
+          <div class="card-player-participations">
+            <div class="content">
+              <aside class="participation-card-content">
+                <%= image_tag(participation.quest.category.picture, class:"rounded-circle bg-light p-2 category-pic-participation-show", id:"avatar-participation") %>
+                <h2 class="mt-5"><%= participation.quest.title %></h2>
+                <p class="card-player-participations-status"><%= participation.quest.progress %></p>
+                <p><%= participation.quest.begin_on.strftime("%d/%m/%Y") %></p>
+              </aside>
 
-      <div class="participation-card-action-list">
-        <nav class="participation-card-actions">
-            <%= link_to 'See details', quest_path(participation.quest) %>
-        </nav>
-        <% if participation.quest.progress == 'Finished' %>
-          <% if participation.quest_review_id.nil? %>
+              <button class="participation-card-btn action-btn">
+                <span>Actions</span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48"> <g class="nc-icon-wrapper" fill="#444444"> <path d="M14.83 30.83L24 21.66l9.17 9.17L36 28 24 16 12 28z"></path> </g> </svg>
+              </button>
+            </div>
+          </div>
+        </main>
+
+        <div class="participation-card-action-list">
+          <nav class="participation-card-actions">
+              <%= link_to 'See details', quest_path(participation.quest) %>
+          </nav>
+          <% if participation.quest.progress == 'Finished' %>
+            <% if participation.quest_review_id.nil? %>
+              <nav class="participation-card-actions">
+                <%= link_to 'Send a review', new_participation_review_path(participation) %>
+              </nav>
+            <% else %>
+              <nav class="participation-card-actions">
+                <%= link_to 'See the review I sent', participation_review_path(participation, participation.quest_review_id) %>
+              </nav>
+            <% end %>
+          <% if participation.user_review_id != nil %>
             <nav class="participation-card-actions">
-              <%= link_to 'Send a review', new_participation_review_path(participation) %>
-            </nav>
-          <% else %>
-            <nav class="participation-card-actions">
-              <%= link_to 'See the review I sent', participation_review_path(participation, participation.quest_review_id) %>
+              <%= link_to 'See the review I got', participation_result_path(participation) %>
             </nav>
           <% end %>
-        <% if participation.user_review_id != nil %>
-          <nav class="participation-card-actions">
-            <%= link_to 'See the review I got', participation_result_path(participation) %>
-          </nav>
-        <% end %>
-        <% elsif participation.quest.progress != 'Cancelled' %>
-          <nav class="participation-card-actions">
-              <%= link_to 'Cancel participation', participations_path, method: :delete, data: { confirm: "Are you sure?" } %>
-          </nav>
-          <nav class="participation-card-actions">
-              <%= link_to 'Chat', quest_chat_room_path(participation.quest, participation.quest.chat_room)%>
-          </nav>
-        <% end %>
+          <% elsif participation.quest.progress != 'Cancelled' %>
+            <nav class="participation-card-actions">
+                <%= link_to 'Cancel participation', participations_path, method: :delete, data: { confirm: "Are you sure?" } %>
+            </nav>
+            <nav class="participation-card-actions">
+                <%= link_to 'Chat', quest_chat_room_path(participation.quest, participation.quest.chat_room)%>
+            </nav>
+          <% end %>
+        </div>
       </div>
     </div>
-  </div>
-<% end %>
+  <% end %>
 </div>

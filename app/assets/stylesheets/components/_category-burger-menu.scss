@@ -5,7 +5,7 @@ font-size: 2.5rem;
 cursor: pointer;
 }
 .dark-blue-text {
-color: $yellow;
+color: $orange;
 }
 #list{
   margin-top: 40px;
@@ -16,12 +16,19 @@ color: $yellow;
   margin:16px 8px;
   border-radius: 4px;
   box-shadow: 4px 4px 16px #0b7c53;
+  padding: 8px;
 }
 .navbar-brand {
   color: white;
   font-family: "Fredericka the Great", cursive;
+  font-size: 32px;
 }
 .burger-category {
   display: flex;
   flex-direction: row;
+}
+img {
+  height: 32px;
+  width: 32px;
+  margin-right: 6px;
 }
