@@ -11,7 +11,7 @@
           <section>
             <div class="content">
               <aside>
-                <h2><%= quest.title.capitalize %></h2>
+                <h2 class="pt-3"><%= quest.title.capitalize %></h2>
                 <p>- <%= quest.progress %> -</p>
                 <div class="d-flex flex-column align-items-center" id="qm-quest-card-icons-right">
                   <% if quest.progress != "Finished" && quest.progress != "Cancelled" %>
