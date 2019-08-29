@@ -18,7 +18,7 @@
 
 puts "Creating avatars"
 i = Avatar.count + 1
-while i <= 6
+while i <= 9
   Avatar.create!(image: "avatar-#{i}.png")
   i += 1
 end

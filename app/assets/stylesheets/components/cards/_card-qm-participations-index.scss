@@ -117,7 +117,7 @@
       position: absolute;
       bottom: 0;
       right: 50%;
-      background-color: $tomato; //
+      background-color: $orange; //
       color: white; //
       border: 0;
       width: 200px;
@@ -220,7 +220,7 @@
       width: 100%;
       margin-top: 18px;
       background-color: white; //
-      color: $canard; // MODIF
+      color: $vert; // MODIF
       padding: 18px 20px;
       border-radius: 5px;
       text-decoration: none;
@@ -228,6 +228,7 @@
       opacity: 0;
       @include transform(translateY(-10px));
       position: relative;
+      font-size: 24px;
 
       @media (min-width: 414px) {
         padding: 18px 30px;
@@ -258,7 +259,7 @@
 
 .participation-card-action-list { // MODIF NOM CLASSE
   text-decoration: none;
-  color: $canard; // MODIF
+  color: $orange; // MODIF
 }
 
 .icon-position {
