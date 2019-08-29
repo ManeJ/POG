@@ -1,0 +1,35 @@
+#qm-quests-show {
+  height: 100%;
+}
+
+#show-quest-qm {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  background-color: transparent;
+  p {
+    font-size: 1.8rem;
+    margin-bottom: 0;
+  }
+  .row {
+    margin: 0
+  }
+}
+
+.show-quest-qm-title {
+  background-color: rgb(229, 242, 230);
+  color: $canard;
+  border-top: 1px solid rgba(0, 0, 0, 0.125);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+}
+
+.show-quest-qm-content {
+  width: 100%;
+  padding: 0 2rem 2rem 2rem;
+}
+
+#show-quest-qm-content-date{
+  p {
+    font-size: 2rem;
+  }
+}

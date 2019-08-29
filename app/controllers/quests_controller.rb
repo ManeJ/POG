@@ -18,10 +18,15 @@ class QuestsController < ApplicationController
   def show
     if user_signed_in? && current_user != @quest.user
       @user_participations = Participation.where(user_id: current_user.id)
-      @user_joined_quests = @user_participations.where(quest_id: @quest.id)
+      if @user_participations.where(quest_id: @quest.id) == []
+        @user_joined_quests = nil
+      else
+        @user_joined_quests = Participation.where(user_id: current_user.id)
+      end
     else
       @user_joined_quests = nil
     end
+    @user_joined_quests
     # Logique mise dans le modele :
     # qm_ratings = []
     # @quest.user.quests.each do |quest|

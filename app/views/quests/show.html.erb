@@ -4,7 +4,7 @@
     <p class="text-center mb-4">- <%= @quest.progress %> -</p>
     <div class="d-flex justify-content-center">
       <% if user_signed_in? %>
-        <% unless @quest.user == current_user || @quest.participations.where.not(user_id: current_user.id).blank? || @quest.progress == "Finished" || @quest.progress == "Cancelled" %>
+        <% unless @quest.user == current_user || @quest.participations.where(user_id: current_user.id).any? || @quest.progress == "Finished" || @quest.progress == "Cancelled" %>
           <div class="py-3" id="card-quest-show-player-join">
             <%= link_to "Join", quest_participations_path(@quest), method: :post, class:"btn btn-primary small-btn" %>
           </div>
@@ -75,7 +75,7 @@
           <div class="col-10">
             <p>
               <%= @quest.participations.count %> / <%= @quest.people_wanted %>
-              <% if @user_joined_quests != nil %>
+              <% if @user_joined_quests != nil && @user_joined_quests.find(@quest.id)%>
                 (you joined)
               <% end %>
             </p>
@@ -175,7 +175,7 @@
     </div>
     <div class="d-flex justify-content-center">
       <% if user_signed_in? %>
-        <% unless @quest.user == current_user || @quest.participations.where.not(user_id: current_user.id).blank? || @quest.progress == "Finished" || @quest.progress == "Cancelled" %>
+        <% unless @quest.user == current_user || @quest.participations.where(user_id: current_user.id).any? || @quest.progress == "Finished" || @quest.progress == "Cancelled" %>
           <div class="py-3" id="card-quest-show-player-join">
             <%= link_to "Join", quest_participations_path(@quest), method: :post, class:"btn btn-primary small-btn" %>
           </div>
