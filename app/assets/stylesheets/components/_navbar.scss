@@ -1,9 +1,11 @@
 .navbar-pog {
     background: white;
     color: black;
-    z-index: 3000;
     width: 100vw;
-    height: 10vh;
+    height: 80px;
+    positon: fixed;
+    top: 0;
+    left: 0;
     h1 {
       margin-top: 0;
     }

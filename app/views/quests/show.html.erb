@@ -1,6 +1,7 @@
 <div class="page-pog page-player">
   <div id="player-quests-show">
-    <h1 class="text-center mt-5 px-5 mb-4"><%= @quest.title %></h1>
+    <h1 class="text-center mt-5 px-5"><%= @quest.title %></h1>
+    <p class="text-center mb-4">- <%= @quest.progress %> -</p>
     <div class="d-flex justify-content-center">
       <% if user_signed_in? %>
         <% unless @quest.user == current_user || @quest.participations.where.not(user_id: current_user.id).blank? || @quest.progress == "Finished" || @quest.progress == "Cancelled" %>
@@ -74,7 +75,7 @@
           <div class="col-10">
             <p>
               <%= @quest.participations.count %> / <%= @quest.people_wanted %>
-              <% if @user_joined_quests != nil && @user_joined_quests.find(@quest.id) %>
+              <% if @user_joined_quests != nil %>
                 (you joined)
               <% end %>
             </p>
@@ -158,13 +159,13 @@
 
         <div class="row d-flex align-items-center">
           <div class="col d-flex justify-content-center">
-              <% if @questmaster_average_rating.nil? %>
+              <% if @quest.user.global_rating.nil? %>
                 <p class="font-italic">No rating yet</p>
               <% else %>
-                <% @questmaster_average_rating.times do  %>
+                <% @quest.user.global_rating.times do  %>
                   <%= image_tag('star-plain.png', class:"rating_ico") %>
                 <% end %>
-                <% (5 - @questmaster_average_rating).times do %>
+                <% (5 - @quest.user.global_rating).times do %>
                   <%= image_tag('star-blank.png', id:"blank_star", class:"rating_ico") %>
                 <% end %>
               <% end %>

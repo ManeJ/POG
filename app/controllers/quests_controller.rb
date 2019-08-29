@@ -17,24 +17,25 @@ class QuestsController < ApplicationController
 
   def show
     if user_signed_in? && current_user != @quest.user
-      @user_joined_quests = Participation.where(user_id: current_user.id)
+      @user_participations = Participation.where(user_id: current_user.id)
+      @user_joined_quests = @user_participations.where(quest_id: @quest.id)
     else
       @user_joined_quests = nil
     end
+    # Logique mise dans le modele :
+    # qm_ratings = []
+    # @quest.user.quests.each do |quest|
+    #   quest.participations.where.not(quest_review: nil).each do |participation|
+    #     qm_ratings << participation.quest_review.rating.to_i
+    #   end
+    # end
 
-    qm_ratings = []
-    @quest.user.quests.each do |quest|
-      quest.participations.where.not(quest_review: nil).each do |participation|
-        qm_ratings << participation.quest_review.rating.to_i
-      end
-    end
-
-    if qm_ratings.empty?
-      @questmaster_average_rating = nil
-    else
-      @questmaster_average_rating = qm_ratings.sum / qm_ratings.count
-    end
-    @questmaster_average_rating
+    # if qm_ratings.empty?
+    #   @questmaster_average_rating = nil
+    # else
+    #   @questmaster_average_rating = qm_ratings.sum / qm_ratings.count
+    # end
+    # @questmaster_average_rating
   end
 
   def filter_by_category

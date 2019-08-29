@@ -1,7 +1,4 @@
 <div class="page-pog" id="page-profile">
-  <!-- <h1 class="text-center px-5">Hi <%= current_user.first_name %></h1> -->
-  <!-- <h2 class="text-center mt-5">#<%= current_user.username %></h2> -->
-
   <div class="contact-area">
     <div class="contact">
       <main>
@@ -20,6 +17,21 @@
                   <h4><%= current_user.xp %> XP</h4>
                   <h4>LEVEL <%= current_user.level %></h4>
                 </div>
+                <div class="d-flex justify-content-between">
+                  <p class="font-italic"><%= current_user.level_name %></p>
+                </div>
+                <div class="col d-flex justify-content-center">
+                    <% if current_user.player_average_rating.nil? %>
+                      <p class="font-italic">No rating yet</p>
+                    <% else %>
+                      <% current_user.player_average_rating.times do  %>
+                        <%= image_tag('star-plain.png', class:"rating_ico") %>
+                      <% end %>
+                      <% (5 - current_user.player_average_rating).times do %>
+                        <%= image_tag('star-blank.png', id:"blank_star", class:"rating_ico") %>
+                      <% end %>
+                    <% end %>
+                </div>
               </div>
             </aside>
           </div>
@@ -28,10 +40,55 @@
     </div>
   </div>
 
+  <h3 class="text-center text-uppercase pb-4 px-3">Keep playing!</h3>
+
   <!--Accordion wrapper-->
   <div class="accordion md-accordion accordion-3 z-depth-1-half accordion-profile" id="accordionEx194" role="tablist"
   aria-multiselectable="true">
   <hr class="mb-0">
+
+  <!-- Accordion card -->
+  <div class="card">
+
+    <!-- Card header -->
+    <div class="card-header" role="tab" id="heading4">
+      <a data-toggle="collapse" data-parent="#accordionEx194" href="#collapse4" aria-expanded="false"
+        aria-controls="collapse4">
+        <h4 class="mb-0 text-center">
+          Next level? <div class="animated-icon1 float-right mt-1"><span></span><span></span><span></span></div>
+        </h4>
+      </a>
+    </div>
+
+    <!-- Card body -->
+    <div id="collapse4" class="collapse" role="tabpanel" aria-labelledby="heading4" data-parent="#accordionEx194">
+      <div class="card-body pt-0">
+        <div class="row d-flex pt-4">
+          <div class="col-4">
+            <div class="d-flex flex-column justify-content-center">
+              <ul class="SteppedProgress">
+                <% (current_user.level).times do %>
+                  <li class="complete"></li>
+                <% end %>
+                <% (5 - current_user.level).times do %>
+                  <li></li>
+                <% end %>
+              </ul>
+            </div>
+          </div>
+          <div class="col-8" id="levels">
+            <h6>Baby seed</h6>
+            <h6>Little Bud</h6> <!-- Bourgeon -->
+            <h6>Happiness flower</h6>
+            <h6>Compassion garden</h6>
+            <h6>Tree of life</h6>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Accordion card -->
+
 
    <!-- Accordion card -->
   <div class="card">
@@ -94,51 +151,9 @@
   </div>
   <!-- Accordion card -->
 
-  <!-- Accordion card -->
-  <div class="card">
-
-    <!-- Card header -->
-    <div class="card-header" role="tab" id="heading4">
-      <a data-toggle="collapse" data-parent="#accordionEx194" href="#collapse4" aria-expanded="false"
-        aria-controls="collapse4">
-        <h4 class="mb-0 text-center">
-          Next level? <div class="animated-icon1 float-right mt-1"><span></span><span></span><span></span></div>
-        </h4>
-      </a>
-    </div>
-
-    <!-- Card body -->
-    <div id="collapse4" class="collapse" role="tabpanel" aria-labelledby="heading4" data-parent="#accordionEx194">
-      <div class="card-body pt-0">
-        <div class="row d-flex pt-4">
-          <div class="col-4">
-            <div class="d-flex flex-column justify-content-center">
-              <ul class="SteppedProgress">
-                <% (current_user.level).times do %>
-                  <li class="complete"></li>
-                <% end %>
-                <% (5 - current_user.level).times do %>
-                  <li></li>
-                <% end %>
-              </ul>
-            </div>
-          </div>
-          <div class="col-8" id="levels">
-            <h6>Baby seed</h6>
-            <h6>Little Bud</h6> <!-- Bourgeon -->
-            <h6>Happiness flower</h6>
-            <h6>Compassion garden</h6>
-            <h6>Tree of life</h6>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <!-- Accordion card -->
   </div>
   <!--/.Accordion wrapper-->
 <!--   <%#= link_to quests_path do %>
     <h2 class="text-center text-uppercase py-4 px-3" id="play-more">Play more!</h2>
   <%# end %> -->
-  <h2 class="text-center text-uppercase py-4 px-3">Keep playing!</h2>
 </div>
