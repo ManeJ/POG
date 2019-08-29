@@ -16,6 +16,25 @@ class QuestsController < ApplicationController
   end
 
   def show
+    if user_signed_in? && current_user != @quest.user
+      @user_joined_quests = Participation.where(user_id: current_user.id)
+    else
+      @user_joined_quests = nil
+    end
+
+    qm_ratings = []
+    @quest.user.quests.each do |quest|
+      quest.participations.where.not(quest_review: nil).each do |participation|
+        qm_ratings << participation.quest_review.rating.to_i
+      end
+    end
+
+    if qm_ratings.empty?
+      @questmaster_average_rating = nil
+    else
+      @questmaster_average_rating = qm_ratings.sum / qm_ratings.count
+    end
+    @questmaster_average_rating
   end
 
   def filter_by_category

@@ -35,30 +35,6 @@ p {
   font-size: 1.9rem;
 }
 
-
-// body, html {
-//   height: 100vh;
-// }
-
-// #app-structure { // conteneur général
-//   width: 100vw;
-//   height: 100vh;
-//   padding: 0;
-//   margin: 0;
-//   display: flex;
-//   flex-direction: column;
-//   justify-content: between;
-// }
-
-// #navbar-pog { // conteneur navbar
-//   // voir component
-// }
-
-// #app-content { // conteneur contenu de l'app
-//   height: 80vh;
-//   flex-grow: 1;
-// }
-
 body {
   margin: 0;
   padding: 0;
@@ -80,7 +56,24 @@ body {
   font-weight: bold;
 }
 
+.small-btn {
+  width: 80px;
+  font-weight: bold;
+}
 
+/*.page-player {
+  background-color: #f6ffee;
+}
+
+.page-qm, #page-map {
+  background-color: $sand;
+}
+
+
+#page-profile {
+  background-color: #fffbee
+}
+*/
 
 // input:-webkit-autofill,
 // input:-webkit-autofill:hover,
