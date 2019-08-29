@@ -1,7 +1,7 @@
 import "bootstrap";
 import "../plugins/flatpickr";
-import '../plugins/details'
-import '../plugins/display_list_or_map'
+import '../plugins/details';
+import '../plugins/display_list_or_map';
 import { initAutocomplete } from '../plugins/init_autocomplete';
 import 'mapbox-gl/dist/mapbox-gl.css';
 import { initMapbox } from '../plugins/init_mapbox';
@@ -9,6 +9,7 @@ import '@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder.css';
 
 initAutocomplete();
 initMapbox();
+
 
 document.querySelectorAll(".action-btn").forEach((btn) => {
   btn.addEventListener("click", (event) => {

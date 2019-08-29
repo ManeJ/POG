@@ -3,30 +3,35 @@
     <h1 class="px-2 pt-4 pb-5 text-center">People who joined "<%= @quest.title %>"</h1>
     <div id="qm-participations-container">
       <% @participations.each do |participation| %>
-        <div class="d-flex p-3 qm-participations-card mb-3">
-          <div class="d-flex flex-column align-items-center">
+        <div class="col-12 p-3 qm-participations-card mb-3">
+          <div class="d-flex justify-content-center">
             <%= image_tag(participation.user.photo, class:"avatar-card") %>
-            <h3 id="participant-username"><%= participation.user.username %></h3>
+            <h3 class ="participant-center ml-5"><%= participation.user.username %></h3>
           </div>
+          <hr>
           <% unless participation.user_review_id.nil? %>
             <div class="d-flex justify-content-center" id="user-participation-review">
-              <div class="d-flex flex-column align-items-center">
-                <div>
-                  <% participation.user_review.rating.times do  %>
-                    <%= image_tag('star-plain.png', class:"rating_ico") %>
-                  <% end %>
-                  <% participation.user_review.blank_stars.times do %>
-                    <%= image_tag('star-blank.png', id:"blank_star", class:"rating_ico") %>
-                  <% end %>
-                </div>
-                <div>
-                  <%= participation.user_review.content %>
-                </div>
-                <% if participation.user_review.editable? %>
-                  <div>
-                    <%= link_to "Custo review", edit_questmaster_quest_participation_review_path(participation.quest, participation, participation.user_review), class:"btn btn-primary" %>
+              <div class="d-flex align-items-center">
+                <div class = "align-content-center">
+                  <div class = "d-flex justify-content-end">
+                    <% if participation.user_review.editable? %>
+                      <%= link_to edit_questmaster_quest_participation_review_path(participation.quest, participation, participation.user_review), class:"d-flex flex-column" do%>
+                        <i class="fas fa-pencil-alt"></i>
+                      <% end %>
+                    <% end %>
                   </div>
-                <% end %>
+                  <div class = "d-flex justify-content-center mb-2">
+                    <% participation.user_review.rating.times do  %>
+                      <%= image_tag('star-plain.png', class:"rating_ico") %>
+                    <% end %>
+                    <% participation.user_review.blank_stars.times do %>
+                      <%= image_tag('star-blank.png', id:"blank_star", class:"rating_ico") %>
+                    <% end %>
+                  </div>
+                  <div class = "d-flex justify-content-center mb-2 review-content">
+                    <%= participation.user_review.content %>
+                  </div>
+                </div>
               </div>
             </div>
           <% end %>
