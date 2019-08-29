@@ -14,7 +14,7 @@
 .qm-participations-card {
   background-color: white;
   border-radius: 5px;
-  height: 100px;
+  height: 300px;
 }
 
 #avatar-participation {
@@ -29,11 +29,10 @@
 //   left: 33vw;
 // }
 
-// #participant-username {
-//   position: absolute;
-//   top: 40px;
-//   left: 33vw;
-// }
+.participant-center {
+  display: flex;
+  align-items: center;
+}
 
 #user-participation-review {
   flex-grow: 1;
@@ -260,4 +259,14 @@
 .participation-card-action-list { // MODIF NOM CLASSE
   text-decoration: none;
   color: $canard; // MODIF
+}
+
+.icon-position {
+  position: relative;
+  left: 75px;
+}
+
+.review-content {
+font-size: 24px;
+text-align: center;
 }

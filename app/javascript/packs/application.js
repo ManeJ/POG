@@ -11,6 +11,7 @@ import '@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder.css';
 initAutocomplete();
 initMapbox();
 
+
 document.querySelectorAll(".action-btn").forEach((btn) => {
   btn.addEventListener("click", (event) => {
     event.currentTarget.classList.toggle("active");

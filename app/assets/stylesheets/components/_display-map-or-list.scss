@@ -1,23 +1,20 @@
+#map-or-list{
+  background-color: white;
+  width:100%;
+  display:flex;
+  justify-content: center;
+  border: 5px;
+}
 #quests-index {
   position: relative;
-  display:flex;
-  flex-direction: column;
-  // justify-content: center;
-  // align-items: center;
+  align-items: center;
   }
   #map-display {
-      position: absolute;
-      top: 1vh;
-      z-index: 3;
       margin-left: 1vh;
-      color: black;
     }
     #list-display {
-      position: absolute;
-      top: 1vh;
-      z-index: 3;
       margin-left: 7vh;
-      color: black;
+
     }
 
 .row-map {
