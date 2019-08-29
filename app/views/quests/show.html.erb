@@ -1,166 +1,191 @@
-<div class="page-pog">
-  <h1 class="text-center">Quest details</h1>
-  <h3 class="text-center mb-5"><%= @quest.title %></h3>
-  <div id="show-quest-player">
-
-    <div class="row show-quest-player-title">
-      <div class="col">
-        <h3 class="text-center">Main goal</h3>
-      </div>
+<div class="page-pog page-player">
+  <div id="player-quests-show">
+    <h1 class="text-center mt-5 px-5 mb-4"><%= @quest.title %></h1>
+    <div class="d-flex justify-content-center">
+      <% if user_signed_in? %>
+        <% unless @quest.user == current_user || @quest.participations.where.not(user_id: current_user.id).blank? || @quest.progress == "Finished" || @quest.progress == "Cancelled" %>
+          <div class="py-3" id="card-quest-show-player-join">
+            <%= link_to "Join", quest_participations_path(@quest), method: :post, class:"btn btn-primary small-btn" %>
+          </div>
+        <% end %>
+      <% end %>
     </div>
-    <div class="show-quest-player-content pt-4">
-      <div class="row d-flex align-items-center">
-        <div class="col-3">
-          <h5>Cause:</h5>
-        </div>
-        <div class="col-9">
-          <p><%= @quest.category.name %></p>
-        </div>
-      </div>
-      <div class="row d-flex align-items-center">
+    <div id="show-quest-player">
+
+      <div class="row show-quest-player-title">
         <div class="col">
-          <h5>Help requested:</h5>
+          <h3 class="text-center">Main goal</h3>
         </div>
       </div>
-      <div class="row d-flex align-items-center">
+      <div class="show-quest-player-content pt-4">
+        <div class="row d-flex align-items-center">
+          <div class="col-3">
+            <h5>Cause:</h5>
+          </div>
+          <div class="col-9">
+            <p><%= @quest.category.name %></p>
+          </div>
+        </div>
+        <div class="row d-flex align-items-center">
+          <div class="col">
+            <h5>Help requested:</h5>
+          </div>
+        </div>
+        <div class="row d-flex align-items-center">
+          <div class="col">
+            <p class="font-italic text-center">" <%= @quest.description %> "</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="row show-quest-player-title">
         <div class="col">
-          <p class="font-italic text-center">" <%= @quest.description %> "</p>
+          <h3 class="text-center">Practical info</h3>
         </div>
       </div>
-    </div>
-
-    <div class="row show-quest-player-title">
-      <div class="col">
-        <h3 class="text-center">Practical info</h3>
-      </div>
-    </div>
-    <div class="show-quest-player-content pt-4">
-      <div class="row d-flex align-items-center">
-        <div class="col mb-3" id="show-quest-player-content-date">
-          <p class="text-center"><i class="fas fa-calendar-alt"></i> <%= @quest.begin_on.strftime("%d/%m/%Y") %></p>
+      <div class="show-quest-player-content pt-4">
+        <div class="row d-flex align-items-center">
+          <div class="col mb-3" id="show-quest-player-content-date">
+            <p class="text-center"><i class="fas fa-calendar-alt"></i> <%= @quest.begin_on.strftime("%d/%m/%Y") %></p>
+          </div>
         </div>
-      </div>
-      <div class="row d-flex align-items-center">
-        <div class="col">
-          <h5>Location:</h5>
+        <div class="row d-flex align-items-center">
+          <div class="col">
+            <h5>Location:</h5>
+          </div>
         </div>
-      </div>
-      <div class="row d-flex align-items-center mb-3">
-        <div class="col">
-          <p><%= @quest.address %></p>
+        <div class="row d-flex align-items-center mb-3">
+          <div class="col">
+            <p><%= @quest.address %></p>
+          </div>
         </div>
-      </div>
-      <div class="row d-flex align-items-center">
-        <div class="col-5">
-          <h5>Duration:</h5>
+        <div class="row d-flex align-items-center">
+          <div class="col-5">
+            <h5>Duration:</h5>
+          </div>
+          <div class="col-7">
+            <p><%= @quest.duration %></p>
+          </div>
         </div>
-        <div class="col-7">
-          <p><%= @quest.duration %></p>
-        </div>
-      </div>
-      <div class="row d-flex align-items-center">
-        <div class="col-2">
-          <h5><i class="fas fa-user"></i></h5>
-        </div>
-        <div class="col-10">
-          <p>
-            <%= @quest.participations.count %> / <%= @quest.people_wanted %>
-            <% if @user_joined_quests != nil && @user_joined_quests.find(@quest.id) %>
-              (you joined)
-            <% end %>
-          </p>
-        </div>
-      </div>
-    </div>
-
-
-    <div class="row show-quest-player-title">
-      <div class="col">
-        <h3 class="text-center">Gaming info</h3>
-      </div>
-    </div>
-    <div class="show-quest-player-content pt-4">
-      <div class="row d-flex align-items-center">
-        <div class="col-2">
-          <h5>XP:</h5>
-        </div>
-        <div class="col-10">
-          <p>Up to <%= @quest.category.xp %> XP (rating-related)</p>
-        </div>
-      </div>
-      <div class="row d-flex align-items-center">
-        <div class="col-3">
-          <h5>Mode:</h5>
-        </div>
-        <div class="col-9">
-          <p>
-            <% if @quest.mode = "Group" %>
-              Multi-player (<%= @quest.people_wanted %>)
-            <% else %>
-              @quest.mode
-            <% end %>
-          </p>
-        </div>
-      </div>
-    </div>
-
-
-    <div class="row show-quest-player-title">
-      <div class="col">
-        <h3 class="text-center">Questmaster</h3>
-      </div>
-    </div>
-    <div class="show-quest-player-content">
-      <div class="row d-flex align-items-center">
-        <div class="col-5">
-          <h5>Username:</h5>
-        </div>
-        <div class="col-7">
-          <p><%= @quest.user.username %></p>
-        </div>
-      </div>
-      <div class="row d-flex align-items-center pt-4">
-        <div class="col-5">
-          <h5>Phone #:</h5>
-        </div>
-        <div class="col-7">
-          <p>
-            <% if @quest.user.telephone %>
-              @quest.user.telephone
-            <% else %>
-              <p class="font-italic">Not provided</p>
-            <% end %>
-          </p>
-        </div>
-      </div>
-      <div class="row d-flex align-items-center pt-4">
-        <div class="col">
-          <h5>Average rating:</i></h5>
-        </div>
-      </div>
-
-      <div class="row d-flex align-items-center">
-        <div class="col d-flex justify-content-center">
-            <% if @questmaster_average_rating.nil? %>
-              <p class="font-italic">No rating yet</p>
-            <% else %>
-              <% @questmaster_average_rating.times do  %>
-                <%= image_tag('star-plain.png', class:"rating_ico") %>
+        <div class="row d-flex align-items-center">
+          <div class="col-2">
+            <h5><i class="fas fa-user"></i></h5>
+          </div>
+          <div class="col-10">
+            <p>
+              <%= @quest.participations.count %> / <%= @quest.people_wanted %>
+              <% if @user_joined_quests != nil && @user_joined_quests.find(@quest.id) %>
+                (you joined)
               <% end %>
-              <% (5 - @questmaster_average_rating).times do %>
-                <%= image_tag('star-blank.png', id:"blank_star", class:"rating_ico") %>
+            </p>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="row show-quest-player-title">
+        <div class="col">
+          <h3 class="text-center">Gaming info</h3>
+        </div>
+      </div>
+      <div class="show-quest-player-content pt-4">
+        <div class="row d-flex align-items-center">
+          <div class="col-2">
+            <h5>XP:</h5>
+          </div>
+          <div class="col-10">
+            <p>Up to <%= @quest.category.xp %> XP (rating-related)</p>
+          </div>
+        </div>
+        <div class="row d-flex align-items-center">
+          <div class="col-3">
+            <h5>Mode:</h5>
+          </div>
+          <div class="col-9">
+            <p>
+              <% if @quest.mode = "Group" %>
+                Multi-player (<%= @quest.people_wanted %>)
+              <% else %>
+                @quest.mode
               <% end %>
-            <% end %>
+            </p>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="row show-quest-player-title">
+        <div class="col">
+          <h3 class="text-center">Questmaster</h3>
+        </div>
+      </div>
+      <div class="show-quest-player-content pt-4">
+        <div class="row d-flex align-items-center">
+          <div class="col-6">
+            <h5>First name:</h5>
+          </div>
+          <div class="col-6">
+            <p><%= @quest.user.first_name %></p>
+          </div>
+        </div>
+        <div class="row d-flex align-items-center">
+          <div class="col-5">
+            <h5>Username:</h5>
+          </div>
+          <div class="col-7">
+            <p><%= @quest.user.username %></p>
+          </div>
+        </div>
+        <div class="row d-flex align-items-center">
+          <div class="col-5">
+            <h5>Phone #:</h5>
+          </div>
+          <div class="col-7">
+            <p>
+              <% if @quest.user.telephone %>
+                @quest.user.telephone
+              <% else %>
+                <p class="font-italic">Not provided</p>
+              <% end %>
+            </p>
+          </div>
+        </div>
+        <div class="row d-flex align-items-center">
+          <div class="col">
+            <h5>Average rating:</i></h5>
+          </div>
+        </div>
+
+        <div class="row d-flex align-items-center">
+          <div class="col d-flex justify-content-center">
+              <% if @questmaster_average_rating.nil? %>
+                <p class="font-italic">No rating yet</p>
+              <% else %>
+                <% @questmaster_average_rating.times do  %>
+                  <%= image_tag('star-plain.png', class:"rating_ico") %>
+                <% end %>
+                <% (5 - @questmaster_average_rating).times do %>
+                  <%= image_tag('star-blank.png', id:"blank_star", class:"rating_ico") %>
+                <% end %>
+              <% end %>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-  <div class="d-flex justify-content-center" id="test-t">
-      <% unless user_signed_in? && @quest.user == current_user || user_signed_in? && @quest.participations.where.not(user_id: current_user.id).blank? || @quest.progress == "Finished" || @quest.progress == "Cancelled" %>
+    <div class="d-flex justify-content-center">
+      <% if user_signed_in? %>
+        <% unless @quest.user == current_user || @quest.participations.where.not(user_id: current_user.id).blank? || @quest.progress == "Finished" || @quest.progress == "Cancelled" %>
+          <div class="py-3" id="card-quest-show-player-join">
+            <%= link_to "Join", quest_participations_path(@quest), method: :post, class:"btn btn-primary small-btn" %>
+          </div>
+        <% end %>
+      <% else %>
         <div class="py-3" id="card-quest-show-player-join">
-          <%= link_to "Join quest", quest_participations_path(@quest), method: :post, class:"btn btn-primary py-3 px-4" %>
+          <%= link_to "Sign-in", new_user_session_path, class:"btn btn-primary my-2" %>
         </div>
-    <% end %>
+      <% end %>
+    </div>
+
   </div>
 </div>
 

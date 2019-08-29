@@ -1,3 +1,7 @@
+#player-quests-show {
+  height: 100%;
+}
+
 #show-quest-player {
   display: flex;
   flex-direction: column;
@@ -25,9 +29,10 @@
   }
 }
 
-// #test-t {
-//   position: relative;
-// }
+
+// POUR BOUTON QUI DESCEND AVEC LE SCROLL
 // #card-quest-show-player-join{
-//   position: sticky;
+//   position: fixed;
+//   left: 40vw;
+//   top: 22vh;
 // }
