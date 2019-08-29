@@ -17,8 +17,11 @@
 // CSS for application.html.erb
 
 .page-pog {
-  padding: 10vh 0;
-  height: 100%;
+  height: calc(100vh - 160px);
+  overflow-y: scroll;
+  position: absolute;
+  top: 80px;
+  width: 100%;
 }
 
 h1 {
