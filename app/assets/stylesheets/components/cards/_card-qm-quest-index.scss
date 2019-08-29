@@ -1,3 +1,7 @@
+#qm-quests-index {
+  min-height: 100vh;
+}
+
 @mixin animation($animation) {
   -webkit-animation: #{$animation};
      -moz-animation: #{$animation};
@@ -41,12 +45,6 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-}
-
-body {
-  background: $sand;
-  //font-family: 'Open Sans', sans-serif;
-  font-family: 'Roboto Condensed', sans-serif;
 }
 
 /* CONTACT
@@ -341,6 +339,28 @@ body {
 
 .content {
   position: absolute;
+}
+
+#qm-quest-card-icons-right-participation {
+  position: absolute;
+  top: 1rem;
+  right: 1.2rem;
+  height: 80%;
+  a {
+    color: black;
+    font-size: 2.5rem;
+  }
+}
+
+#qm-quest-card-icons-left-participation {
+  position: absolute;
+  top: 1rem;
+  left: 1.2rem;
+  height: 80%;
+  a {
+    color: black;
+    font-size: 2.5rem;
+  }
 }
 
 #qm-quest-card-icons-right {

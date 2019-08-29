@@ -7,38 +7,11 @@
           <h5><%= quest.title %></h6>
           <p><%= quest.category.name %></p>
         </div>
-        <%= link_to quest_participations_path(quest), method: :post do %>
+        <%= link_to quest_path(quest), method: :get do %>
           <div class="d-flex justify-content-center align-items-center quest-info">
               <i class="fas fa-seedling"></i>
           </div>
         <% end %>
       </div>
     </div>
-  </div>
-  <div class="inside">
-    <%= link_to quests_path, class:"icon" do %>
-      <div class="d-flex justify-content-center align-items-center">
-        <i class="fas fa-stream"></i>
-      </div>
-    <% end %>
-    <div class="contents">
-      <table>
-        <tr>
-          <th>Mode</th>
-          <th>XP</th>
-        </tr>
-        <tr>
-          <td><%= quest.mode %></td>
-          <td><%= quest.category.xp %></td>
-        </tr>
-        <tr>
-          <th>Location</th>
-          <th><%= link_to "Full details", quest_path(quest), class:"btn btn-info" %></th>
-        </tr>
-        <tr>
-          <td><%= quest.address %></td>
-        </tr>
-      </table>
-    </div>
-  </div>
 </div>
