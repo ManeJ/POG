@@ -11,10 +11,9 @@
 
 .navbar-main {
     display: flex;
-    // justify-content: between;
     align-items: center;
     height: 100%;
-    width: 100vw;
+    width: 100%;
 }
 
 .navbar-logo {
@@ -32,7 +31,7 @@
 
 .POG-navbar {
     color: black;
-    font-size: 3.6rem;
+    font-size: 1.5em;
     height: 100%;
     width: 100%;
     margin-bottom: 0;
@@ -46,23 +45,12 @@
 }
 
 #logo-navbar {
-    height: 80%;
-    margin-bottom: 0.7rem;
+    height: 7vh;
+    margin-bottom: 0.85rem;
 }
 
-// #progress-bar {
-//   width: 80%;
-// }
-
 .player-info {
-  // font-size: 1.8rem;
-  // font-weight: bolder;
-  // text-align: center;
-  // padding-top: 0;
-  // // font-family: 'Permanent Marker', cursive;
-  // width: 22vw;
   h3 {
-    // font-family: 'Indie Flower', cursive;
     font-family: 'Londrina Solid', cursive;
     font-size: 2.2rem;
     font-weight: 500;
@@ -70,3 +58,7 @@
   justify-self: end;
 }
 
+#content-homepage {
+  height: 100%;
+  padding: 0 7vw;
+}

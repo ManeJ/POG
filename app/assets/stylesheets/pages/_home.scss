@@ -3,25 +3,6 @@
 #call-for-action {
   display: flex;
   justify-content: center;
-
-    // position: absolute; // Ancien design :
-    // display: inline-block; // Ancien design :
-    // top: 50%; // Ancien design :
-    // transform: translateY(-50%); // Ancien design :
-    // a {
-    //     // bouton Find a quest // Ancien design :
-    //     font-size: 1.3rem; // Ancien design :
-    //     text-align: center; // Ancien design :
-    // }
-
-    p {
-        // Act for a better tomorrow
-        // text-align: center;
-        // font-size: 2.4rem;
-        // font-family: 'Londrina Solid', cursive;
-        // color: black;
-        // font-weight: 400;
-    }
 }
 
 .logo-home {
@@ -30,28 +11,21 @@
     justify-items: center;
     justify-content: space-around;
     align-items: center;
-    padding-top: 1rem;
-    // color: #5A534A; // Ancien design :
-    // font-weight: 700; // Ancien design :
+    padding-top: 7vh;
     h1 {
         font-size: 3.4rem;
     }
 }
 
-// .logo p { // Ancien design :
-//   color: black;
-//   font-size: 20px;
-// }
-
 #logo-home {
-    height: 14rem;
-    width: 14rem;
+    height: 100%;
+    width: 60vw;
 }
 
 #moto {
     // Where will and need for action meet
     font-family: 'Londrina Solid', cursive;
-    font-size: 2.1rem;
+    font-size: 40px;
     color: $vert;
     font-weight: 300;
 }
@@ -62,19 +36,21 @@
     height: 100vh;
 }
 
+.home-sign, #vertical-line {
+  font-size: 24px;
+}
 
-// BOUTONS CALL FOR ACTION
+
+// BOUTON REACH A HAND
 .home-links:hover {
   text-decoration: none;
 }
-
-// REACH A HAND
 
 $button-width:220px;
 $button-height:56px;
 // $button-color:lighten(crimson,5%);
 $button-color: $vert;
-$button-font-size: 2.2rem;
+$button-font-size: 32px;
 
 $frill-vert-space:45px; //vertical spacing between frills
 $frill-horizontal-offset:14px; //initial offset
@@ -233,141 +209,3 @@ $timing-function:ease-out;
     top:$frill-vert-space*1.55;
   }
 }
-
-// ASK FOR HELP (uniquement styles qui changent par rapport au style du 1er bouton)
-
-$button2-color: $orange;
-
-.button-home-2 {
-  background:$button2-color;
-  border-radius:5px;
-  color:white;
-  cursor:pointer;
-  font-family: 'Londrina Solid', cursive;
-  font-weight: 300;
-  font-size:$button-font-size;
-  height:$button-height;
-  letter-spacing:.2px;
-  line-height:$button-height;
-  text-align:center;
-  // text-transform:uppercase;
-  user-select:none;
-  width:$button-width;
-  &:hover {
-    background:lighten($button2-color,4%);
-  }
-  &:active {
-    box-shadow:inset 0px 2px 8px -1px darken($button2-color,6%);
-  }
-}
-
-.fancy-button2 {
-  margin:auto;
-  position:relative;
-}
-.frills2, .frills2:after, .frills2:before {
-  position:absolute;
-  background:$button2-color;
-  border-radius:($frill-height/2);
-  height:$frill-height;
-}
-.frills2:after, .frills2:before,  {
-  content:"";
-  display:block;
-}
-.frills2:before {
-  bottom:$frill-vert-space;
-}
-.frills2:after {
-  top:$frill-vert-space;
-}
-
-// LIENS SIGN-IN / UP
-.home-sign {
-  color: $canard;
-  font-size: 1.6rem;
-  &:hover {
-    text-decoration: none;
-  }
-}
-
-#vertical-line {
-  font-size: 2.5rem;
-  color: $gris;
-  font-weight: lighten;
-  margin-bottom: 0;
-}
-
-
-
-// ANCIEN DESIGN :
-
-
-// .btn-medium {
-//   background-color: white;
-//   border: 1px solid white;
-//   padding: 16px 24px;
-//   width: 60%;
-//   border-radius: 0.5rem;
-//   font-weight: lighter;
-//   font-size: 24px;
-//   transition: opacity 0.3s ease;
-//   }
-
-// .btn-medium:hover {
-//   opacity: 0.5;
-//   color: white;
-//   font-weight: 400;
-//   border: 2px solid white;
-//   cursor: pointer;
-//   }
-
-// .container .home {
-//   display: flex;
-//   justify-content: center;
-//   align-items: center;
-//   font-size: 24px;
-//   font-weight: bold;
-//   margin-top: 1rem;
-//   padding-top: 1rem;
-//   text-align: center;
-//   align-content: center;
-// }
-
-// .container .home h1 {
-//   margin: 1rem;
-//   text-align: center;
-//   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-//   font-size: 36px;
-//   font-weight: bold;
-// }
-
-// .container .home .logo {
-//   margin-top: 1rem;
-// }
-
-// .home-content .block-text {
-//   font-size: 20px;
-//   font-weight: 700;
-//   color: black;
-//   margin-bottom: 1rem;
-//   padding: 1rem;
-// }
-
-// .home-content {
-//   background-image: asset_url('watercolor.png');
-//   background-size: contain;
-//   background-position: center;
-//   background-repeat: no-repeat;
-//   width: 90vw;
-//   height: 300px;
-//   display: flex;
-//   text-align: center;
-//   flex-direction: column;
-//   color: #5A534A;
-//   font-size: 24px;
-//   font-weight: bold;
-//   align-items: center;
-//   position: relative;
-// }
-

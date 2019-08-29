@@ -1,6 +1,6 @@
-<div class="page-pog">
-  <div class="row pt-5">
-    <div class="col mt-5">
+<div id="content-homepage">
+  <div class="row">
+    <div class="col mt-3">
       <div class="logo-home">
         <%= image_tag('logo-pog.png', id:"logo-home", border:"0") %>
         <h1>People of Gaïa</h1>
@@ -23,23 +23,9 @@
   </div>
   <div class="row">
     <div class="col mt-5">
-        <div class="d-flex justify-content-center align-items-center!">
-          <div class="fancy-button2">
-            <div class="left-frills frills2"></div>
-            <%= link_to new_questmaster_quest_path, class:"home-links" do %>
-              <div class="button-home-2">Ask for help</div>
-            <% end %>
-            <div class="right-frills frills2"></div>
-          </div>
-        </div>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col mt-5">
-      <div class="d-flex justify-content-center">
-        <%= link_to "Sign-up", new_user_registration_path, class:"home-sign mr-2 mb-0 pb-0" %>
-          <i class="fas fa-grip-lines-vertical" id="vertical-line"></i>
-        <%= link_to "Sign-in", new_user_session_path, class:"home-sign ml-2 mb-0 pb-0" %>
+      <div class="d-flex flex-column align-items-center">
+        <%= link_to "Sign-up", new_user_registration_path, class:"home-sign" %>
+        <%= link_to "Sign-in", new_user_session_path, class:"home-sign" %>
       </div>
     </div>
   </div>
