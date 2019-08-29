@@ -20,15 +20,15 @@
               <p class="card-player-participations-status"><%= participation.quest.progress %></p>
               <p><%= participation.quest.begin_on.strftime("%d/%m/%Y") %></p>
               <% if  participation.quest.progress != 'Cancelled' %>
-              <div id="qm-quest-card-icons-left-participation">
-                <%= link_to quest_chat_room_path(participation.quest, participation.quest.chat_room) do %>
-                  <i class="fas fa-comment-dots"></i>
-                <% end %>
-              </div>
-              <div class="d-flex flex-column align-items-center" id="qm-quest-card-icons-right-participation">
-                <%= link_to participations_path, method: :delete, data: { confirm: "Are you sure?" } do %>
-                  <i class="fas fa-trash-alt"></i>
-                <% end %>
+                <div id="qm-quest-card-icons-left-participation">
+                  <%= link_to quest_chat_room_path(participation.quest, participation.quest.chat_room) do %>
+                    <i class="fas fa-comment-dots"></i>
+                  <% end %>
+                </div>
+                <div class="d-flex flex-column align-items-center" id="qm-quest-card-icons-right-participation">
+                  <%= link_to participations_path, method: :delete, data: { confirm: "Are you sure?" } do %>
+                    <i class="fas fa-trash-alt"></i>
+                  <% end %>
               <% end %>
               </div>
             </aside>
@@ -54,11 +54,11 @@
                 <%= link_to 'See the review I sent', participation_review_path(participation, participation.quest_review_id) %>
               </nav>
             <% end %>
-          <% if participation.user_review_id != nil %>
-            <nav class="participation-card-actions">
-              <%= link_to 'See the review I got', participation_result_path(participation) %>
-            </nav>
-          <% end %>
+            <% if participation.user_review_id != nil %>
+              <nav class="participation-card-actions">
+                <%= link_to 'See the review I got', participation_result_path(participation) %>
+              </nav>
+            <% end %>
           <% elsif participation.quest.progress != 'Cancelled' %>
             <nav class="participation-card-actions">
                 <%= link_to 'Cancel participation', participations_path, method: :delete, data: { confirm: "Are you sure?" } %>
@@ -71,7 +71,6 @@
           <nav class="participation-card-actions">
             <%= link_to 'See the review I got', participation_result_path(participation) %>
           </nav>
-        <% end %>
         <% end %>
       </div>
     </div>
