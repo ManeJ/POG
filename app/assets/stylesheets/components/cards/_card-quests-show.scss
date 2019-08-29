@@ -1,139 +1,43 @@
-.player-quest-card {
-  background-color: $green;
-  border-radius: 5px;
-  position: relative;
+#player-quests-show {
+  height: 100%;
 }
 
-.quest-description {
-  width: 70vw;
-  height: 100px;
-  border-radius : 5px;
-  font-size: 2rem;
-}
-
-.quest-xp-ppl {
-  p, i, div {
-    font-weight: bold;
+#show-quest-player {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  background-color: transparent;
+  p {
+    font-size: 1.8rem;
+    margin-bottom: 0;
   }
+  .row {
+    margin: 0
+  }
+}
 
-  p, i {
+.show-quest-player-title {
+  background-color: rgb(229, 242, 230);
+  color: $canard;
+  border-top: 1px solid rgba(0, 0, 0, 0.125);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+}
+
+.show-quest-player-content {
+  width: 100%;
+  padding: 0 2rem 2rem 2rem;
+}
+
+#show-quest-player-content-date{
+  p {
     font-size: 2rem;
   }
 }
 
-.category-pic {
-  position: absolute;
-  top: -35px;
-  border: 2px solid $anthracite;
-}
 
-.participation-card-content {
-  position: relative;
-}
-
-.category-pic-participation-show {
-  width: 100px !important;
-  position: absolute !important;
-  border: 2px solid $anthracite !important;
-  display: inline-block;
-  top: -90px;
-  right: 33vw;
-}
-
-.quest-description {
-  border: 2px solid $anthracite;
-  color: $anthracite;
-}
-
-.quest-details span {
-  font-weight: bold;
-}
-
-.quest-details {
-  width: 80vw;
-}
-
-// Smallest device
-@media (min-width: 100px) and (max-width: 575px) {
-  .qm-quest-card {
-    width: 90vw;
-  }
-}
-
-// Small devices (landscape phones, 576px and up)
-@media (min-width: 576px) {
-  .qm-quest-card {
-    width: 90vw;
-  }
-}
-
-// Medium devices (tablets, 768px and up)
-@media (min-width: 768px) {
-  .qm-quest-card {
-    width: 70vw;
-  }
-}
-
-// Large devices (desktops, 992px and up)
-@media (min-width: 992px) {
-  .qm-quest-card {
-    width: 50vw;
-  }
-}
-
-// Extra large devices (large desktops, 1200px and up)
-@media (min-width: 1200px) {
-  .qm-quest-card {
-    width: 50vw;
-  }
-}
-
-
-// STYLE FOR FLIPPING EFFECT
-
-section {
-  &.custom {
-    cursor: pointer;
-    .card {
-      text-align: center;
-      color: #FFFFFF;
-      width: 90%;
-      height: 315px;
-      transition: 0.6s;
-      transform-style: preserve-3d;
-      position: relative;
-      background-color: $green;
-    }
-    .flipper {
-      padding-left: 0px;
-      padding-right: 0px;
-      margin-bottom: 10px;
-      perspective: 1000px;
-    }
-    .flipper.flip .card {
-      transform: rotateY(180deg);
-    }
-    .front,
-    .back {
-      width: 100%;
-      padding: 5px;
-      backface-visibility: hidden;
-      position: absolute;
-      top: 0;
-      left: 0;
-    }
-    .front {
-      z-index: 2;
-      transform: rotateY(0deg);
-      height: 100%;
-    }
-    .back {
-      transform: rotateY(180deg);
-      height: 100%;
-    }
-  }
-}
-
-.ppl {
-  width: 20%;
-}
+// POUR BOUTON QUI DESCEND AVEC LE SCROLL
+// #card-quest-show-player-join{
+//   position: fixed;
+//   left: 40vw;
+//   top: 22vh;
+// }

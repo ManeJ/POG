@@ -1,4 +1,4 @@
-<div class="page-pog">
+<div class="page-pog page-qm">
   <h1 class="text-center">Create your quest</h1>
   <div class="d-flex flex-column align-items-center">
     <div class="col-12 col-md-4 px-4 form">
@@ -27,13 +27,13 @@
         </div>
 
         <div class="form-actions d-flex justify-content-center">
-          <%= f.button :submit, "Create quest", class:"btn btn-primary" %>
+          <%= f.button :submit, "Create quest", class:"btn btn-primary mb-4" %>
         </div>
       <% end %>
     </div>
-    <div class="my-4">
-      <%= link_to "Back to map", quests_path %>
-    </div>
+<!--     <div class="my-4">
+      <%#= link_to "Back to map", quests_path %>
+    </div> -->
   </div>
 </div>
 <!-- Multiplayer plutôt que Group ? Si oui, Penser à rails db:drop etc. -->

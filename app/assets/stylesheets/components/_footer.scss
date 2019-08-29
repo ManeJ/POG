@@ -2,7 +2,7 @@
   background: white;
   color: black;
   z-index: 3000;
-
+  border-top: 2px solid #ededed;
   // position: absolute;
   // left: 0;
   // bottom: 0;
@@ -12,8 +12,7 @@
   position: fixed;
   bottom: 0;
   width: 100%;
-  height: 10vh;
-
+  height: 80px;
 }
 
 // BURGER MENU

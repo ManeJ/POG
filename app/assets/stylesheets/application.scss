@@ -17,8 +17,11 @@
 // CSS for application.html.erb
 
 .page-pog {
-  padding: 10vh 0;
-  height: 100%;
+  height: calc(100vh - 160px);
+  overflow-y: scroll;
+  position: absolute;
+  top: 80px;
+  width: 100%;
 }
 
 h1 {
@@ -34,30 +37,6 @@ h1.long-title {
 p {
   font-size: 1.9rem;
 }
-
-
-// body, html {
-//   height: 100vh;
-// }
-
-// #app-structure { // conteneur général
-//   width: 100vw;
-//   height: 100vh;
-//   padding: 0;
-//   margin: 0;
-//   display: flex;
-//   flex-direction: column;
-//   justify-content: between;
-// }
-
-// #navbar-pog { // conteneur navbar
-//   // voir component
-// }
-
-// #app-content { // conteneur contenu de l'app
-//   height: 80vh;
-//   flex-grow: 1;
-// }
 
 body {
   margin: 0;
@@ -80,7 +59,45 @@ body {
   font-weight: bold;
 }
 
+.small-btn {
+  width: 80px;
+  font-weight: bold;
+}
 
+.flash {
+  padding: 16px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: white;
+  box-shadow: 0 0 8px rgba(0,0,0,0.2);
+  border-radius: 4px;
+  margin: 8px;
+}
+
+.flash-success {
+  border: 2px solid #1EDD88;
+}
+
+.alert {
+  bottom: 50%;
+}
+
+
+
+/*.page-player {
+  background-color: #f6ffee;
+}
+
+.page-qm, #page-map {
+  background-color: $sand;
+}
+
+
+#page-profile {
+  background-color: #fffbee
+}
+*/
 
 // input:-webkit-autofill,
 // input:-webkit-autofill:hover,

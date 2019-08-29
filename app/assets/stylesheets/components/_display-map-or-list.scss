@@ -8,13 +8,17 @@
 #quests-index {
   position: relative;
   align-items: center;
+  background-color: white;
   }
   #map-display {
       margin-left: 1vh;
+      font-family: "Londrina Solid", "Helvetica", "sans-serif";
+      font-weight: lighter;
     }
     #list-display {
       margin-left: 7vh;
-
+      font-family: "Londrina Solid", "Helvetica", "sans-serif";
+      font-weight: lighter;
     }
 
 .row-map {
@@ -28,4 +32,5 @@
 
 #list {
   margin-top: 5rem;
+  padding-bottom: 5rem;
 }
