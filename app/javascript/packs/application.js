@@ -1,7 +1,8 @@
 import "bootstrap";
 import "../plugins/flatpickr";
-import '../plugins/details';
-import '../plugins/display_list_or_map';
+import '../plugins/details'
+import '../plugins/display_list_or_map'
+import '../plugins/by_location_in_list_index'
 import { initAutocomplete } from '../plugins/init_autocomplete';
 import 'mapbox-gl/dist/mapbox-gl.css';
 import { initMapbox } from '../plugins/init_mapbox';
@@ -62,34 +63,6 @@ $(function(){
      $(this).addClass("active");
   });
 });
-
-
-const collapseBtns = document.querySelectorAll(".toggler-example");
-collapseBtns.forEach((btn) => {
-  btn.addEventListener("click", (event) => {
-    const carouselContainer = event.currentTarget.parentElement.parentElement.children[1].children[0].children[0];
-    const input = document.querySelector(".mapboxgl-ctrl-geocoder--input");
-    const categoryId = event.currentTarget.dataset.categoryid;
-    let query = "empty";
-    if (input.value) { query = input.value; }
-    const url = `../../category/${categoryId}/quests/filter-by-category/${query}`;
-    fetch(url, { credentials: "include"})
-      .then(response => response.json())
-      .then((quests) => {
-        carouselContainer.innerHTML = "";
-        let active = 'active';
-        quests.forEach((quest) => {
-          carouselContainer.insertAdjacentHTML("beforeend", `<div class='carousel-item ${ active }'>${quest.title} : ${quest.desc} |
-                                                              ${quest.mode} | ${quest.when}</div>`);
-          active = '';
-        });
-      });
-
-  });
-});
-
-
-
 
 
 

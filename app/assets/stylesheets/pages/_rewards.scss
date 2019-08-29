@@ -8,35 +8,50 @@
 
 .card-product {
   overflow: hidden;
-  height: 120px;
+  height: 200px;
   background: $green;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   display: flex;
+  flex-direction: column;
   align-items: center;
+  // justify-content: center;
   margin: 2rem;
 }
 
-.card-product img {
-  height: 100%;
-  width: 120px;
-  object-fit: cover;
-}
+// .rewards-ico {
+//   // height: 100%;
+//   width: 60px;
+//   object-fit: cover;
+//   margin: 0 2rem;
+// }
 
-.card-product h2 {
-  font-size: 16px;
+.card-product h4 {
+  font-size: 3rem;
   font-weight: bold;
   margin: 0;
-  color: $yellow;
+  color: black;
 }
 
 .card-product p {
-  font-size: 12px;
+  font-size: 2rem;
   line-height: 1.4;
   opacity: .7;
   margin-bottom: 0;
   margin-top: 8px;
 }
 
-.card-product .card-product-infos {
+.card-product {
   padding: 16px;
+}
+
+#reward-description {
+  width: 100%;
+ }
+
+// #reward-description-right {
+//  padding-left: 0 !important;
+// }
+
+.accordion-title-rewards {
+  color: $canard;
 }

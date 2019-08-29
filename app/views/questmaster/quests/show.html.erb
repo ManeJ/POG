@@ -1,5 +1,5 @@
 <div class="page-pog">
-  <section class="custom">
+  <section class="custom" id="qm-card-show">
     <div class="flipper mt-5 d-flex justify-content-center">
       <div class="card">
         <div class="front">
@@ -11,8 +11,9 @@
               <div class="d-flex flex-column justify-content-center align-items-center">
                 <div class="d-flex justify-content-between w-100 quest-xp-ppl">
                   <p>+ <%= @quest.category.xp %> XP</p>
-                  <div>
-                    <i class="fas fa-user"></i> <%= @quest.participations.count %> / <%= @quest.people_wanted %>
+                  <div class="ppl">
+                    <i class="fas fa-user"></i>
+                    <p><%= @quest.participations.count %> / <%= @quest.people_wanted %></p>
                   </div>
                 </div>
                 <div class="text-center">
