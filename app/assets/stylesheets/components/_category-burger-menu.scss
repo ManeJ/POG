@@ -5,14 +5,14 @@ font-size: 2.5rem;
 cursor: pointer;
 }
 .dark-blue-text {
-color: #ffbe44;
+color: $yellow;
 }
 #list{
   margin-top: 40px;
 }
 .index-category{
   border: 1px solid black;
-  background-color: #01c07d;
+  background-color: $vert;
   margin:16px 8px;
   border-radius: 4px;
   box-shadow: 4px 4px 16px #0b7c53;
@@ -25,4 +25,3 @@ color: #ffbe44;
   display: flex;
   flex-direction: row;
 }
-

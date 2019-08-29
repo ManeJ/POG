@@ -14,10 +14,12 @@
     <div id="list">
 
       <%  Category.all.each do |category| %>
-        <nav class="index-category navbar ">
+        <nav class="index-category navbar">
           <div class="burger-category d-flex justify-content-center w-100">
-              <%= image_tag(category.picture) %>
-              <a class="navbar-brand" href="#"><%=category.name %></a>
+              <div class="rounded-circle p-2 burger-img">
+                <%= image_tag(category.picture) %>
+              </div>
+              <h3 class="navbar-brand"><%=category.name %></h3>
             <button class="navbar-toggler toggler-example" data-categoryid="<%= category.id %>" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-<%= category.id %>"
               aria-controls="navbarSupportedContent-<%= category.id %>" aria-expanded="false" aria-label="Toggle navigation"><span class="dark-blue-text"><i
                   class="fas fa-bars fa-1x"></i></span></button>
