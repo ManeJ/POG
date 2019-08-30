@@ -13,24 +13,24 @@
                   <%= image_tag(current_user.photo, id:"avatar-profile") %>
                 </div>
                 <h5>#<%= current_user.username %></h5>
-                <div class="d-flex justify-content-between" id="player-data">
-                  <h4><%= current_user.xp %> XP</h4>
-                  <h4>LEVEL <%= current_user.level %></h4>
-                </div>
-                <div class="d-flex justify-content-between">
-                  <p class="font-italic"><%= current_user.level_name %></p>
-                </div>
                 <div class="col d-flex justify-content-center">
                     <% if current_user.player_average_rating.nil? %>
                       <p class="font-italic">No rating yet</p>
                     <% else %>
                       <% current_user.player_average_rating.times do  %>
-                        <%= image_tag('star-plain.png', class:"rating_ico") %>
+                        <%= image_tag('star-plain.png', class:"rating_ico_profile") %>
                       <% end %>
                       <% (5 - current_user.player_average_rating).times do %>
-                        <%= image_tag('star-blank.png', id:"blank_star", class:"rating_ico") %>
+                        <%= image_tag('star-blank.png', id:"blank_star", class:"rating_ico_profile") %>
                       <% end %>
                     <% end %>
+                </div>
+                <div class="d-flex justify-content-between" id="player-data">
+                  <h4><%= current_user.xp %> XP</h4>
+                  <h4>LEVEL <%= current_user.level %></h4>
+                </div>
+                <div class="d-flex justify-content-between">
+                  <p class="font-italic">- <%= current_user.level_name %> -</p>
                 </div>
               </div>
             </aside>

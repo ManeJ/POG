@@ -4,10 +4,12 @@
 
 #player-data {
   width: 100%;
+  padding-top: 50px;
 }
 
 #profile-card-inner {
   position: relative;
+  min-height: 285px;
 }
 
 #pencil-card-profile {
@@ -18,6 +20,9 @@
   color: $tomato;
 }
 
+.rating_ico_profile {
+  height: 32px;
+}
 
 // STYLE CARD DEFINI DANS _card-qm-quest-index.scss
 // SAUF POUR :
@@ -26,7 +31,7 @@
   position: relative;
   max-width: 420px;
   padding: 40px 20px;
-  overflow: hidden;
+  // overflow: hidden;
   margin: 0 auto;
 
   @media (min-width: 1024px) {
@@ -50,21 +55,21 @@
         position: relative;
         text-align: center;
 
-        @media (min-width: 414px) {
-          text-align: left;
-        }
+        // @media (min-width: 414px) {
+        //   text-align: left;
+        // }
 
-        img {
-          display: inline-block;
-          width: 140px;
-          border-radius: 50%;
+        // img {
+        //   display: inline-block;
+        //   width: 140px;
+        //   border-radius: 50%;
 
-          @media (min-width: 414px) {
-            float: left;
-            width: 30%;
-            margin-right: 10%;
-          }
-        }
+        //   @media (min-width: 414px) {
+        //     float: left;
+        //     width: 30%;
+        //     margin-right: 10%;
+        //   }
+        // }
 
         aside {
           float: left;
