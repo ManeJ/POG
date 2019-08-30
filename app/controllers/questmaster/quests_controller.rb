@@ -1,7 +1,7 @@
 class Questmaster::QuestsController < ApplicationController
   before_action :set_quest, only: [:show, :edit, :update]
   def index
-    @quests = current_user.quests
+    @quests = current_user.quests.order(created_at: :desc)
     @participations = Participation.all
     @review = Review.new
   end

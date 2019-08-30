@@ -46,6 +46,10 @@
   height: 200px !important;
 }
 
+#unclickable-on-phone {
+  margin-bottom: 80px;
+}
+
 // Smallest device
 @media (min-width: 100px) and (max-width: 575px) {
 }
