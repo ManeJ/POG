@@ -29,7 +29,7 @@ collapseBtns.forEach((btn) => {
                               <p>${quest.desc}</p>
                             </p>
                             <buton></buton>
-                            <a href="/quests/${quest.id}" style="black">More Details</a>
+                            <a class="text-white" href="/quests/${quest.id}">More Details</a>
                           </div>
                         </aside>
                       </div>
