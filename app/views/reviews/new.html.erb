@@ -1,13 +1,12 @@
 <div class="page-pog">
   <div class="d-flex justify-content-center flex-column align-items-center">
     <h1 class="text-center mb-4 px-3">Write a review</h1>
-
     <div class="global-review-container mb-5">
       <h3 class="text-center"><%= @quest.title %></h3>
       <p class="text-center font-italic mb-5">#<%= @quest.user.username %></p>
       <%= simple_form_for([@quest, @review], url: quest_participation_reviews_path(@quest, @participation), method: :post) do |f| %>
         <%= f.error_notification %>
-        <div class="d-flex justify-content-center align-items-center flex-wrap px-4">
+        <div class="d-flex justify-content-center align-items-center flex-wrap px-5">
           <%= f.collection_radio_buttons :rating, [[1], [2], [3], [4], [5]], :first, :last, item_wrapper_tag: false, boolean_style: :inline do |b| %>
               <%= b.radio_button + b.label {image_tag("rating-#{b.text}.png")} %>
           <% end %>

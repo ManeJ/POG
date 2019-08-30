@@ -1,18 +1,21 @@
 <div class="page-pog">
-  <div class="d-flex justify-content-center flex-column mt-3 align-items-center">
-    <h1 class="mb-4 px-3 text-center">Review for "<%= @quest.title %>"</h1>
+  <div class="d-flex justify-content-center flex-column align-items-center">
+    <h1 class="mb-4 px-3 text-center">Write a group review</h1>
     <% if @quest.participations.any? { |p| p.user_review_id.nil? } %>
-      <div class="global-review-container">
-        <p>Global rating</p>
+      <div class="global-review-container mb-5">
+        <h3 class="text-center"><%= @quest.title %></h3>
+        <p class="text-center my-3">Global rating</p>
         <%= simple_form_for([@quest, @review], url: questmaster_quest_reviews_path(@quest), method: :post) do |f| %>
           <%= f.error_notification %>
-          <%= f.collection_radio_buttons :rating, [[1], [2], [3], [4], [5]], :first, :last, item_wrapper_tag: false, boolean_style: :inline do |b| %>
-              <%= b.radio_button + b.label {image_tag("rating-#{b.text}.png", size:"42x42")} %>
-          <% end %>
+          <div class="d-flex justify-content-center align-items-center flex-wrap px-5">
+            <%= f.collection_radio_buttons :rating, [[1], [2], [3], [4], [5]], :first, :last, item_wrapper_tag: false, boolean_style: :inline do |b| %>
+                <%= b.radio_button + b.label {image_tag("rating-#{b.text}.png")} %>
+            <% end %>
+          </div>
           </br></br>
           <%= f.input :content, label: "Global comment", hint: "200 characters max." %>
           <div class="d-flex justify-content-center">
-            <%= f.button :submit, "Send review", class:"btn btn-primary" %>
+            <%= f.button :submit, "Send review", class:"btn btn-primary mb-3" %>
           </div>
         <% end %>
       </div>

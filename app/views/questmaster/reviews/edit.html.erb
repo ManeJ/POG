@@ -4,7 +4,7 @@
       <h1 class="mb-5">Review update</h1>
     </div>
 
-    <div class="global-review-container">
+    <div class="global-review-container mb-5">
        <%= simple_form_for([@quest, @review], url: questmaster_quest_participation_review_path(@quest), method: :patch) do |f| %>
         <%= f.error_notification %>
         <h3 class="text-center">#<%= @participation.user.username %></h3>
