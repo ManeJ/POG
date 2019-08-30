@@ -17,7 +17,14 @@
   // }
 }
 
-.form-control {
+.global-review-container {
+  .form-control-label {
+    font-size: 1.8rem !important;
+    padding-left: 0.8rem;
+  }
+}
+
+.form-control,  {
   font-size: 1.8rem !important;
   option {
     font-size: 1.4rem;
