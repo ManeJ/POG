@@ -1,17 +1,34 @@
+.mapboxgl-popup {
+  max-width: 300px;
+  transform: translate(16px, 20%) translate(45px, 100px) !important;
+}
+
+.mapboxgl-popup-content {
+  width: 300px;
+  height: 260px;
+  padding: 8px 0 0 0 !important;
+}
+
+.mapboxgl-popup-close-button {
+  font-size: 70px;
+  font-weight: bold;
+  z-index: 10;
+}
+
 .wrapper{
-  width: 200px;
-  height: 200px;
-  background: white;
+  width: 290px;
+  height: 240px;
+  background: transparent;
   margin: auto;
   position: relative;
   overflow: hidden;
   // border-radius: 10px 10px 10px 10px;
   box-shadow: 0;
-  transform: scale(0.95);
+  transform: scale(0.90);
   transition: box-shadow 0.5s, transform 0.5s;
+  box-shadow: 5px 20px 30px rgba(0,0,0,0.2);
   &:hover{
-    transform: scale(1);
-    box-shadow: 5px 20px 30px rgba(0,0,0,0.2);
+    transform: scale(0.95);
   }
   .content{
     width:100%;
@@ -19,6 +36,8 @@
     .top{
       height: 60%;
       width:100%;
+      padding: 16px;
+      border-bottom: 2px solid white;
   -webkit-background-size: 100%;
   -moz-background-size: 100%;
   -o-background-size: 100%;
@@ -41,7 +60,7 @@
       .left{
         height: 100%;
         width: 50%;
-        background: $sand;
+        background: $vert;
         position:relative;
         float:left;
         .details{
@@ -53,15 +72,17 @@
           float:right;
           width: calc(35% - 2px);
           height:100%;
-          background: #f1f1f1;
+          background: $tomato;
           transition: background 0.5s;
           border-left:solid thin rgba(0,0,0,0.1);
+          margin-bottom: 0;
+          padding-bottom: 0;
           &:hover{
-            background: rgba(43,49,55,0.2);
+            background: white;
           }
           &:hover i{
             transform: scale(1.5);
-            color:$green;
+            color:$vert;
           }
         }
       }
@@ -69,77 +90,7 @@
   }
 
   .fas {
-    font-size: 2.5rem;
-    color: $taupe;
-  }
-
-  .inside{
-    z-index:9;
-    background: $grape;
-    width:70px;
-    height:70px;
-    position: absolute;
-    top: -20px;
-    right: -20px;
-    border-radius: 0px 0px 25% 25%;
-    transition: all 0.5s, border-radius 2s, top 1s;
-    overflow: hidden;
-    .icon{
-      position:absolute;
-      right:32px;
-      top:32px;
-      color:white;
-      opacity: 1;
-      font-size: 1.5rem;
-    }
-
-    &:hover{
-      width:100%;
-      right:0;
-      top:0;
-      border-radius: 0;
-      height:70%;
-      .icon{
-        opacity: 0;
-        right:15px;
-        top:15px;
-      }
-      .contents{
-        opacity: 1;
-        transform: scale(1);
-        transform: translateY(0);
-      }
-    }
-    .contents{
-      padding: 5%;
-      opacity: 0;
-      transform: scale(0.5);
-      transform: translateY(-200%);
-      transition: opacity 0.2s, transform 0.8s;
-      table{
-        text-align:left;
-        width:100%;
-        font-size: 13px;
-        position: relative;
-        td {
-          padding-bottom: 16px;
-        }
-        th {
-          color: $sand
-        }
-        .btn-info {
-          font-size: 13px;
-          position: absolute;
-          bottom: 18px;
-          right: 12px;
-        }
-      }
-      p, table{
-        color: $taupe;
-      }
-      p{
-        font-size:13px;
-      }
-    }
+    font-size: 48px;
+    color: $green;
   }
 }
