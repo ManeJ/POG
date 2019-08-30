@@ -33,18 +33,6 @@ $('#modal-container').click(function () {
   $('body').removeClass('modal-active');
 });
 
-
-// CODE FOR FLIPPING EFFECT (card questmaster/quests#show)
-$(".flipper").click(function() {
-  var target = $( event.target );
-  if ( target.is("a") ) {
-    return true;
-  } else {
-    $(this).toggleClass("flip");
-  }
-  return false;
-});
-
 // BOUTONS CALL FOR ACTION HOMEPAGE
 $(function(){
   $(".fancy-button").mousedown(function(){
