@@ -6,7 +6,7 @@
       <% if user_signed_in? %>
         <% unless @quest.user == current_user || @quest.participations.where(user_id: current_user.id).any? || @quest.progress == "Finished" || @quest.progress == "Cancelled" %>
           <div class="py-3" id="card-quest-show-player-join">
-            <%= link_to "Join", quest_participations_path(@quest), method: :post, class:"btn btn-primary small-btn" %>
+            <%= link_to "Join", quest_participations_path(@quest), method: :post, class:"btn btn-primary small-btn text-white" %>
           </div>
         <% end %>
       <% end %>
