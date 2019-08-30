@@ -1,4 +1,6 @@
 <div class = "message <%= user_is_messages_author ? "right" : ""%>">
   <%= image_tag message.user.photo, class:"avatar" if message.user  %>
-  <div class = "message-content"><%=message.content%></div>
+  <div class = "message-content">
+  <%=message.content%> <p style="font-size: 9px"><%= Time.now.strftime("%H:%M") %><p>
+  </div>
 </div>
