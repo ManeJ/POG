@@ -14,13 +14,13 @@
                 </div>
                 <h5>#<%= current_user.username %></h5>
                 <div class="col d-flex justify-content-center">
-                    <% if current_user.player_average_rating.nil? %>
+                    <% if current_user.global_rating.nil? %>
                       <p class="font-italic">No rating yet</p>
                     <% else %>
-                      <% current_user.player_average_rating.times do  %>
+                      <% current_user.global_rating.times do  %>
                         <%= image_tag('star-plain.png', class:"rating_ico_profile") %>
                       <% end %>
-                      <% (5 - current_user.player_average_rating).times do %>
+                      <% (5 - current_user.global_rating).times do %>
                         <%= image_tag('star-blank.png', id:"blank_star", class:"rating_ico_profile") %>
                       <% end %>
                     <% end %>
@@ -124,10 +124,10 @@
             </div>
           </div>
           <div class="row d-flex align-items-center">
-            <div class="col-5">
+            <div class="col-4">
               <h5>Email:</h5>
             </div>
-            <div class="col-7">
+            <div class="col-8">
               <span><%= current_user.email %></span>
             </div>
           </div>
