@@ -1,11 +1,14 @@
 <div class="wrapper">
   <div class="content">
- <div class="top" style="background-image: url('https://mymodernmet.com/wp/wp-content/uploads/2018/01/earth-brian-kirhagis-1.jpg')"></div>
+ <div class="top" style="background-color: #91fb93">
+   <h4><%= quest.title %></h4>
+   <p><%= quest.begin_on.strftime("%d/%m/%Y") %></p>
+   <p><%= quest.duration %></p>
+ </div>
     <div class="bottom">
       <div class="left">
         <div class="details">
-          <h5><%= quest.title %></h5>
-          <p><%= quest.category.name %></p>
+          <p class="text-center p-4">Want to join this quest ?</p>
         </div>
         <%= link_to quest_path(quest), method: :get do %>
           <div class="d-flex justify-content-center align-items-center quest-info">
