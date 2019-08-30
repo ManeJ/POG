@@ -1,13 +1,13 @@
 <div class="page-pog">
-  <div class='d-flex justify-content-center px-4 pb-3'>
+  <div class='d-flex flex-column justify-content-center px-4 pb-3'>
     <h1 class='text-center'>My good actions</h1>
+    <% if @participations.empty? %>
+      <div class="text-center mt-2">
+        <p>No quests to display yet...</p>
+        <p>What are you waiting for? :-)</p>
+      </div>
+    <% end %>
   </div>
-  <% if @participations.empty? %>
-    <div class="text-center mt-2">
-      <p>No quest to display yet...</p>
-      <p>What are you waiting for? :-)</p>
-    </div>
-  <% end %>
   <% @participations.each do |participation| %>
   <div class="contact-area">
     <div class="contact">
@@ -15,22 +15,24 @@
         <div class="card-player-participations">
           <div class="content">
             <aside class="participation-card-content">
-              <%= image_tag(participation.quest.category.picture, class:"rounded-circle bg-light p-2 category-pic-participation-show", id:"avatar-participation") %>
+              <%= image_tag(participation.quest.category.picture, class:"rounded-circle bg-light p-2 category-pic-participation-show", id:"avatar-participation-player") %>
               <h2 class="mt-5"><%= participation.quest.title %></h2>
               <p class="card-player-participations-status"><%= participation.quest.progress %></p>
               <p><%= participation.quest.begin_on.strftime("%d/%m/%Y") %></p>
-              <% if  participation.quest.progress != 'Cancelled' %>
+              <% if participation.quest.progress != 'Cancelled' %>
                 <div id="qm-quest-card-icons-left-participation">
                   <%= link_to quest_chat_room_path(participation.quest, participation.quest.chat_room) do %>
                     <i class="fas fa-comment-dots"></i>
                   <% end %>
                 </div>
+              <% end %>
+              <% unless participation.quest.progress == 'Finished' %>
                 <div class="d-flex flex-column align-items-center" id="qm-quest-card-icons-right-participation">
-                  <%= link_to participations_path, method: :delete, data: { confirm: "Are you sure?" } do %>
+                  <%= link_to participation_path(participation), method: :delete, data: { confirm: "Are you sure?" } do %>
                     <i class="fas fa-trash-alt"></i>
                   <% end %>
+                </div>
               <% end %>
-              </div>
             </aside>
 
             <button class="participation-card-btn action-btn">
@@ -61,17 +63,9 @@
             <% end %>
           <% elsif participation.quest.progress != 'Cancelled' %>
             <nav class="participation-card-actions">
-                <%= link_to 'Cancel participation', participations_path, method: :delete, data: { confirm: "Are you sure?" } %>
-            </nav>
-            <nav class="participation-card-actions">
                 <%= link_to 'Chat', quest_chat_room_path(participation.quest, participation.quest.chat_room)%>
             </nav>
           <% end %>
-        <% if participation.user_review_id != nil %>
-          <nav class="participation-card-actions">
-            <%= link_to 'See the review I got', participation_result_path(participation) %>
-          </nav>
-        <% end %>
       </div>
     </div>
   <% end %>

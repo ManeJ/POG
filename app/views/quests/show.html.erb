@@ -75,7 +75,7 @@
           <div class="col-10">
             <p>
               <%= @quest.participations.count %> / <%= @quest.people_wanted %>
-              <% if @user_joined_quests != nil && @user_joined_quests.find(@quest.id)%>
+              <% if @user_joined_quests != nil && @user_joined_quests.where(quest_id: @quest.id)%>
                 (you joined)
               <% end %>
             </p>
@@ -95,7 +95,7 @@
             <h5>XP:</h5>
           </div>
           <div class="col-10">
-            <p>Up to <%= @quest.category.xp %> XP (rating-related)</p>
+            <p>Up to <%= @quest.category.xp %> XP</p>
           </div>
         </div>
         <div class="row d-flex align-items-center">
@@ -104,10 +104,10 @@
           </div>
           <div class="col-9">
             <p>
-              <% if @quest.mode = "Group" %>
+              <% if @quest.mode == "Group" %>
                 Multi-player (<%= @quest.people_wanted %>)
               <% else %>
-                @quest.mode
+                <%= @quest.mode %>
               <% end %>
             </p>
           </div>
@@ -142,18 +142,16 @@
             <h5>Phone #:</h5>
           </div>
           <div class="col-7">
-            <p>
-              <% if @quest.user.telephone %>
-                @quest.user.telephone
-              <% else %>
-                <p class="font-italic">Not provided</p>
-              <% end %>
-            </p>
+            <% if @quest.user.telephone %>
+              <p><%= @quest.user.telephone %></p>
+            <% else %>
+              <p class="font-italic">Not provided</p>
+            <% end %>
           </div>
         </div>
         <div class="row d-flex align-items-center">
           <div class="col">
-            <h5>Average rating:</i></h5>
+            <h5>Overall rating:</i></h5>
           </div>
         </div>
 

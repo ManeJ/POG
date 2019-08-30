@@ -2,14 +2,14 @@
   <h1 class="text-center px-2">Reviews for <%= @quest.title %></h1>
   <% if @participations.any? { |participation| participation.quest_review != nil } %>
     <% @participations.each do |participation| %>
-    <div class="contact-area">
-      <div class="contact">
-        <main>
-          <section>
-            <div class="content">
-              <aside>
-                  <div class="d-flex flex-column justify-content-center align-items-center">
-                    <% if participation.quest_review != nil %>
+      <% if participation.quest_review != nil %>
+        <div class="contact-area">
+          <div class="contact">
+            <main>
+              <section>
+                <div class="content">
+                  <aside>
+                    <div class="d-flex flex-column justify-content-center align-items-center">
                       <p class="mb-0">From</p>
                       <h2><%= participation.user.username %></h2>
                       <p class="mb-5">On <%= participation.quest_review.created_at.strftime("%d/%m/%Y") %></p>
@@ -24,16 +24,14 @@
                       <p class="font-italic">
                         " <%= participation.quest_review.content %> "
                         </p>
-                    <% else %>
-                      <p>No review yet</p>
-                    <% end %>
-                  </div>
-                </aside>
-              </div>
-            </section>
-          </main>
+                    </div>
+                  </aside>
+                </div>
+              </section>
+            </main>
+          </div>
         </div>
-      </div>
+      <% end %>
     <% end %>
   <% end %>
 </div>

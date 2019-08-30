@@ -17,6 +17,7 @@ class Questmaster::ReviewsController < ApplicationController
       if @review.save
         participation.user_review_id = @review.id
         participation.user.xp += - @quest.category.xp + (@quest.category.xp * review_params[:rating].to_i / 5)
+        participation.user.save
         participation.save
       else
         render :new

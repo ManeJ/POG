@@ -1,5 +1,5 @@
 <div class="page-pog">
-  <h1 class="text-center px-4 pb-0">Review for <%= @quest.title %></h1>
+  <h1 class="text-center px-4 pb-0">Review</h1>
   <% if @review.nil? %>
     <p>No review yet.</p>
   <% else %>
@@ -10,10 +10,8 @@
               <div class="content">
                 <aside>
                   <div class="d-flex flex-column justify-content-center align-items-center">
-                    <p class="mb-0">By <%= @quest.user.username %></p>
-                    <p></p>
+                    <p class="mb-0 font-italic">By #<%= @quest.user.username %></p>
                     <h2><%= @quest.title %></h2>
-                    <p class="mb-5">On <%= @review.created_at.strftime("%d/%m/%Y") %></p>
                     <div>
                       <% @review.rating.times do  %>
                         <%= image_tag('star-plain.png', class:"rating_ico") %>
@@ -27,6 +25,7 @@
                       " <%= @review.content %> "
                       <!-- <i class="fas fa-quote-right"></i> -->
                     </p>
+                    <p>(<%= @review.created_at.strftime("%d/%m/%Y") %>)</p>
                   </div>
                 </aside>
               </div>
@@ -34,10 +33,10 @@
           </main>
         </div>
       </div>
-      <div class="d-flex justify-content-center">
-        <%= link_to participations_path do %>
+<!--       <div class="d-flex justify-content-center">
+        <%#= link_to participations_path do %>
           <i class="fas fa-backward"></i>
-        <% end %>
-      </div>
+        <%# end %>
+      </div> -->
     </div>
   <% end %>
