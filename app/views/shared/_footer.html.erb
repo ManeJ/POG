@@ -25,55 +25,55 @@
 
     <ul class="menu-footer">
       <% if user_signed_in? %>
-        <li id="burger-square-1">
+        <li class="burger-square-1">
           <%= link_to profile_path do %>
             <%= image_tag("user.png", size: "60x60") %>
           <% end %>
         </li>
-        <li id="burger-square-2">
+        <li class="burger-square-2">
           <%= link_to new_questmaster_quest_path do %>
             <%= image_tag("create-quest.png", size: "65x65") %>
           <% end %>
         </li>
-        <li id="burger-square-3">
+        <li class="burger-square-3">
           <%= link_to rewards_path do %>
             <%= image_tag("gift.png", size: "60x60") %>
           <% end %>
         </li>
-        <li id="burger-square-4">
+        <li class="burger-square-4">
           <%= link_to faq_path do %>
             <%= image_tag("faq.png", size: "60x60") %>
           <% end %>
         </li>
-        <li id="burger-square-5">
+        <li class="burger-square-5">
           <%= link_to destroy_user_session_path, method: :delete do %>
             <%= image_tag("sign-out.png", size: "55x55") %>
           <% end %>
         </li>
-        <li id="burger-square-6"></li>
+        <li class="burger-square-6"></li>
       <% else %>
-        <li id="burger-square-1">
+        <li class="burger-square-1">
           <%= link_to new_user_session_path do %>
             <%= image_tag("sign-in.png", size: "60x60") %>
           <% end %>
         </li>
-        <li id="burger-square-2">
+        <li class="burger-square-2">
           <%= link_to new_user_registration_path do %>
             <%= image_tag("sign-up.png", size: "60x60") %>
           <% end %>
         </li>
-        <li id="burger-square-3">
+        <li class="burger-square-3">
           <%= link_to faq_path do %>
             <%= image_tag("faq.png", size: "60x60") %>
           <% end %>
         </li>
-        <li id="burger-square-4">
+        <li class="burger-square-4">
           <%= link_to rewards_path do %>
             <%= image_tag("gift.png", size: "60x60") %>
           <% end %>
         </li>
-        <li id="burger-square-5"></li>
-        <li id="burger-square-6"></li>
+        <li class="burger-square-5"></li>
+        <li class="burger-square-6"></li>
       <% end %>
     </ul>
   </div>

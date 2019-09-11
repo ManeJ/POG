@@ -163,27 +163,27 @@
   height: 13.34vh;
 }
 
-#burger-square-1 {
+.burger-square-1 {
   background-color: #46da84;
 }
 
-#burger-square-2 {
+.burger-square-2 {
   background-color: #79e4a6;
 }
 
-#burger-square-3 {
+.burger-square-3 {
   background-color: #a2ecc1;
 }
 
-#burger-square-4 {
+.burger-square-4 {
   background-color: #c5f3d8;
 }
 
-#burger-square-5 {
+.burger-square-5 {
   background-color: #e3f9ec;
 }
 
-#burger-square-6 {
+.burger-square-6 {
   background-color: white;
 }
 
@@ -196,8 +196,6 @@
   opacity: 0.9;
 }
 
-
-
  .footer-main {
    display: flex;
    justify-content: between;
@@ -206,101 +204,30 @@
    width: 100%;
 }
 
-// .navbar-toggler {
-//   margin-top: 0.5rem;
-//   height: 48px;
-// }
+// Smallest device
+@media (min-width: 100px) and (max-width: 575px) {
 
-// #navbarSupportedContent {
-//   margin-top: 20px;
-//   height: 80vh;
-//   width: 40vw;
-// }
+}
 
-// .avatar {
-//   margin-top: 1rem;
-//   width: 3rem;
-// }
+// Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) {
 
-// .dropdow-item {
-//   padding: 0.5rem 1.5rem;
-// }
+}
 
-// .nav-action-link {
-//   display: flex;
-//   margin-right: 16px;
-// }
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) {
 
-// .navbar-collapse {
-//   position: absolute;
-//   color: black;
-//   top: 3rem;
-//   right: -20rem;
-//   background: $canard;
-//   opacity: 0.98;
-//   transition: 0.5s;
+}
 
-//   ul {
-//     display :block;
-//     justify-content : center;
-//     align-items: center;
-//   }
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) {
 
-//   a:hover {
-//     font-weight: 500;
-//   }
+}
 
-//   a {
-//     color: white;
-//     font-size: 1rem;
-//     font-weight: bold;
-//   }
-// }
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) {
+  #footer-pog {
+    display: none;
+  }
 
-// .navbar-collapse.show {
-//   right: 0rem;
-//   top: -82.5vh;
-//   z-index: 3000;
-// }
-
-
-
-// .navbar-pog .navbar-brand {
-//   width: 40px;
-// }
-
-// // .navbar-pog .nav-item-logo img {
-// //   width: 28px;
-// // }
-
-// .navbar-pog .nav-item {
-//   margin-left: 8px;
-// }
-
-// #navbarDropdown {
-//   margin-left: 16px;
-// }
-
-// .navbar-pog .nav-title {
-//   margin-right: auto;
-// }
-
-// // .navbar-pog .nav-title h1 {
-// //   margin: auto;
-// //   font-size: 36px;
-// // }
-
-// #navbar-links {
-//   display: flex;
-// }
-
-// .menu-links {
-//   display: flex;
-//   list-style-type: none;
-//   justify-content: space-around;
-// }
-
-// // .navbar-toggler-icon {
-// //   color: white;
-// //   z-index: 2
-// // }
+}

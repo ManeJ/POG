@@ -1,12 +1,12 @@
 <div class="navbar navbar-pog fixed-top">
   <% if user_signed_in? %>
     <div class="navbar-main d-flex justify-content-between">
-      <div class="d-flex align-items-center player-info flex-column align-self-end ml-2">
-        <%= image_tag("reward.png", size: "32x32", class:"mr-1") %>
-        <h3>LVL <%= current_user.level %></h3>
+      <div class="player-info" id="navbar-level">
+        <%= image_tag("reward.png", class:"navbar-gaming-pix") %>
+        <h3 class="mb-0">LVL <%= current_user.level %></h3>
       </div>
       <div class="navbar-logo">
-        <%= link_to quests_path, class: "navbar-brand" do %>
+        <%= link_to quests_path, class: "navbar-brand py-0" do %>
         <div id="logo-letters-ico">
         <h1 class="POG-navbar">P</h1>
         <%= image_tag('logo-pog.png', id:"logo-navbar") %>
@@ -14,9 +14,74 @@
         </div>
         <% end %>
       </div>
-      <div class="d-flex flex-column align-self-end player-info align-items-center mr-2">
-        <%= image_tag("gamepad.png", size: "32x32", class:"mr-1") %>
-        <h3><%= current_user.xp %> XP</h3>
+      <div class="player-info" id="navbar-xp">
+        <%= image_tag("gamepad.png", class:"navbar-gaming-pix") %>
+        <h3 class="mb-0"><%= current_user.xp %> XP</h3>
+      </div>
+      <div id="menuToggle-navbar">
+        <input type="checkbox" />
+
+        <span></span> <!-- Ne pas effacer !  -->
+        <span></span> <!-- Ne pas effacer !  -->
+        <span></span> <!-- Ne pas effacer !  -->
+
+        <ul class="menu-navbar">
+          <% if user_signed_in? %>
+            <li class="navbar-burger-square-1">
+              <%= link_to profile_path do %>
+                <%= image_tag("user.png", size: "60x60") %>
+              <% end %>
+            </li>
+            <li class="navbar-burger-square-2">
+              <%= link_to participations_path do %>
+                <%= image_tag("participations.png", size: "60x60") %>
+              <% end %>
+            </li>
+            <li class="navbar-burger-square-3">
+              <%= link_to new_questmaster_quest_path do %>
+                <%= image_tag("create-quest.png", size: "65x65") %>
+              <% end %>
+            </li>
+            <li class="navbar-burger-square-4">
+              <%= link_to questmaster_quests_path do %>
+                <%= image_tag("quests.png", size: "60x60") %>
+              <% end %>
+            </li>
+            <li class="navbar-burger-square-5">
+              <%= link_to rewards_path do %>
+                <%= image_tag("gift.png", size: "60x60") %>
+              <% end %>
+            </li>
+            <li class="navbar-burger-square-6">
+              <%= link_to destroy_user_session_path, method: :delete do %>
+                <%= image_tag("sign-out.png", size: "55x55") %>
+              <% end %>
+            </li>
+          <% else %>
+            <li class="navbar-burger-square-1">
+              <%= link_to new_user_session_path do %>
+                <%= image_tag("sign-in.png", size: "60x60") %>
+              <% end %>
+            </li>
+            <li class="navbar-burger-square-2">
+              <%= link_to new_user_registration_path do %>
+                <%= image_tag("sign-up.png", size: "60x60") %>
+              <% end %>
+            </li>
+            <li class="navbar-burger-square-3">
+              <%= link_to faq_path do %>
+                <%= image_tag("faq.png", size: "60x60") %>
+              <% end %>
+            </li>
+            <li class="navbar-burger-square-4">
+              <%= link_to rewards_path do %>
+                <%= image_tag("gift.png", size: "60x60") %>
+              <% end %>
+            </li>
+            <li class="navbar-burger-square-5"></li>
+            <li class="navbar-burger-square-6"></li>
+          <% end %>
+        </ul>
       </div>
     </div>
   <% else %>
