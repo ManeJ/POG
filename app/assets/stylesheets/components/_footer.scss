@@ -1,4 +1,4 @@
-#footer-pog {
+#footer-pog-sm, #footer-pog {
   background: white;
   color: black;
   z-index: 3000;
@@ -206,7 +206,9 @@
 
 // Smallest device
 @media (min-width: 100px) and (max-width: 575px) {
-
+  #footer-pog {
+    display: none;
+  }
 }
 
 // Small devices (landscape phones, 576px and up)
@@ -216,18 +218,17 @@
 
 // Medium devices (tablets, 768px and up)
 @media (min-width: 768px) {
-
-}
-
-// Large devices (desktops, 992px and up)
-@media (min-width: 992px) {
-
-}
-
-// Extra large devices (large desktops, 1200px and up)
-@media (min-width: 1200px) {
-  #footer-pog {
+  #footer-pog-sm {
     display: none;
   }
-
 }
+
+// // Large devices (desktops, 992px and up)
+// @media (min-width: 992px) {
+
+// }
+
+// // Extra large devices (large desktops, 1200px and up)
+// @media (min-width: 1200px) {
+
+// }

@@ -1,4 +1,4 @@
-<div class="navbar" id="footer-pog">
+<div class="navbar" id="footer-pog-sm">
   <div class="col-2">
     <%= link_to quests_path do %>
       <%= image_tag("search.png", size: "50x50") %>
@@ -77,4 +77,21 @@
       <% end %>
     </ul>
   </div>
+</div>
+<div class="navbar row justify-content-center" id="footer-pog">
+  <div class="col-2">
+    <%= link_to quests_path do %>
+      <%= image_tag("search.png", size: "50x50") %>
+    <% end %>
+  </div>
+  <% if user_signed_in? %>
+    <div>
+      <%= image_tag("reward.png") %>
+      <h3 class="mb-0">LVL <%= current_user.level %></h3>
+    </div>
+    <div>
+      <%= image_tag("gamepad.png") %>
+      <h3 class="mb-0"><%= current_user.xp %> XP</h3>
+    </div>
+  <% end %>
 </div>

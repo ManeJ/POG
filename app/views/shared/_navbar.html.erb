@@ -1,4 +1,4 @@
-<div class="navbar navbar-pog fixed-top">
+<div class="navbar navbar-pog-sm fixed-top">
   <% if user_signed_in? %>
     <div class="navbar-main d-flex justify-content-between">
       <div class="player-info" id="navbar-level">
@@ -18,71 +18,6 @@
         <%= image_tag("gamepad.png", class:"navbar-gaming-pix") %>
         <h3 class="mb-0"><%= current_user.xp %> XP</h3>
       </div>
-      <div id="menuToggle-navbar">
-        <input type="checkbox" />
-
-        <span></span> <!-- Ne pas effacer !  -->
-        <span></span> <!-- Ne pas effacer !  -->
-        <span></span> <!-- Ne pas effacer !  -->
-
-        <ul class="menu-navbar">
-          <% if user_signed_in? %>
-            <li class="navbar-burger-square-1">
-              <%= link_to profile_path do %>
-                <%= image_tag("user.png", size: "60x60") %>
-              <% end %>
-            </li>
-            <li class="navbar-burger-square-2">
-              <%= link_to participations_path do %>
-                <%= image_tag("participations.png", size: "60x60") %>
-              <% end %>
-            </li>
-            <li class="navbar-burger-square-3">
-              <%= link_to new_questmaster_quest_path do %>
-                <%= image_tag("create-quest.png", size: "65x65") %>
-              <% end %>
-            </li>
-            <li class="navbar-burger-square-4">
-              <%= link_to questmaster_quests_path do %>
-                <%= image_tag("quests.png", size: "60x60") %>
-              <% end %>
-            </li>
-            <li class="navbar-burger-square-5">
-              <%= link_to rewards_path do %>
-                <%= image_tag("gift.png", size: "60x60") %>
-              <% end %>
-            </li>
-            <li class="navbar-burger-square-6">
-              <%= link_to destroy_user_session_path, method: :delete do %>
-                <%= image_tag("sign-out.png", size: "55x55") %>
-              <% end %>
-            </li>
-          <% else %>
-            <li class="navbar-burger-square-1">
-              <%= link_to new_user_session_path do %>
-                <%= image_tag("sign-in.png", size: "60x60") %>
-              <% end %>
-            </li>
-            <li class="navbar-burger-square-2">
-              <%= link_to new_user_registration_path do %>
-                <%= image_tag("sign-up.png", size: "60x60") %>
-              <% end %>
-            </li>
-            <li class="navbar-burger-square-3">
-              <%= link_to faq_path do %>
-                <%= image_tag("faq.png", size: "60x60") %>
-              <% end %>
-            </li>
-            <li class="navbar-burger-square-4">
-              <%= link_to rewards_path do %>
-                <%= image_tag("gift.png", size: "60x60") %>
-              <% end %>
-            </li>
-            <li class="navbar-burger-square-5"></li>
-            <li class="navbar-burger-square-6"></li>
-          <% end %>
-        </ul>
-      </div>
     </div>
   <% else %>
     <div class="navbar-main d-flex justify-content-center">
@@ -97,4 +32,65 @@
       </div>
     </div>
   <% end %>
+</div>
+
+<div class="navbar-expand-md navbar-pog">
+  <div class="navbar fixed-top d-flex justify-content-between py-0 flex-nowrap">
+    <div class="navbar-logo">
+      <%= link_to quests_path, class: "navbar-brand py-0" do %>
+      <div id="logo-letters-ico">
+      <h1 class="POG-navbar">P</h1>
+      <%= image_tag('logo-pog.png', id:"logo-navbar") %>
+      <h1 class="POG-navbar">G</h1>
+      </div>
+      <% end %>
+    </div>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav w-100 d-flex justify-content-end">
+        <li class="nav-item dropdown mx-5">
+          <a class="nav-link" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Act today
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <%= link_to "Find a quest", quests_path, class: "dropdown-item" %>
+            <%= link_to "Launch a quest", new_questmaster_quest_path, class: "dropdown-item" %>
+          </div>
+        </li>
+        <li class="nav-item dropdown mr-5">
+          <a class="nav-link" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            About
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <%= link_to "FAQ", faq_path, class: "dropdown-item" %>
+            <%= link_to "Rewards", rewards_path, class: "dropdown-item" %>
+          </div>
+        </li>
+        <% if user_signed_in? %>
+          <li class="nav-item dropdown mr-5">
+            <a class="nav-link" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <%= image_tag current_user.photo, class: "avatar dropdown-toggle border" %>
+              Hi <%= current_user.first_name %>!
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+              <%= link_to "My Profile", profile_path, class: "dropdown-item" %>
+              <%= link_to "My actions", participations_path, class: "dropdown-item" %>
+              <%= link_to "My quests", questmaster_quests_path, class: "dropdown-item" %>
+              <div class="dropdown-divider"></div>
+              <%= link_to "Log-out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+            </div>
+          </li>
+        <% else %>
+          <li class="nav-item dropdown mr-5">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <%= image_tag("user.png", class: "avatar dropdown-toggle") %>
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+              <%= link_to "Log-in", new_user_session_path, class: "dropdown-item" %>
+              <%= link_to "Sign-up", new_user_registration_path, class: "dropdown-item" %>
+            </div>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
 </div>
