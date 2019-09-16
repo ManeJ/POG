@@ -2,9 +2,11 @@
   <div class="row">
     <div class="col mt-3">
       <div class="logo-home">
-        <%= image_tag('logo-pog.png', id:"logo-home", border:"0") %>
-        <h1>People of Gaïa</h1>
-        <p class="text-center" id="moto">Where will and need for action meet</p>
+          <%= image_tag('logo-pog.png', id:"logo-home", border:"0") %>
+          <div id="logo-text-home">
+            <h1>People of Gaïa</h1>
+            <p class="text-center" id="moto">Where will and need for action meet</p>
+          </div>
       </div>
     </div>
   </div>
@@ -22,8 +24,8 @@
     </div>
   </div>
   <div class="row">
-    <div class="col mt-5">
-      <div class="d-flex flex-column align-items-center">
+    <div class="col">
+      <div class="home-signing">
         <%= link_to "Sign-up", new_user_registration_path, class:"home-sign" %>
         <%= link_to "Sign-in", new_user_session_path, class:"home-sign" %>
       </div>
