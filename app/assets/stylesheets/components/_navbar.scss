@@ -1,4 +1,4 @@
-.navbar-pog {
+.navbar-pog, .navbar-pog-sm {
     background: white;
     color: black;
     width: 100vw;
@@ -8,6 +8,7 @@
     left: 0;
     h1 {
       margin-top: 0;
+      margin-bottom: 4px;
     }
 }
 
@@ -28,12 +29,12 @@
     width: 100%;
     display: flex;
     align-items: center;
-    margin-top: 0.4rem;
+    justify-content: center;
 }
 
 .POG-navbar {
     color: black;
-    font-size: 1.5em;
+    font-size: 60px;
     height: 100%;
     width: 100%;
     margin-bottom: 0;
@@ -47,20 +48,126 @@
 }
 
 #logo-navbar {
-    height: 7vh;
-    margin-bottom: 0.85rem;
+    height: 60px;
 }
 
 .player-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   h3 {
     font-family: 'Londrina Solid', cursive;
-    font-size: 2.2rem;
+    font-size: 28px;
     font-weight: 500;
   }
-  justify-self: end;
 }
 
 #content-homepage {
   height: 100%;
   padding: 0 7vw;
 }
+
+.navbar-gaming-pix {
+  height: 32px;
+}
+
+#navbar-xp {
+  margin-right: 8px;
+}
+
+#navbar-level {
+  margin-left: 8px;
+}
+
+// Smallest device
+@media (min-width: 100px) and (max-width: 575px) {
+  .player-info {
+    align-self: end;
+    justify-self: end;
+  }
+  .navbar-pog {
+    display: none;
+  }
+}
+
+// Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) {
+  .navbar-pog {
+    display: none;
+  }
+}
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) {
+  .navbar-pog-sm {
+    display: none;
+  }
+
+  .navbar-collapse {
+    flex-grow: 2;
+  }
+
+  .navbar-pog {
+    display: block;
+    width: 100vw;
+    // flex-grow: 1;
+  }
+
+  .navbar-pog li {
+    a {
+      text-decoration: none;
+      font-size: 28px;
+      font-family: "Londrina Solid", "Helvetica", "sans-serif";
+      &:hover {
+        color: $orange;
+      }
+    }
+    .dropdown-menu {
+      a {
+        text-decoration: none;
+        font-size: 22px;
+        font-family: "Londrina Solid", "Helvetica", "sans-serif";
+        font-weight: 300;
+        &:hover {
+          color: white;
+        }
+      }
+    }
+  }
+}
+
+// // Large devices (desktops, 992px and up)
+// @media (min-width: 992px) {
+//   .player-info {
+//     flex-direction: row;
+//     justify-content: center;
+//     h3 {
+//       font-size: 40px;
+//     }
+//   }
+
+//   .navbar-gaming-pix {
+//     height: 48px;
+//     margin-right: 16px;
+//   }
+
+//   #navbar-xp {
+//     margin-right: 80px;
+//   }
+// }
+
+// // Extra large devices (large desktops, 1200px and up)
+// @media (min-width: 1200px) {
+//   .player-info {
+//     flex-direction: row;
+//   }
+
+//   .navbar-gaming-pix {
+//     height: 48px;
+//     margin-right: 16px;
+//   }
+
+//   #navbar-xp {
+//     margin-right: 80px;
+//   }
+// }

@@ -7,7 +7,7 @@ if (map) {
   //initMapbox()
   map.style.display = "block";
   display_list.classList.remove("border-primary")
-  display_map.addEventListener("touchstart", () => {
+  display_map.addEventListener("click", () => {
     display_map.classList.add("border-primary")
     display_list.classList.remove("border-primary")
       window.setTimeout(function () {
@@ -19,11 +19,11 @@ if (map) {
   }
 
 if (list) {
-  display_list.addEventListener("touchstart", () => {
+  display_list.addEventListener("click", () => {
     display_map.classList.remove("border-primary")
     display_list.classList.add("border-primary")
       window.setTimeout(function () {
-         map.style.display = " none";
+         map.style.display = "none";
         list.style.display = "block";
       }, 100)
   })
