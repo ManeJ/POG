@@ -6,15 +6,21 @@
 }
 
 .logo-home {
-    display: flex;
-    flex-direction: column;
-    justify-items: center;
-    justify-content: space-around;
-    align-items: center;
-    padding-top: 7vh;
-    h1 {
-        font-size: 3.4rem;
-    }
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+  justify-content: space-around;
+  align-items: center;
+  padding-top: 7vh;
+  h1 {
+      font-size: 3.4rem;
+  }
+}
+
+#logo-text-home {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 #logo-home {
@@ -36,8 +42,19 @@
     height: 100vh;
 }
 
-.home-sign, #vertical-line {
+.home-signing {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: start;
+  margin-top: 3vh;
+}
+
+.home-sign {
   font-size: 24px;
+  &:hover {
+    text-decoration: none;
+  }
 }
 
 
@@ -207,5 +224,42 @@ $timing-function:ease-out;
   }
   100% {
     top:$frill-vert-space*1.55;
+  }
+}
+
+// RESPONSIVITY
+@media (min-width: 380px) {
+  #logo-home {
+    width: 200px;
+  }
+
+  .logo-home {
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  #logo-text-home {
+    align-items: start;
+    justify-content: center;
+    flex-shrink: 0;
+    h1 {
+      margin: 0 0 0 40px;
+    }
+  }
+
+  #moto {
+    font-size: 28px;
+    margin: 0 0 0 40px;
+  }
+
+  .button-home {
+    width: 200px;
+    font-size: 28px;
+    height: 54px;
+    line-height: 54px;
+  }
+
+  .home-sign {
+    font-size: 16px;
   }
 }
