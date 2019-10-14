@@ -1,4 +1,19 @@
 .radio_buttons {
-  display: flex;
-  flex-wrap: wrap;
+  display: inline
+}
+
+.collection_radio_buttons {
+  img {
+    width: 80px;
+  }
+}
+
+.d-inline {
+  width: 99px;
+  margin: 16px 18px;
+}
+
+input.btn-primary {
+  font-size: 22px;
+  width: 200px;
 }

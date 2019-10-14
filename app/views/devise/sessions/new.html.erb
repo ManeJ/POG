@@ -1,7 +1,7 @@
 <div class="page-pog">
   <h1 class="text-center">Log in</h1>
   <div class="d-flex flex-column align-items-center">
-    <div class="col-10 col-md-6 form">
+    <div class="col-10 col-md-5 form">
       <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
       <div class="form-inputs">
           <%= f.error_notification %>
@@ -17,12 +17,12 @@
               input_html: { autocomplete: "current-password" } %>
           <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
       </div>
-      <div class="form-actions d-flex justify-content-center">
+      <div class="form-actions d-flex justify-content-center mb-2">
           <%= f.button :submit, "Log in", class:"btn btn-primary" %>
       </div>
       <% end %>
     </div>
-    <div class="mt-2 text-center">
+    <div class="text-center mb-2">
         <%= render "devise/shared/links" %>
     </div>
   </div>
