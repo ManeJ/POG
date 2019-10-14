@@ -1,31 +1,35 @@
-<div class="page-pog">
-  <h1>Change your password</h1>
+<div class="page-pog px-4">
+  <h1 class="text-center">Change your password</h1>
+  <div class="d-flex flex-column align-items-center">
+    <div class="col-12 col-sm-10 col-md-8 col-lg-6 p-3 form">
+      <%= simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
+        <%= f.error_notification %>
 
-  <%= simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
-    <%= f.error_notification %>
+        <%= f.input :reset_password_token, as: :hidden %>
+        <%= f.full_error :reset_password_token %>
 
-    <%= f.input :reset_password_token, as: :hidden %>
-    <%= f.full_error :reset_password_token %>
+        <div class="form-inputs">
+          <%= f.input :password,
+                      required: true,
+                      autofocus: true,
+                      label: false,
+                      placeholder: "New password",
+                      hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
+                      input_html: { autocomplete: "new-password" } %>
+          <%= f.input :password_confirmation,
+                      required: true,
+                      label: false,
+                      placeholder: "Password confirmation",
+                      input_html: { autocomplete: "new-password" } %>
+        </div>
 
-    <div class="form-inputs">
-      <%= f.input :password,
-                  required: true,
-                  autofocus: true,
-                  label: false,
-                  placeholder: "New password",
-                  hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
-                  input_html: { autocomplete: "new-password" } %>
-      <%= f.input :password_confirmation,
-                  required: true,
-                  label: false,
-                  placeholder: "Password confirmation",
-                  input_html: { autocomplete: "new-password" } %>
+        <div class="form-actions d-flex justify-content-center my-4">
+          <%= f.button :submit, "Change my password", class:"btn btn-primary" %>
+        </div>
+      <% end %>
     </div>
-
-    <div class="form-actions">
-      <%= f.button :submit, "Change my password" %>
-    </div>
-  <% end %>
-
-  <%= render "devise/shared/links" %>
+  </div>
+  <div class="text-center mb-2">
+    <%= render "devise/shared/links" %>
+  </div>
 </div>
