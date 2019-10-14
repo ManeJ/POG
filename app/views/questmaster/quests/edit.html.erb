@@ -1,7 +1,7 @@
 <div class="page-pog px-4">
   <h1 class="text-center">Edit your quest</h1>
   <div class="d-flex flex-column align-items-center">
-    <div class="col-12 col-sm-10 col-md-8 col-lg-6 p-3 form">
+    <div class="col-12 col-sm-10 col-md-8 col-lg-6 form">
       <%= simple_form_for(@quest, url: questmaster_quest_path(@quest), method: :patch) do |f| %>
         <div class="form-inputs">
           <%= f.input :title %>

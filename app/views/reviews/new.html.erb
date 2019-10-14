@@ -1,6 +1,6 @@
-<div class="page-pog">
+<div class="page-pog px-4">
   <div class="d-flex justify-content-center flex-column align-items-center">
-    <h1 class="text-center mb-4 px-3">Write a review</h1>
+    <h1 class="text-center mb-4 px-3 long-title">Write a review</h1>
     <div class="global-review-container mb-5">
       <h3 class="text-center"><%= @quest.title %></h3>
       <p class="text-center font-italic mb-5">#<%= @quest.user.username %></p>
@@ -11,13 +11,13 @@
               <%= b.radio_button + b.label {image_tag("rating-#{b.text}.png")} %>
           <% end %>
         </div>
-        </br></br>
-        <%= f.input :content, label: "Comment", hint: "200 characters max." %>
+        <div class="mt-3">
+          <%= f.input :content, label: "Comment", hint: "200 characters max." %>
+        </div>
         <div class="d-flex justify-content-center">
           <%= f.button :submit, "Send review", class:"btn btn-primary mb-4" %>
         </div>
       <% end %>
     </div>
-    <%#= link_to "Back to my participations", participations_path, class: "mt-3" %>
   </div>
 </div>

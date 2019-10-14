@@ -9,11 +9,6 @@ margin-top: 1rem;
 padding: 4px;
 }
 
-input.btn-primary {
-  font-size: 22px;
-  width: 200px;
-}
-
 .form-inputs {
   // &:hover {
   //   background-color: white;
@@ -43,6 +38,11 @@ input.btn-primary {
     }
   }
 
+  input.btn-primary, input.btn-danger {
+    font-size: 22px;
+    width: 200px;
+  }
+
   #quest_category_id, #quest_mode, #user_role {
     height: 48px !important;
   }
@@ -56,6 +56,10 @@ input.btn-primary {
     margin-bottom: 80px;
   }
 
+  small {
+    font-size: 1rem;
+    padding: 0 0 0 8px;
+  }
 }
 
 // Larger devices (landscape phones, 576px and up)
@@ -78,5 +82,15 @@ input.btn-primary {
   .form-text-area {
     font-size: 12px;
     height: 200px !important;
+  }
+
+  small {
+    font-size: 0.8rem;
+    padding: 0 0 0 8px;
+  }
+
+  input.btn-primary, input.btn-danger, a.btn-danger {
+    font-size: 20px;
+    width: 200px;
   }
 }

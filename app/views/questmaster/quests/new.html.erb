@@ -1,7 +1,7 @@
-<div class="page-pog page-qm">
-  <h1 class="text-center">Create your quest</h1>
+<div class="page-pog px-4">
+  <h1 class="text-center long-title">Create your quest</h1>
   <div class="d-flex flex-column align-items-center">
-    <div class="col-12 col-sm-10 col-md-8 col-lg-6 px-4 form">
+    <div class="col-12 col-sm-10 col-md-8 col-lg-6 form">
       <%= simple_form_for(@quest, url: questmaster_quests_path, method: :post) do |f| %>
         <div class="form-inputs">
           <%= f.input :title %>
