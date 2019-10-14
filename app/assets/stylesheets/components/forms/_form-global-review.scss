@@ -3,37 +3,30 @@
   flex-direction: column;
   justify-content: center;
   padding: 1rem;
-  width: 90vw;
   background-color: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
+
+  .form-control-label {
+    padding-left: 0.8rem;
+  }
 }
+
 
 // Smallest device
 @media (min-width: 100px) and (max-width: 575px) {
+  .global-review-container {
+    width: 90vw;
+    min-width: 300px;
+
+    .form-control-label {
+      font-size: 1.9rem !important;
+    }
+  }
 }
 
-// Small devices (landscape phones, 576px and up)
+// Larger devices (landscape phones, 576px and up)
 @media (min-width: 576px) {
-
-}
-
-// Medium devices (tablets, 768px and up)
-@media (min-width: 768px) {
   .global-review-container {
-
-  }
-}
-
-// Large devices (desktops, 992px and up)
-@media (min-width: 992px) {
-  .global-review-container {
-
-  }
-}
-
-// Extra large devices (large desktops, 1200px and up)
-@media (min-width: 1200px) {
-  .global-review-container {
-
+    width: 550px;
   }
 }

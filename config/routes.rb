@@ -30,7 +30,6 @@ Rails.application.routes.draw do
 
   get 'rewards', to:'pages#rewards'
   get '/search', to:'quests#search', as: 'search'
-  get 'rewards', to:'pages#rewards'
   get 'faq', to:'pages#faq'
 
   get '/category/:category_id/quests/filter-by-category/:query', to: "quests#filter_by_category", defaults: { format: :json }

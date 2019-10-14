@@ -1,15 +1,13 @@
-<div class="page-pog page-qm">
-  <h1 class="text-center">Create your quest</h1>
+<div class="page-pog px-4">
+  <h1 class="text-center long-title">Create your quest</h1>
   <div class="d-flex flex-column align-items-center">
-    <div class="col-12 col-md-4 px-4 form">
+    <div class="col-12 col-sm-10 col-md-8 col-lg-6 form">
       <%= simple_form_for(@quest, url: questmaster_quests_path, method: :post) do |f| %>
         <div class="form-inputs">
           <%= f.input :title %>
-          <%= f.association :category,
-                            input_html: {class: "form-small-font"} %>
+          <%= f.association :category %>
           <%= f.input :mode,
-                      collection: ["Solo", "Group"],
-                      input_html: {class: "form-small-font"} %>
+                      collection: ["Solo", "Group"] %>
           <%= f.input :people_wanted,
                       label: "People expected" %>
           <%= f.input :description,
@@ -27,14 +25,9 @@
         </div>
 
         <div class="form-actions d-flex justify-content-center" id="unclickable-on-phone">
-          <%= f.button :submit, "Create quest", class:"btn btn-primary" %>
+          <%= f.button :submit, "Create quest", class:"btn btn-primary mb-4" %>
         </div>
       <% end %>
     </div>
-<!--     <div class="my-4">
-      <%#= link_to "Back to map", quests_path %>
-    </div> -->
   </div>
 </div>
-<!-- Multiplayer plutôt que Group ? Si oui, Penser à rails db:drop etc. -->
-<!-- Sinon la fonction de filtre marchera pas bien -->
