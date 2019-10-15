@@ -15,26 +15,13 @@ collapseBtns.forEach((btn) => {
         quests.forEach((quest) => {
           carouselContainer.insertAdjacentHTML("beforeend",
             `<div class='carousel-item ${ active }'>
-              <div class="contact-area">
-                <div class="contact">
-                  <main>
-                    <div class="card-player-reviews">
-                      <div class="content">
-                        <aside>
-                          <div class="d-flex flex-column justify-content-center align-items-center">
-                            <h2 class="mb-0">${quest.title}</h2>
-                            <p class="mb-5">${quest.mode}</p>
-                            <p class="mb-5">On ${quest.when}</p>
-                            <p class="font-italic">
-                              <p>${quest.desc}</p>
-                            </p>
-                            <buton></buton>
-                            <a class="text-white" href="/quests/${quest.id}">More Details</a>
-                          </div>
-                        </aside>
-                      </div>
-                    </div>
-                  </main>
+              <div class="d-flex align-items-center justify-content-center">
+                <div class="carousel-item-card d-flex flex-column justify-content-center align-items-center">
+                  <h2 class="mb-0">${quest.title}</h2>
+                  <p class="mb-3">${quest.mode} mode</p>
+                  <p class="mb-3">On ${quest.when}</p>
+                  <p class="font-italic text-center">${quest.desc}</p>
+                  <a class="btn d-flex align-items-center justify-content-center" href="/quests/${quest.id}">More Details</a>
                 </div>
               </div>
             </div>`);

@@ -34,4 +34,90 @@
 #list {
   margin-top: 5rem;
   padding-bottom: 5rem;
+  background-color: white;
+}
+
+.carousel-item-card {
+  background-color: $vert;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  padding: 0 16px;
+  margin: 0 0 32px 0;
+  position: relative;
+  width: 400px;
+  height: 300px;
+
+  h2 {
+    font-size: 32px;
+  }
+
+  p {
+    font-size: 16px;
+  }
+
+  .btn {
+    position: absolute;
+    bottom: 0;
+    right: 50%;
+    background-color: $orange;
+    color: white;
+    border: 0;
+    width: 200px;
+    height: 60px;
+    text-align: center;
+    border-radius: 30px;
+    font-weight: lighter;
+    font-size: 16px;
+    letter-spacing: .5px;
+    text-transform: uppercase;
+    margin-bottom: -24px;
+    margin-right: -100px;
+    z-index: 10;
+  }
+}
+
+.carousel-control-prev, .carousel-control-next {
+  z-index: 10;
+  width: 150px;
+}
+
+// Smallest device
+@media (min-width: 100px) and (max-width: 575px) {
+  .carousel-item-card {
+    width: 300px;
+    min-height: 400px;
+
+    h2 {
+      font-size: 40px;
+    }
+
+    p {
+      font-size: 24px;
+    }
+
+    .btn {
+      font-size: 22px;
+      font-weight: bold;
+    }
+  }
+
+  #list {
+    display: block;
+  }
+
+  .carousel-control-prev, .carousel-control-next {
+    width: 80px;
+  }
+}
+
+// Larger devices (landscape phones, 576px and up)
+@media (min-width: 576px) {
+  .index-category {
+    width: 500px;
+  }
+
+  #list {
+    display: flex !important;
+    flex-direction: column;
+    align-items: center;
+  }
 }
